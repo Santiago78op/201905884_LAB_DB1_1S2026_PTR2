@@ -175,3 +175,8 @@ DROP TABLE CENTRO;
 SELECT * FROM CENTRO;
 ```
 
+Para crear la tabla municipio, primero de deve  crear la tabla departamento, ya que municipio tiene una relación de clave foránea con departamento.
+
+Para crear la tabla Ubicacion se debe crear la tabla Centro, ya que Ubicacion tiene una relación de clave foránea con Centro. Posteriormente se debe crear la tabla 
+centro evaluacion, ya que esta tiene una relación de clave foránea con la tabla Ubicacion. Terminado esto se puede crear la tabla Ubicacion.
+

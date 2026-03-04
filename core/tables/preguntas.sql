@@ -1,6 +1,6 @@
 -- ? Crea tabla Preguntas
 /*
-* La tabla Preguntas se utiliza para almacenar información sobre las preguntas de evaluación.
+* La tabla Preguntas almacena información sobre las preguntas de evaluación.
 * Campos:
 * - PREGUNTA_TEXTO: Identificador único de la pregunta (clave primaria).
 *   descripción: El valor puede ser nulo, si lo es se genera automáticamente.

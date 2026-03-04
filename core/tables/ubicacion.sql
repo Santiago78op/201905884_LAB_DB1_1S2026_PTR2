@@ -1,0 +1,33 @@
+-- ? Crea tabla Ubicación
+/*
+* La tabla UBICACION almacena la relación entre las escuelas y los centros educativos en Guatemala
+
+* Campos:
+* - ESCUELA_ID_ESCUELA: Identificador de la escuela (clave foránea que referencia a ESCUELA.ID_ESCUELA)
+* - CENTRO_ID_CENTRO: Identificador del centro educativo (clave foránea que referencia a CENTRO.ID_CENTRO)
+
+* Relaciones:
+* - La tabla UBICACION tiene una relación de clave foránea con la tabla ESCUELA
+* - La tabla UBICACION tiene una relación de clave foránea con la tabla CENTRO
+*/
+CREATE TABLE UBICACION
+(
+    ESCUELA_ID_ESCUELA INTEGER NOT NULL,
+    CENTRO_ID_CENTRO INTEGER NOT NULL,
+    CONSTRAINT FK_UBICACION_ESCUELA 
+            FOREIGN KEY (ESCUELA_ID_ESCUELA) 
+            REFERENCES ESCUELA(ID_ESCUELA),
+    CONSTRAINT FK_UBICACION_CENTRO 
+            FOREIGN KEY (CENTRO_ID_CENTRO) 
+            REFERENCES CENTRO(ID_CENTRO)
+);
+
+
+-- ? Insertar datos en la tabla Ubicación
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (1, 1);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (2, 1);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (3, 1);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (1, 2);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (2, 3);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (3, 4);
+INSERT INTO UBICACION (ESCUELA_ID_ESCUELA, CENTRO_ID_CENTRO) VALUES (3, 5);

@@ -1,6 +1,6 @@
 -- ? Crea tabla Correlativo
 /*
-* La tabla Correlativo se utiliza para almacenar información sobre los correlativos de los exámenes realizados.
+* La tabla Correlativo almacena información sobre los correlativos de los exámenes realizados.
 * Campos:
 * - ID_CORRELATIVO: Identificador único del correlativo (clave primaria).
 *   descripción: El valor puede ser nulo, si lo es se genera automáticamente.
@@ -16,10 +16,21 @@ CREATE TABLE CORRELATIVO
     FECHA DATE NOT NULL,
     NO_EXAMEN INTEGER NOT NULL,
     CONSTRAINT PK_CORRELATIVO PRIMARY KEY (ID_CORRELATIVO)
-    CONSTRAINT FK_NO_EXAMEN 
-            FOREIGN KEY (NO_EXAMEN) 
-            REFERENCES EXAMEN(ID_EXAMEN)
 );
+
+/*
+* Al crear la tabla CORRELATIVO, el campo NO_EXAMEN se establece como una clave foránea que hace referencia 
+* al campo ID_EXAMEN de la tabla EXAMEN. pero esto asegura que cada valor en NO_EXAMEN debe existir previamente en la tabla EXAMEN,
+* Como la tabla EXAMEN no ha sido creada aún, se debe crear la tabla EXAMEN antes de ejecutar el comando para crear la tabla CORRELATIVO.
+* Pero la tabla EXAMEN tiene una relación de clave foránea con la tabla CORRELATIVO, lo que crea una dependencia circular entre ambas tablas. 
+
+* Para resolver esta situación, se puede crear la tabla CORRELATIVO sin la restricción de clave foránea inicialmente, 
+* luego crear la tabla EXAMEN y finalmente agregar la restricción de clave foránea a la tabla CORRELATIVO.
+*/
+ALTER TABLE CORRELATIVO
+ADD CONSTRAINT FK_NO_EXAMEN 
+    FOREIGN KEY (NO_EXAMEN) 
+    REFERENCES EXAMEN(ID_EXAMEN);
 
 -- ? Inserta datos en la Tabla Correlativo}
 INSERT INTO CORRELATIVO (FECHA, NO_EXAMEN) 

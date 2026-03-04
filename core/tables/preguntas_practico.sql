@@ -1,6 +1,6 @@
 -- ? Crea tabla Preguntas_Practico
 /*
-* La tabla Preguntas_Practico almacenar información sobre las preguntas prácticas.
+* La tabla Preguntas_Practico almacena información sobre las preguntas prácticas.
 * Campos:
 * - ID_PREGUNTA_PRACTICO: Identificador único de la pregunta práctica (clave primaria).
 *   descripción: El valor puede ser nulo, si lo es se genera automáticamente.
