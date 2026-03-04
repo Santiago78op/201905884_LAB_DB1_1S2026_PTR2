@@ -6,6 +6,19 @@
 *   descripción: El valor puede ser nulo, si lo es se genera automáticamente.
 *   "identity" se utiliza para generar automáticamente un valor único para cada nuevo registro. 
 * - UBICACION_ESCUELA_ID_ESCUELA: Identificador de la escuela de conducción donde se realizó el trámite (no nulo).
+* - UBICACION_CENTRO_ID_CENTRO: Identificador del centro de atención donde se realizó el trámite (no nulo).
+* - MUNICIPIO_ID_MUNICIPIO: Identificador del municipio donde se realizó el trámite (no nulo).
+* - MUNICIPIO_DEPARTAMENTO_ID_DEPARTAMENTO: Identificador del departamento donde se realizó el trámite (no nulo).
+* - FECHA: Fecha en que se realizó el trámite (no nulo).
+* - TIPO_TRAMITE: Tipo de trámite realizado (no nulo).
+* - TIPO_LICENCIA: Tipo de licencia solicitada (no nulo).
+* - NOMBRE_COMPLETO: Nombre completo del solicitante (no nulo).
+* - GENERO: Género del solicitante (no nulo).
+* Relaciones:
+* - La tabla REGISTRO tiene una relación de clave foránea con la tabla ESCUELA a través del campo UBICACION_ESCUELA_ID_ESCUELA.
+* - La tabla REGISTRO tiene una relación de clave foránea con la tabla CENTRO a través del campo UBICACION_CENTRO_ID_CENTRO.
+* - La tabla REGISTRO tiene una relación de clave foránea con la tabla MUNICIPIO a través del campo MUNICIPIO_ID_MUNICIPIO.
+* - La tabla REGISTRO tiene una relación de clave foránea con la tabla DEPARTAMENTO a través del campo MUNICIPIO_DEPARTAMENTO_ID_DEPARTAMENTO.
 */
 CREATE TABLE REGISTRO
 (
@@ -20,4 +33,25 @@ CREATE TABLE REGISTRO
     NOMBRE_COMPLETO VARCHAR2(100) NOT NULL,
     GENERO CHAR(1) NOT NULL,
     CONSTRAINT PK_REGISTRO PRIMARY KEY (ID_REGISTRO)
+    CONSTRAINT FK_REGISTRO_ESCUELA 
+            FOREIGN KEY (UBICACION_ESCUELA_ID_ESCUELA) 
+            REFERENCES ESCUELA(ID_ESCUELA),
+    CONSTRAINT FK_REGISTRO_CENTRO 
+            FOREIGN KEY (UBICACION_CENTRO_ID_CENTRO) 
+            REFERENCES CENTRO(ID_CENTRO),
+    CONSTRAINT FK_REGISTRO_MUNICIPIO 
+            FOREIGN KEY (MUNICIPIO_ID_MUNICIPIO) 
+            REFERENCES MUNICIPIO(ID_MUNICIPIO),
+    CONSTRAINT FK_REGISTRO_DEPARTAMENTO 
+            FOREIGN KEY (MUNICIPIO_DEPARTAMENTO_ID_DEPARTAMENTO) 
+            REFERENCES DEPARTAMENTO(ID_DEPARTAMENTO)
 );
+
+-- ? Inserta datos en la tabla Registro
+INSERT INTO REGISTRO (UBICACION_ESCUELA_ID_ESCUELA, UBICACION_CENTRO_ID_CENTRO, MUNICIPIO_ID_MUNICIPIO,
+    MUNICIPIO_DEPARTAMENTO_ID_DEPARTAMENTO, FECHA, TIPO_TRAMITE, TIPO_LICENCIA, NOMBRE_COMPLETO, GENERO)
+VALUES (1, 1, 1, 1, TO_DATE('2024-03-13', 'YYYY-MM-DD'), 'PRIMER_LICENCIA', 'C', 'JUAN PEREZ', 'M');
+
+INSERT INTO REGISTRO (UBICACION_ESCUELA_ID_ESCUELA, UBICACION_CENTRO_ID_CENTRO, MUNICIPIO_ID_MUNICIPIO,
+    MUNICIPIO_DEPARTAMENTO_ID_DEPARTAMENTO, FECHA, TIPO_TRAMITE, TIPO_LICENCIA, NOMBRE_COMPLETO, GENERO)
+VALUES (2, 1, 14, 1, TO_DATE('2024-03-13', 'YYYY-MM-DD'), 'TRASPASO', 'B', 'LIDIA LOPEZ', 'F');
