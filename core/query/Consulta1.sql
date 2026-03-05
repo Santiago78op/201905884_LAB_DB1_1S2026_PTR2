@@ -7,3 +7,4 @@
 * Considerar como datos Generales todos los atributos del registro de la persona a ser evaluada. Para considerar 
 * APRBADO una evaluación deberá ganar con 70 puntos teóricos y prácticos.
 */
+SELECT 
