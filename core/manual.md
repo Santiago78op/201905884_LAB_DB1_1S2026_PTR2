@@ -1,8 +1,6 @@
 # 📕 Manual de Procedimiento de la carga de datos a la DB.
 
 ## Indice
-- [📕 Manual de Procedimiento de la carga de datos a la DB.](#-manual-de-procedimiento-de-la-carga-de-datos-a-la-db)
-  - [Indice](#indice)
   - [Objetivo General](#objetivo-general)
   - [Objetivos Específicos](#objetivos-específicos)
   - [Introducción](#introducción)
