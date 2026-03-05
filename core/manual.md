@@ -23,6 +23,8 @@
     - [UBICACION](#ubicacion)
     - [REGISTRO](#registro)
     - [EXAMEN](#examen)
+    - [RESPUESTA_USUARIO](#respuesta_usuario)
+    - [RESPUESTA_PRACTICO_USUARIO](#respuesta_practico_usuario)
 - [Inserción de Datos](#inserción-de-datos)
 - [Consultas SQL](#consultas-sql)
 
