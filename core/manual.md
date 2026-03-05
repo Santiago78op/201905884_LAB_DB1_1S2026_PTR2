@@ -30,10 +30,20 @@
     - [Tablas Hija Nivel 2](#tablas-hija-nivel-2)
       - [Tabla Respuesta Usuario](#tabla-respuesta-usuario)
       - [Tabla Respuesta Practico Usuario](#tabla-respuesta-practico-usuario)
+  - [Inserción de datos](#inserción-de-datos)
+    - [Inserción manual](#inserción-manual)
+        - [Ejemplo de inserción](#ejemplo-de-inserción)
+    - [Inserción masiva](#inserción-masiva)
+        - [Ejemplo de inserción masiva](#ejemplo-de-inserción-masiva)
+  - [Queries SQL](#queries-sql)
+    - [Query 1](#query-1)
+    - [Query 2](#query-2)
+    - [Query 3](#query-3)
+    - [Query 4](#query-4)
 
 ## Objetivo General
 
-- En base al modelo presentado, nos solicitan realizar una serie de reportes para cumplir con informes que
+- En base al modelo de datos presentado, nos solicitan realizar un reporte "Manual de Procedimiento de Carga de Datos" en el cual se detalle el proceso de carga de datos, ademas de la creacion de las tablas,  para cumplir con informes que
 solicita el departamento de tránsito de Guatemala.
 
 ## Objetivos Específicos
