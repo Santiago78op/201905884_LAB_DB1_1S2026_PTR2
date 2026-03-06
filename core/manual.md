@@ -2,31 +2,33 @@
 # 📕 Manual de Procedimiento de la Carga de Datos a la Base de Datos
 
 ## Índice
-- [Objetivo General](#objetivo-general)
-- [Objetivos Específicos](#objetivos-específicos)
-- [Introducción](#introducción)
-- [Requisitos previos](#requisitos-previos)
-- [Configuración del entorno](#configuración-del-entorno)
-- [SQL DDL y DML](#sql-ddl-y-dml)
-  - [SQL DDL](#sql-ddl)
-  - [SQL DML](#sql-dml)
-- [Creación de las Tablas](#creación-de-las-tablas)
-  - [Tablas Padre](#tablas-padre)
-    - [DEPARTAMENTO](#departamento)
+- [📕 Manual de Procedimiento de la Carga de Datos a la Base de Datos](#-manual-de-procedimiento-de-la-carga-de-datos-a-la-base-de-datos)
+  - [Índice](#índice)
+  - [Objetivo General](#objetivo-general)
+  - [Objetivos Específicos](#objetivos-específicos)
+  - [Introducción](#introducción)
+  - [Requisitos Previos](#requisitos-previos)
+  - [Configuración del Entorno](#configuración-del-entorno)
+  - [SQL DDL y DML](#sql-ddl-y-dml)
+    - [SQL DDL](#sql-ddl)
+    - [SQL DML](#sql-dml)
+  - [Creación de las Tablas](#creación-de-las-tablas)
+    - [Tablas Padre](#tablas-padre)
+      - [DEPARTAMENTO](#departamento)
     - [ESCUELA](#escuela)
     - [CENTRO](#centro)
     - [CORRELATIVO](#correlativo)
     - [PREGUNTAS (EXAMEN TEÓRICO)](#preguntas-examen-teórico)
     - [PREGUNTAS PRACTICO](#preguntas-practico)
-  - [Tablas Hijas](#tablas-hijas)
-    - [MUNICIPIO](#municipio)
-    - [UBICACION](#ubicacion)
-    - [REGISTRO](#registro)
-    - [EXAMEN](#examen)
-    - [RESPUESTA_USUARIO](#respuesta_usuario)
-    - [RESPUESTA_PRACTICO_USUARIO](#respuesta_practico_usuario)
-- [Inserción de Datos](#inserción-de-datos)
-- [Consultas SQL](#consultas-sql)
+    - [Tablas Hijas](#tablas-hijas)
+      - [MUNICIPIO](#municipio)
+      - [UBICACION](#ubicacion)
+      - [REGISTRO](#registro)
+      - [EXAMEN](#examen)
+- [Respuestas del Examen](#respuestas-del-examen)
+      - [RESPUESTA\_USUARIO](#respuesta_usuario)
+      - [RESPUESTA\_PRACTICO\_USUARIO](#respuesta_practico_usuario)
+  - [Inserción de Datos Oracle SQL Developer](#inserción-de-datos-oracle-sql-developer)
 
 
 
@@ -449,3 +451,50 @@ CREATE TABLE RESPUESTA_PRACTICO_USUARIO
 INSERT INTO RESPUESTA_PRACTICO_USUARIO (PREGUNTA_PRACTICO_ID_PREGUNTA_PRACTICO, EXAMEN_ID_EXAMEN, NOTA) 
 VALUES (1, 1, 9);
 ```
+
+## Inserción de Datos Oracle SQL Developer
+
+1. Abrir Oracle SQL Developer.
+2. Conectar a la base de datos.
+3. Crear un nuevo script SQL.
+4. Copiar y pegar el código SQL para crear tablas.
+5. Ejecutar el script para crear la estructura.
+   
+![creacion_tablas](./img/create_table.png)
+
+6. Insertar datos utilizando el exportador de Excel a SQL Developer.
+
+![importar_datos](./img/import.png)
+
+- Seleccionar el archivo Excel (DATA_inicial.xlsx) para importar los datos.
+
+![insertar_datos](./img/import_excel.png)
+
+- Seleccionar el archivo en formato CSV.
+- Se cargarán los datos en la previsualización de la tabla correspondiente.
+
+![previsualizacion_datos](./img/prev_table.png)
+
+- Next, seleccionamos el metodo de inserción, en este caso, "Insertar" para generar sentencias SQL INSERT.
+
+- Especificamos el row limit, por ejemplo, 1000 filas.
+
+![Escogemos las columnas](./img/col_table.png)
+
+- Seleccionamos las columnas correspondientes a cada campo de la tabla.
+
+![Definicion de formato campos](./img/Col_definition.png)
+
+- Definimos el formato de cada campo, especialmente para fechas.
+
+![Fin del proceso](./img/fin_table.png)
+
+- Se insertan los datos en la tabla seleccionada.
+
+1. Consulta de datos para verificar la inserción.
+
+```sql
+SELECT * FROM DEPARTAMENTO;
+```
+
+![consulta_datos](./img/select_table.png)
