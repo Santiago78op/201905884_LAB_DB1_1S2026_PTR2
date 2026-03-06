@@ -30,8 +30,6 @@
       - [RESPUESTA\_PRACTICO\_USUARIO](#respuesta_practico_usuario)
   - [Inserción de Datos Oracle SQL Developer](#inserción-de-datos-oracle-sql-developer)
 
-
-
 ## Objetivo General
 
 Implementar el modelo de base de datos solicitado para el sistema del **Departamento de Tránsito de Guatemala**, documentando el proceso de creación de tablas y carga de datos.
