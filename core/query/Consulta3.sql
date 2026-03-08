@@ -30,7 +30,7 @@ WITH EVALUACION AS (
         ON e.correlativo_id_correlativo = c.id_correlativo
     INNER JOIN REGISTRO R
         ON r.id_registro = e.registro_id_registro
-    WHERE c.fecha 
+    WHERE e.fecha 
         BETWEEN TO_DATE('01/03/2023','DD/MM/YYYY') 
             AND TO_DATE('31/03/2023','DD/MM/YYYY')
     GROUP BY 
