@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D383A0B-DCD3-3CB9-14B2-F27B444E3328" name="Edificio">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-18 22:36:58 UTC</createdTime>
+<generatorID>4F73BB0E-8E7F-7711-73F9-33C507FCFDA4</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="73F6C277-E9E2-BD46-AF43-E4E652C66ABD">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-18 22:36:58 UTC</createdTime>
+<generatorID>FE929E31-B8D4-BAAA-41DC-2F56BB34DDE3</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="9E30F3F4-73CA-FF76-5A90-3F6A75FA9617">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-18 22:36:58 UTC</createdTime>
+<generatorID>FC832AA2-2B7C-308B-551A-43A440DC637E</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDE4186D-9B34-A3D5-D751-BE058DB63763" name="Edificio_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-18 22:36:58 UTC</createdTime>
+<generatorID>EE8EC44D-C7C8-DA15-D335-DA1CFB657457</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73F6C277-E9E2-BD46-AF43-E4E652C66ABD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
