@@ -1,0 +1,26 @@
+﻿# id,pregunta_texto,respuesta,res1,res2,res3,res4
+1,A CUANTO ASCIENDE LA MULTA POR NO PORTAR LICENCIA DE CONDUCIR?,3,Q50,Q100,Q200,Q300
+2,¿CUAL ES EL MONTO DE LA MULTA POR TIRAR O LANZAR BASURA U OTROS OBJETOS DESDE UN VEHÍCULO ESTACIONADO O EN MOVIMIENTO?,3,Q 100,Q 200,Q 300,Q 400
+3,¿CUAL ES EL MONTO DE LA MULTA POR CIRCULAR SIN LUZ BAJA DURANTE EL DÍA?,4,Q 200,Q 400,Q 500,Q 100
+4,¿EN QUE CASO SE APLICARA MULTA DE DOSCIENTOS QUETZALES?,1,Por portar las placas de circulación en lugares no autorizados,Por circular en el arcen sin causa justificada,Por realizar carreras en la vía publica,Ninguna es correcta
+5,¿EN QUE CASO SE APLICARA MULTA DE QUINIENTOS QUETZALES?,3,Por retroceder en autopistas y vías rápidas,Por rebasar en lugares prohibidos,Por circular con vehículos de carga en horario restringido,Ninguna es correcta
+6,¿EN CUAL DE LOS SIGUIENTES CASOS SE APLICARA MULTA DE CUATROCIENTOS QUETZALES?,1,Por conducir sin tener licencia,Por no portar licencia de conducir,Por circular en el arcén sin causa justificada,Por estacionarse en lugares prohibidos
+7,¿CUAL ES EL MONTO DE LA MULTA POR ESTACIONAR EL VEHÍCULO  EN UN LUGAR NO PERMITIDO SIMULANDO FALLA MECÁNICA?,2,Q 50,Q 400,Q 200,Q 100
+8,¿CUAL ES EL MONTO DE LA MULTA POR CIRCULAR EN CONTRA LA VÍA SEÑALIZADA O AUTORIZADA?,2,Q 400,Q 200,Q 600,Q 100
+9,¿CUAL ES EL MONTO DE LA MULTA POR CONDUCIR CON LICENCIA VENCIDA?,2,Q 100,Q 300,Q 200,Q 500
+10,¿ES LA MULTA POR NO FACILITAR LA INCORPORACIÓN AL TRANSITO A OTROS VEHÍCULOS?,3,500,300,100,400
+11,¿CUAL ES LA MULTA POR NO PORTAR EL CINTURÓN DE SEGURIDAD?,3,Q 50,Q 400,Q 200,Q 300
+12,¿CUAL ES LA MULTA POR NO RESPETAR EL LIMITE DE VELOCIDAD?,4,Q 100,Q 200,Q 500,Q 300
+13,¿A CUANTO ASCIENDE LA MULTA POR NO PORTAR LICENCIA DE CONDUCIR?,3,50,100,200,300
+14,¿CUAL ES LA MULTA POR NO PORTAR EL EQUIPAMIENTO BÁSICO DE SU VEHÍCULO?,2,100,200,300,400
+15,¿EL ARCEN ES UNA FRANJA PARALELA A LA CALZADA Y PUEDEN USARLA? ,2,Para rebasar,Los vehículos con alguna emergencia ,Estacionarse,Todas son correctas 
+16,¿POR REGLA GENERAL ESTA PROHIBIDO? ,1,Bocinarle al automóvil de en frente para apurarlo,Rebasar por el carril izquierdo,Detenerse cuando exista la señal de alto ,Ninguna es correcta 
+17,¿UD. VA MANEJANDO Y EL COPILOTO TIRA BASURA POR LA VENTANA? ,1,Multan al piloto por ser el conductor ,Es permitido hacerlo y no multan a nadie ,Multan a quien tiro la basura ,Ninguna es correcta 
+18,¿CARRIL QUE SIRVE PARA REALIZAR UN DESVIO EN UNA CALZADA? ,1,Carril auxiliar ,Carril de aceleración ,Carril de desaceleracion ,Ninguna es correcta 
+19,¿QUE NOS INDICA EL SEMÁFORO EN ROJO? ,4,Continuar la marcha ,Aproximación a cruce ,Ceder el paso,Detenerse obligatoriamente 
+20,¿DE QUE COLOR ESTÁN PINTADAS LAS SEÑALES PREVENTIVAS?,2,Amarillo y azul ,Amarillo y negro ,Amarillo y rojo,Amarillo y blanco 
+21,¿QUE FUNCIÓN CUMPLE LA LINEA DOBLE AMARILLA PINTADA EN LA CARRETERA?,3,Divide carriles en un solo sentido,Permite rebasar o adelantar,Divide grupos de carriles que van en diferentes sentido de circulacion,Ninguna es correcta
+22,¿DE QUE COLORES ESTÁN PINTADAS LAS SEÑALES CIRCUNSTANCIALES (TEMPORALES)?,3,"Azul, verde y blanco ","Blanco,rojo y negro ",Naranja ,
+23,"¿EN QUE CASO SE APLICAN MULTAS DE Q1,000?",1,Por faltarle el respeto a la autoridad ,Por pasar un semáforo en rojo ,Por atropellar un peatón ,Todas son correctas 
+24,¿QUE ES LA LICENCIA DE CONDUCIR?,1,Documento que identifica al conductor ,Documento de identifica al pasajero ,Documento que identifica al vehículo ,Ninguna es correcta
+25,¿POR SU PESO COMO SE CLASIFICA UNA MOTOCICLETA?,2,Pesada ,Ligero ,Especial ,Ninguna es correcta 
