@@ -1,64 +1,182 @@
-# 📘 Análisis del Proyecto 1 – Fase 1  
-## Sistema de Control Académico – Facultad de Ingeniería en Ciencias y Sistemas (USAC)
+# 📘 ANÁLISIS DEL PROYECTO 1 – FASE 1
+## Sistema de Control Académico – USAC
+### Facultad de Ingeniería en Ciencias y Sistemas
 
 ---
 
-## Introducción
-Este manual documenta las **entidades principales**, las **tablas intermedias** y la lógica conceptual del **Modelo Entidad–Relación (ER)** para el sistema de control académico de la Facultad de Ingeniería en Ciencias y Sistemas de la Universidad de San Carlos de Guatemala.
+## 📋 Información del Documento
 
-El objetivo es dejar claramente definida la función de cada tabla dentro del sistema, su propósito, sus atributos más relevantes y la forma en que participa en las relaciones del modelo.
-
----
-
-## Objetivo General
-Realizar el **análisis, diseño e implementación** de un sistema de información para el **control académico**, que permita llevar el registro integral de la población estudiantil de la Facultad de Ingeniería en Ciencias y Sistemas de la Universidad de San Carlos de Guatemala (USAC).
-
-**Solicitantes:**
-- Decana de la Facultad de Ingeniería en Ciencias y Sistemas – USAC  
-- Directora de Control Académico – Facultad de Ingeniería en Ciencias y Sistemas – USAC  
+| Campo | Detalle |
+|:------|:--------|
+| **Sistema** | Control Académico - Facultad de Ingeniería en Ciencias y Sistemas (USAC) |
+| **Proyecto** | Proyecto 1 - Fase 1 |
+| **Carné** | 201905884 |
+| **Solicitantes** | Decana de la Facultad; Directora de Control Académico |
+| **Fecha de Elaboración** | Guatemala, marzo de 2026 |
+| **Versión del Documento** | 1.0 |
+| **Estado** | Análisis Completado |
 
 ---
 
-## Objetivos Específicos
-Este documento tiene como propósito:
+## 📑 Tabla de Contenidos
 
-- Identificar las tablas principales del sistema.
-- Explicar cuáles tablas son intermedias o asociativas.
-- Describir la función de cada tabla.
-- Aclarar qué relaciones son **1:N** y cuáles son **N:M**.
-- Servir de base para el **modelo ER**, el **modelo relacional** y posteriormente el **script SQL (DDL)**.
+### 📖 Contexto y Fundamentos
+1. [Introducción](#introducción)
+2. [Objetivo General](#objetivo-general)
+3. [Objetivos Específicos](#objetivos-específicos)
+4. [Alcance del Sistema](#alcance-del-sistema)
+5. [Modelo Conceptual](#modelo-conceptual)
 
+### 🗂️ Estructura de Base de Datos
+6. [Clasificación General de Tablas](#clasificación-general-de-tablas)
+7. [Tablas Principales del Sistema](#tablas-principales-del-sistema)
+   - [EDIFICIO](#edificio)
+   - [SALON](#salon)
+   - [CARRERA](#carrera)
+   - [DOCENTE](#docente)
+   - [CURSO](#curso)
+   - [PERIODO](#periodo)
+   - [DIA](#dia)
+   - [ESTUDIANTE](#estudiante)
+   - [PLAN](#plan)
+   - [SECCION](#seccion)
 
-## Clasificación general de tablas
-Dentro del sistema se identifican dos grandes grupos:
+### 🔗 Relaciones y Tablas Intermedias
+8. [Tablas Intermedias o Asociativas](#tablas-intermedias-o-asociativas)
+   - [INSCRIPCION](#inscripcion)
+   - [PENSUM](#pensum)
+   - [PRERREQUISITO](#prerrequisito)
+   - [ASIGNACION](#asignacion)
+   - [HORARIO](#horario)
 
-### Tablas principales
-Son aquellas que representan entidades propias del negocio académico y que existen por sí mismas.
-
-### Tablas intermedias o asociativas
-Son aquellas que aparecen para resolver relaciones **muchos a muchos (N:M)** o para registrar hechos académicos específicos dentro del sistema.
+### ⚖️ Validaciones y Reglas
+9. [Relaciones N:M Especiales](#relaciones-que-parecen-nm-pero-no-deben-modelarse-así-directamente)
+10. [Reglas de Eliminación](#reglas-de-eliminacion)
+11. [Reglas de Negocio](#reglas-de-negocio-check-constraints)
 
 ---
 
-## Alcance del Sistema
-El sistema debe gestionar información relacionada con:
+## 📖 Introducción
 
-- Carreras
-- Estudiantes
-- Docentes
-- Cursos
+Este documento proporciona un **análisis exhaustivo y detallado** de la estructura de base de datos para el sistema de control académico de la Facultad de Ingeniería en Ciencias y Sistemas (USAC). 
+
+### Propósito del Documento
+
+El objetivo principal es documentar:
+- **Entidades principales**: Las tablas que representan conceptos centrales del negocio académico
+- **Tablas intermedias**: Las tablas asociativas que resuelven relaciones muchos-a-muchos (N:M)
+- **Lógica conceptual**: El Modelo Entidad-Relación (ER) y sus implicaciones de diseño
+
+Este análisis sirve como **base fundamental** para:
+- ✅ Desarrollo del Modelo Conceptual ER
+- ✅ Implementación del Modelo Relacional
+- ✅ Generación de scripts SQL (DDL)
+- ✅ Validación de la integridad del diseño
+- ✅ Documentación técnica del sistema
+
+---
+
+## 🎯 Objetivo General
+
+Realizar el **análisis, diseño e implementación** de un sistema de información integral para el **control académico y gestión administrativa**, que permita llevar el registro exhaustivo de la población estudiantil, docentes, carreras y recursos académicos de la Facultad de Ingeniería en Ciencias y Sistemas de la Universidad de San Carlos de Guatemala (USAC).
+
+**Solicitud Oficial:**
+- 📌 Decana de la Facultad de Ingeniería en Ciencias y Sistemas – USAC  
+- 📌 Directora de Control Académico – Facultad de Ingeniería en Ciencias y Sistemas – USAC
+
+---
+
+## 📌 Objetivos Específicos
+
+Este análisis se enfoca en lograr los siguientes objetivos específicos:
+
+1. ✔️ **Identificar y documentar** las tablas principales del sistema académico
+2. ✔️ **Clasificar y explicar** cuáles tablas son intermedias o asociativas
+3. ✔️ **Describir la función** de cada tabla y su propósito en el sistema
+4. ✔️ **Aclarar las relaciones**: diferenciar entre relaciones 1:N y relaciones N:M
+5. ✔️ **Documentar cardinalidades**: especificar la multiplicidad de cada relación
+6. ✔️ **Servir de base técnica** para el modelo ER, modelo relacional e implementación SQL (DDL)
+7. ✔️ **Definir reglas de negocio**: documentar validaciones y constraints de integridad
+
+
+---
+
+## 🗂️ Clasificación General de Tablas
+
+La estructura de la base de datos se divide en **dos categorías principales**, cada una con características y propósitos distintos:
+
+### 📦 Tablas Principales (Entidades Independientes)
+
+**Definición:** Son aquellas tablas que **representan entidades propias del negocio académico** y que existen de forma **independiente** sin depender de otras tablas.
+
+**Características:**
+- Representan conceptos fundamentales de la institución
+- No dependen de otras tablas mediante claves foráneas
+- Sus claves primarias son referenciadas por otras tablas
+- Incluyen datos de configuración y maestros del sistema
+- Ejemplos: EDIFICIO, CARRERA, DOCENTE, ESTUDIANTE, CURSO
+
+**Importancia:** Estas tablas forman la **base estructural** del modelo relacional.
+
+---
+
+### 🔗 Tablas Intermedias o Asociativas
+
+**Definición:** Son aquellas tablas que **aparecen para resolver relaciones muchos-a-muchos (N:M)** o para registrar **hechos académicos específicos** dentro del sistema.
+
+**Características:**
+- Contienen referencias (claves foráneas) a dos o más tablas padre
+- Resuelven relaciones N:M entre entidades
+- Pueden contener atributos propios del hecho que representan
+- Permiten registrar detalles de transacciones académicas
+- Ejemplos: INSCRIPCION, PENSUM, ASIGNACION, HORARIO
+
+**Importancia:** Estas tablas son **esenciales** para modelar correctamente la complejidad de las relaciones académicas.
+
+---
+
+## 📚 Alcance del Sistema
+
+El sistema de control académico debe gestionar de forma integral los siguientes aspectos:
+
+### 🏢 Infraestructura Académica
+- Edificios y ubicación física
+- Salones y aulas disponibles
+- Capacidades y recursos
+
+### 👨‍🎓 Población Académica
+- **Estudiantes**: Registro de población estudiantil, datos demográficos
+- **Docentes**: Información de catedráticos, asignaciones y sueldos
+- **Carreras**: Programas académicos ofrecidos
+
+### 📖 Estructura Curricular
+- Cursos y asignaturas
 - Planes de estudio (Pensum)
-- Inscripciones
-- Asignaciones
-- Horarios
-- Infraestructura (Edificios y Salones)
+- Secciones y ofertas académicas
+- Horarios y calendarios
+
+### 📊 Procesos Académicos
+- Inscripciones de estudiantes
+- Asignaciones a cursos
+- Evaluaciones y calificaciones
+- Registros académicos
+- Control de prerrequisitos
 
 ---
 
-## Modelo Conceptual
-[Modelo Conceptual](Modelo_Conceptual.pdf)
+## 📊 Modelo Conceptual
 
-## Tablas principales del sistema
+**Referencia:** [Modelo Conceptual ER](Modelo-Conceptual.md)
+
+*Este documento complementa el modelo conceptual proporcionando análisis detallado de cada entidad y relación.*
+
+---
+
+## 🗂️ Tablas Principales del Sistema
+
+Esta sección documenta detalladamente cada tabla principal, incluyendo su descripción, propósito, atributos y relaciones.
+
+---
 
 ### EDIFICIO
 
@@ -330,7 +448,11 @@ La tabla **SECCION** es fundamental porque resuelve de forma más precisa la rel
 
 ---
 
-## Tablas intermedias o asociativas
+## 🔗 Tablas Intermedias o Asociativas
+
+Esta sección documenta las tablas que implementan relaciones N:M y registran hechos académicos específicos.
+
+---
 
 ### INSCRIPCION
 
@@ -514,7 +636,9 @@ Por ello, **HORARIO** no debe verse como una simple tabla intermedia N:M de curs
 
 ---
 
-## Relaciones que parecen N:M pero no deben modelarse así directamente
+## ⚖️ Relaciones que Parecen N:M pero No Deben Modelarse Así Directamente
+
+Esta sección aclara patrones de relaciones que **podrían parecer N:M a primera vista**, pero que tienen **soluciones de diseño más apropiadas** para el contexto académico.
 
 ---
 
@@ -565,9 +689,37 @@ La relación correcta es:
 
 ---
 
-## Reglas de Negocio (CHECK Constraints)
+## ✅ Reglas de Eliminacion
 
-### Aprobación de Curso
+| Tabla hija    | FK hacia   | Regla recomendada   |
+| ------------- | ---------- | ------------------- |
+| SALON         | EDIFICIO   | CASCADE             |
+| PLAN          | CARRERA    | CASCADE             |
+| INSCRIPCION   | ESTUDIANTE | CASCADE o RESTRICT  |
+| INSCRIPCION   | CARRERA    | CASCADE o RESTRICT  |
+| PENSUM        | PLAN       | CASCADE             |
+| PENSUM        | CURSO      | RESTRICT            |
+| PRERREQUISITO | PENSUM     | CASCADE             |
+| PRERREQUISITO | CURSO      | RESTRICT            |
+| SECCION       | CURSO      | RESTRICT            |
+| SECCION       | DOCENTE    | RESTRICT o SET NULL |
+| HORARIO       | SECCION    | CASCADE             |
+| HORARIO       | PERIODO    | RESTRICT            |
+| HORARIO       | DIA        | RESTRICT            |
+| HORARIO       | SALON      | RESTRICT            |
+| ASIGNACION    | ESTUDIANTE | RESTRICT            |
+| ASIGNACION    | SECCION    | RESTRICT            |
+
+
+---
+
+## ✅ Reglas de Negocio (CHECK Constraints)
+
+Las siguientes reglas de negocio deben implementarse como constraints y validaciones en la base de datos para garantizar la integridad académica.
+
+---
+
+### 1. Aprobación de Curso
 Se determina con datos de:
 - **ASIGNACION**: zona, nota
 - **PENSUM**: zona mínima, nota de aprobación
@@ -579,12 +731,15 @@ Se determina con datos de:
 
 ---
 
-### Promedios
-- Solo se consideran cursos aprobados
+### 2. Cálculo de Promedios
+
+**Regla:** Solo se consideran cursos aprobados para el cálculo de promedios.
+
+**Implementación:** Las consultas de promedio deben filtrar únicamente registros en ASIGNACION donde `nota >= nota_aprobacion`.
 
 ---
 
-### Cierre de Carrera
+### 3. Cierre de Carrera
 Se valida usando:
 - **PLAN**
 - **PENSUM**
@@ -597,12 +752,17 @@ Se valida usando:
 
 ---
 
-### Mejor Estudiante
-Se calcula usando:
-- **ASIGNACION**
-- cursos aprobados
-- promedio
-- historial sin cursos perdidos
+### 4. Identificación del Mejor Estudiante
 
-- Mejor promedio
-- Sin cursos reprobados
+**Criterios:**
+- Mejor promedio académico
+- Sin cursos reprobados en su historial
+- Todos los cursos obligatorios aprobados
+
+**Fuentes de Datos:**
+- **ASIGNACION**: Para obtener notas y cursos aprobados
+- **PENSUM**: Para identificar cursos obligatorios
+- **INSCRIPCION**: Para determinar el historial académico
+
+---
+
