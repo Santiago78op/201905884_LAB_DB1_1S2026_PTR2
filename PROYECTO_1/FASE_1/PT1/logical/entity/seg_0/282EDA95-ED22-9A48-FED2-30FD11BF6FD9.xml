@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4F73BB0E-8E7F-7711-73F9-33C507FCFDA4" name="Edificio">
-<createdBy>72358</createdBy>
-<createdTime>2026-03-18 20:53:43 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="282EDA95-ED22-9A48-FED2-30FD11BF6FD9" name="Edificio">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-19 02:38:11 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="FE929E31-B8D4-BAAA-41DC-2F56BB34DDE3">
-<createdBy>72358</createdBy>
-<createdTime>2026-03-18 21:16:25 UTC</createdTime>
+<Attribute name="ID" id="CDF7FCD0-572C-CD9B-A959-40ED65662471">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-19 02:38:36 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -27,9 +27,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="FC832AA2-2B7C-308B-551A-43A440DC637E">
-<createdBy>72358</createdBy>
-<createdTime>2026-03-18 21:57:03 UTC</createdTime>
+<Attribute name="Nombre" id="3349B777-2CCB-D214-5452-819AC39A09BB">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-19 02:38:47 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -42,18 +42,18 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EE8EC44D-C7C8-DA15-D335-DA1CFB657457" name="EDIFICIO_PK">
-<createdBy>72358</createdBy>
-<createdTime>2026-03-18 21:59:00 UTC</createdTime>
+<identifier id="306938AE-01D3-28D0-6C5F-31E8026209D1" name="EDIFICIO_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-19 02:39:09 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="false"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>FE929E31-B8D4-BAAA-41DC-2F56BB34DDE3</newElementsIDs>
+<newElementsIDs>CDF7FCD0-572C-CD9B-A959-40ED65662471</newElementsIDs>
 <usedAttributes>
-<attributeRef>FE929E31-B8D4-BAAA-41DC-2F56BB34DDE3</attributeRef>
+<attributeRef>CDF7FCD0-572C-CD9B-A959-40ED65662471</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
