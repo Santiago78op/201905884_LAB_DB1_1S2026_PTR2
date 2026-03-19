@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="282EDA95-ED22-9A48-FED2-30FD11BF6FD9" name="Edificio">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-19 02:38:11 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4BD3F7DB-458B-1968-0492-28135495FEC4" name="Edificio">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-19 23:13:23 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -15,21 +15,23 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="CDF7FCD0-572C-CD9B-A959-40ED65662471">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-19 02:38:36 UTC</createdTime>
+<Attribute name="ID" id="882501B7-B694-5370-CC8C-5C51CC8365EB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-19 23:14:42 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="3349B777-2CCB-D214-5452-819AC39A09BB">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-19 02:38:47 UTC</createdTime>
+<Attribute name="Nombre" id="53AB0111-5AA2-F94E-990D-D51D56D598FD">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-19 23:15:05 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -42,18 +44,17 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="306938AE-01D3-28D0-6C5F-31E8026209D1" name="EDIFICIO_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-19 02:39:09 UTC</createdTime>
+<identifier id="C07D3A2A-1C34-1814-5675-CDD40BB3B88A" name="EDIFICIO_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-19 23:15:23 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="false"/>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>CDF7FCD0-572C-CD9B-A959-40ED65662471</newElementsIDs>
+<newElementsIDs>882501B7-B694-5370-CC8C-5C51CC8365EB</newElementsIDs>
 <usedAttributes>
-<attributeRef>CDF7FCD0-572C-CD9B-A959-40ED65662471</attributeRef>
+<attributeRef>882501B7-B694-5370-CC8C-5C51CC8365EB</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

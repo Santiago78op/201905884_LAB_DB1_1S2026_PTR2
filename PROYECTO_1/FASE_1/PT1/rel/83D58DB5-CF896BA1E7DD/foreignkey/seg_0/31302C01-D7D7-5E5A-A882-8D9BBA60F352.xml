@@ -5,7 +5,7 @@
 <generatorID>7745D693-58B4-86A0-24E7-15E47420E2CA</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <referredTableLongName>Edificio</referredTableLongName>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 <referredTableID>FC418498-8A43-E8D5-2296-47CD202613D6</referredTableID>
 <keyObject>61BA63E1-585E-0619-668F-CE54F9A910D2</keyObject>
 <referredKeyID>61BA63E1-585E-0619-668F-CE54F9A910D2</referredKeyID>

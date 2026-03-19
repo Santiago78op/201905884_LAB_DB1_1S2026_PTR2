@@ -214,7 +214,7 @@ Registrar el espacio físico en el que se desarrollan las clases.
 |--------------------|-------------------------|---------|
 | `codigo_edificio`  | Identificador del edificio al que pertenece el salón (PK, FK) | NUMERIC(10,0) |
 | `codigo_salon`     | Identificador único del salón (PK) | NUMERIC(10,0) |
-| `nombre`          | Nombre del salón | VARCHAR(100) |
+| `nombre`          | Nombre del salón | VARCHAR(50) |
 | `capacidad_maxima` | Capacidad máxima del salón | NUMERIC(5,0) |
 
 ### Observación
