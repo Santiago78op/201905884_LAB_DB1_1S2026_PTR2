@@ -483,6 +483,9 @@ Permite registrar en qué carrera o carreras está inscrito un estudiante.
 ### Observación
 Además de resolver la relación N:M, esta tabla conserva un dato propio del hecho de inscripción: la fecha.
 
+### Cardinalidad
+- **ESTUDIANTE N : M CARRERA** (a través de INSCRIPCION)
+
 --- 
 
 ### PENSUM
@@ -548,7 +551,7 @@ Registra qué curso debe aprobarse previamente para poder llevar otro curso dent
 | `codigo_carrera`   | Identificador de la carrera a la que pertenecen los cursos (PK, FK) | NUMERIC(10,0) |
 | `codigo_plan`      | Identificador del plan al que pertenecen los cursos (PK, FK) | NUMERIC(10,0) |
 | `codigo_curso`     | Identificador del curso que tiene el prerrequisito (PK, FK) | NUMERIC(10,0) |
-| `codigo_curso_prerreq` | Identificador del curso que es prerrequisito (PK, FK) | NUMERIC(10,0) |
+| `codigo_curso_prerreq` | Identificador del curso que es prerrequisito (PK) | NUMERIC(10,0) |
 
 ### Observación
 No es una tabla intermedia N:M genérica, pero sí una tabla asociativa muy importante, porque modela una relación recursiva entre cursos dentro del pensum.

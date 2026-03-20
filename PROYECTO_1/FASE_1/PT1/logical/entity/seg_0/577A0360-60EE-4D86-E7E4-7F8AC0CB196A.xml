@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CE9EBDAD-B9F7-70CF-DF82-5691466E2C3A" name="Salon">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:50:10 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="577A0360-60EE-4D86-E7E4-7F8AC0CB196A" name="Prerrequisito">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:11:48 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID" id="5B01904A-A086-C381-523C-06231D1AB2DD">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:51:13 UTC</createdTime>
+<Attribute name="ID" id="9B8A0D11-6B12-9CB6-9B3B-3E31A915ED42">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:12:21 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -28,41 +28,45 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="1C3BB091-0DDB-7593-1419-037299A7EA34">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:51:29 UTC</createdTime>
+<Attribute name="ID1" id="08CD34F6-0376-1ED3-FFBD-B8EFC65AF09E">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:18:22 UTC</createdTime>
+<generatorID>D14FEE03-5771-FD8C-FC26-E012F1051493</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Capacidad_Maxima" id="F6C62B33-56EE-54C9-3519-A7F5851B1E5F">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:51:29 UTC</createdTime>
-<ownerDesignName>PT1</ownerDesignName>
-<engineerTo>
-<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
-</engineerTo>
+<referedAttribute>90894043-0F48-1A43-E602-DE1F5FB8AB87</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>5</dataTypePrecision>
-<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="7F8B3EDD-9306-BF07-BD48-2A6F0B867F8F">
+<Attribute name="ID2" id="675A9F20-42A5-88C2-3309-716182F37EFB">
 <createdBy>72358</createdBy>
-<createdTime>2026-03-20 14:17:57 UTC</createdTime>
-<generatorID>D50B0EAE-C0AE-0CE8-4790-A3D54C7F9BB7</generatorID>
+<createdTime>2026-03-20 15:18:22 UTC</createdTime>
+<generatorID>D14FEE03-5771-FD8C-FC26-E012F1051493</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
-<referedAttribute>882501B7-B694-5370-CC8C-5C51CC8365EB</referedAttribute>
+<referedAttribute>8AC2D09F-FB6E-03FB-3142-870611C95C8D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID11" id="8F4CBD00-23EA-F7E2-2444-A57E6C78F9F3">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:18:22 UTC</createdTime>
+<generatorID>D14FEE03-5771-FD8C-FC26-E012F1051493</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>458C4723-CC9D-AB3F-C5C9-1F2E62965F5C</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -71,17 +75,20 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="10991F7F-904A-6696-C909-735440ED2A06" name="SALON_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:53:13 UTC</createdTime>
+<identifier id="3A8817CA-29F2-6D99-03DE-A187EC0E9A54" name="PRERREQUISITO_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:12:31 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>5B01904A-A086-C381-523C-06231D1AB2DD</newElementsIDs>
+<newElementsIDs>9B8A0D11-6B12-9CB6-9B3B-3E31A915ED42,08CD34F6-0376-1ED3-FFBD-B8EFC65AF09E,675A9F20-42A5-88C2-3309-716182F37EFB,8F4CBD00-23EA-F7E2-2444-A57E6C78F9F3</newElementsIDs>
 <usedAttributes>
-<attributeRef>5B01904A-A086-C381-523C-06231D1AB2DD</attributeRef>
+<attributeRef>9B8A0D11-6B12-9CB6-9B3B-3E31A915ED42</attributeRef>
+<attributeRef>08CD34F6-0376-1ED3-FFBD-B8EFC65AF09E</attributeRef>
+<attributeRef>675A9F20-42A5-88C2-3309-716182F37EFB</attributeRef>
+<attributeRef>8F4CBD00-23EA-F7E2-2444-A57E6C78F9F3</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

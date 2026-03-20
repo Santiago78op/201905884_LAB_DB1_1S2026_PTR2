@@ -1,17 +1,17 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3A4620D7-021B-6338-79B7-4C8014BE2427" name="Edificio">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>4BD3F7DB-458B-1968-0492-28135495FEC4</generatorID>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="51B6DE05-6EF2-CCD2-2F4A-5BA71DAF89EB" name="Curso">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>BBD95EED-D423-EDE5-B409-242CE5C161A8</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="ID" id="D855C67D-3D88-EA4D-D024-F25EA275D1A9">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>882501B7-B694-5370-CC8C-5C51CC8365EB</generatorID>
+<Column name="ID" id="17863AAE-95F4-061B-160E-0CF49DD16854">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>670B96D8-C3BA-E9C8-FFE3-A5910DE28484</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -20,10 +20,10 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="7E2B4DBF-4B80-5CE1-E295-3BD83E9208FB">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>53AB0111-5AA2-F94E-990D-D51D56D598FD</generatorID>
+<Column name="Nombre" id="022E2C0B-9E90-2415-6CF3-EFF20F9C5996">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>FF82E327-E20C-FB92-9018-2C614C933607</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -34,16 +34,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="6120FD04-F41E-BCF7-50C6-3F63CBCD50CE" name="Edificio_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>C07D3A2A-1C34-1814-5675-CDD40BB3B88A</generatorID>
+<ind_PK_UK id="BFF07D5E-E5D1-4519-09E0-F7527598318E" name="Curso_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>F8C9B51A-E125-168D-0FC8-48DECE29ED6A</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="D855C67D-3D88-EA4D-D024-F25EA275D1A9"/>
+<colUsage columnID="17863AAE-95F4-061B-160E-0CF49DD16854"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

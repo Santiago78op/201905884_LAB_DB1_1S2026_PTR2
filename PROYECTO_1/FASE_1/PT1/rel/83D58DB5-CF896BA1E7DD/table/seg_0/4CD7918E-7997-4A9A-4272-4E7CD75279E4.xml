@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43F86D28-DBE7-D1F7-9E96-4A4C2D097A72" name="Carrera">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4CD7918E-7997-4A9A-4272-4E7CD75279E4" name="Carrera">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>D7C97A01-D3A9-7EE0-614C-24AC0F75B453</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="ID" id="EBD800CA-8991-BE07-832C-960959C9840D">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="ID" id="65B3D443-7F47-AAB0-61E8-4038756F169E">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>B6EAB676-F2C8-A104-9CEE-7B59A94AA021</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="62EB1A3A-9E79-2BD8-DBDD-B9E2064FA402">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Nombre" id="2FC8F991-564C-3647-07CF-8BB515285E10">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>11974EAD-C18E-8FA0-253F-28C7689664E5</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,9 +32,9 @@
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Unidad_Academica" id="CBD0107E-C4AF-63CC-C89D-A9B8C2B2287B">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Unidad_Academica" id="8C688D03-4AA9-2CC2-6574-0598C6FA70E2">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>090B252F-B714-D880-D85C-EFC1B3B23BA3</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -46,16 +46,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="E08CB0E9-B0EA-5CA1-668C-FCA21BCA65E8" name="Carrera_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="2F9858A8-D679-ED3C-A86C-02A0C6EF39BA" name="Carrera_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>0930B6A1-C1AF-BE13-E606-66F24B9B4711</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="EBD800CA-8991-BE07-832C-960959C9840D"/>
+<colUsage columnID="65B3D443-7F47-AAB0-61E8-4038756F169E"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

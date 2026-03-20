@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CARRERA_INSCRIPCION" directorySegmentName="seg_0" id="07A6F947-C86C-C357-5418-993EE9D2FF31">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 13:59:50 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>0930B6A1-C1AF-BE13-E606-66F24B9B4711</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D7C97A01-D3A9-7EE0-614C-24AC0F75B453</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>124B582E-2D3A-CEA0-22F5-97571DED1DB1</targetEntity>
+<transferable>true</transferable>
+</Relation>

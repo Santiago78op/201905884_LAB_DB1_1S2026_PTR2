@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A4C5A71-50F2-4A33-0CB6-8CEEFDB8B09B" name="Seccion">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="767E26A1-A22D-6A9B-6702-D5911136AAFB" name="Seccion">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>89AB6F4F-FBD3-5EF1-CC32-533EEA184462</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="ID" id="189E1F7E-74E6-C03A-7B70-224288FA8B14">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="ID" id="96DCFB09-0BC3-18CD-6AE1-D75085E4BAE0">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>FF1AC213-3946-24E6-D8A3-EEF9AB519DA2</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Anio" id="39373E84-493B-38A4-B5C6-FEC42D27EEF0">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Anio" id="16C33AA6-EEB6-B009-AC71-CD028342D36A">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>84727224-DC4C-459E-6349-5C08831ECA00</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,9 +32,9 @@
 <ownDataTypeParameters>,4,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ciclo" id="096EC200-948A-2B22-413D-CD4DBC958F4D">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Ciclo" id="C52DE2A5-3956-6536-052E-9600E354FBFE">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>4CAC1206-A01B-2A4A-A474-C6C84827916B</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -44,10 +44,10 @@
 <ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Curso_ID" id="5941E325-02FB-4D22-4139-C91CD5E16253">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>FA94A916-822F-269E-3625-2F99B16DCD10</generatorID>
+<Column name="Curso_ID" id="305E1894-5785-6BFE-37B1-7550B5767A22">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>08245A29-ECCF-9AE1-52F4-137CC8B8198B</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -57,13 +57,13 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="E2D43BAB-E5D8-AAE4-2EA4-B40DE352B05A" referredColumn="CC1B0108-2518-A61A-34B6-096BADF7882F"/>
+<colAssociation fkAssociation="9E7D987C-1A7E-0A89-37A8-B09850D6777E" referredColumn="17863AAE-95F4-061B-160E-0CF49DD16854"/>
 </associations>
 </Column>
-<Column name="Docente_ID" id="AC04C47D-699D-073F-787D-D1417E873527">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>215F8407-8360-4F18-C492-3B6979051FC1</generatorID>
+<Column name="Docente_ID" id="3F4FE2DF-94B8-721F-BEA8-748CABD76124">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>021F6D62-6A1E-191A-5CFC-38FCDDFE7D87</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -73,43 +73,43 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="4E1E697A-7F53-1C38-9945-C8C29EED64E2" referredColumn="7D1D0B95-8DD1-1BDC-D0D3-DBA2D4BCA248"/>
+<colAssociation fkAssociation="31CB9396-1896-4C64-461C-9DE51F7F0F87" referredColumn="576BDDCC-16B9-E002-2B86-C39286BF3495"/>
 </associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="BB39AC40-8785-F715-8666-94BB3987B0FA" name="Seccion_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="F78F5627-0A84-5E14-3D8E-4572413FC2A7" name="Seccion_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>7D980714-FBF3-4AB3-1C68-B5001AE0682C</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="189E1F7E-74E6-C03A-7B70-224288FA8B14"/>
+<colUsage columnID="96DCFB09-0BC3-18CD-6AE1-D75085E4BAE0"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="FE8F8E61-2789-9443-2558-85D44F08D1B9" name="Seccion_Curso_FK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="DD4CACBB-E851-4CEE-3570-C2732E7D6EE5" name="Seccion_Curso_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>6E5114AB-C56E-D164-3248-BA3419A4461B</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="5941E325-02FB-4D22-4139-C91CD5E16253"/>
+<colUsage columnID="305E1894-5785-6BFE-37B1-7550B5767A22"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5588E557-3D2D-04E9-3127-1A501C3543F4" name="Seccion_Docente_FK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="C21E8149-A509-A9DF-A5BE-6F88D84A22AA" name="Seccion_Docente_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>2616C5BA-90C8-D8A8-811D-740A2390DCE8</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="AC04C47D-699D-073F-787D-D1417E873527"/>
+<colUsage columnID="3F4FE2DF-94B8-721F-BEA8-748CABD76124"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

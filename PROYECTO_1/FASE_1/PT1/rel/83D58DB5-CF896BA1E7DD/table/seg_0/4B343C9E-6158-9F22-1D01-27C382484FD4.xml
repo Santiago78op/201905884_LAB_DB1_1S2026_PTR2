@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4B343C9E-6158-9F22-1D01-27C382484FD4" name="Inscripcion">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>124B582E-2D3A-CEA0-22F5-97571DED1DB1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Fecha_Inscripcion" id="B81C7FBC-A912-1BA0-3C87-79AE92EE295A">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>E2367409-228B-BB96-527E-3745BF61FBA0</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carrera_ID" id="61530300-FBB9-6D6A-AA5A-9CB10892C0EF">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>A2E540C4-25D3-52E4-E38A-42041A990B97</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A073E0A7-33AE-AC2F-2F54-5AB4FB5FDD15" referredColumn="65B3D443-7F47-AAB0-61E8-4038756F169E"/>
+</associations>
+</Column>
+<Column name="Estudiante_CARNE" id="94A92AAD-97A2-AF94-42E9-314B6AE195CE">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>5AE01362-7C30-2BCC-7EC1-27DAED05D93E</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A99A031-B554-447F-09EB-83BA121F1DA7" referredColumn="5B524C91-7492-421C-052A-EB7A8A2B3060"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="03CCE995-7B42-056A-2DAD-8DF1E0A25E8E" name="Inscripcion_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>2C095656-BC19-4EB9-838D-5CF404EA18C1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="BA8B729C-030B-40B1-BE10-FCBD875258D3" name="Inscripcion_Carrera_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>07A6F947-C86C-C357-5418-993EE9D2FF31</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61530300-FBB9-6D6A-AA5A-9CB10892C0EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="96675E16-2AB7-B5E2-B870-B2793C7041C3" name="Inscripcion_Estudiante_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>1DAFF40C-61B6-4B03-F78B-B55388DAAFC7</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94A92AAD-97A2-AF94-42E9-314B6AE195CE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

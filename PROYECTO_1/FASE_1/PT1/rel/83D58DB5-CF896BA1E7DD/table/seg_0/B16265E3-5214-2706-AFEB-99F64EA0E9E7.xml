@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="55B59B4A-E3B5-D5FF-6C2F-995A954CA32A" name="Plan">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B16265E3-5214-2706-AFEB-99F64EA0E9E7" name="Plan">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>E5C86BC2-FE24-464F-E551-290B1F970B10</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="ID" id="DC437B6A-DA08-2D36-3157-44E8E61F93DD">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="ID" id="8D9F2818-5DA0-02D9-5E3C-97E09B525FAA">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>E9D6BC80-2FC4-DEF0-DAA0-9786664947D7</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="81380CC3-F5E5-46DD-7B7D-CF1F6CEC6F03">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Nombre" id="36914E1B-F25A-F4ED-F1C6-FBDE0EFB8FA0">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>9C7F6235-361E-E295-FB4E-E8C4FDC41B3C</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,9 +32,9 @@
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Anio_Inicio" id="796D7547-9166-FEDD-7D99-36CFEE7BED5D">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Anio_Inicio" id="C510573F-1273-B6B4-7197-36A222CA32CB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>3707FF55-EF3C-1216-F8B6-FE50EA00DECE</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -44,9 +44,9 @@
 <ownDataTypeParameters>,4,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ciclo_Inicio" id="F9FA0340-E36C-D6B1-BCB2-A69B0F7F19CD">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Ciclo_Inicio" id="CD5C37D5-E6D2-47AF-CB74-729D153B8489">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>60439587-5FD9-6224-AD63-0D47AEC6F40C</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -56,9 +56,9 @@
 <ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Anio_Fin" id="8C1E7310-6D54-2294-DE88-926BC55CA6F9">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Anio_Fin" id="9E02D680-7BF8-E6DF-E3E8-110751BEAC87">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>1F8EDE94-FE23-D3DC-461C-81CD700CB982</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -68,9 +68,9 @@
 <ownDataTypeParameters>,4,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ciclo_Fin" id="B59C25C8-C9D6-D1F6-33E4-1A9426999232">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Ciclo_Fin" id="33A92A09-1813-7FD3-A025-7A5A5E07A085">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>24C77CD7-12D4-4F71-ACCE-8E8C7B275101</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -80,9 +80,9 @@
 <ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Creditos_Cierre" id="23804465-4A0C-92BB-07B0-183E0879D4B5">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Creditos_Cierre" id="5B1948BD-8509-7A2D-00A5-951C5499FC36">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>93F695E5-D414-7C88-7843-BE509DA1FAC3</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -92,10 +92,10 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Carrera_ID" id="8C02D759-FFA4-5848-1507-6FEE1B8136F1">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
-<generatorID>0063B1BF-2742-4FB2-792F-442A86BE788E</generatorID>
+<Column name="Carrera_ID" id="C07AA5BB-8B29-9051-A933-27E7D5045617">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
+<generatorID>EA5C428E-B66B-ABED-0B01-ED2DC9F8B1C1</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -105,33 +105,33 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="AD826916-D485-9331-B1C2-CF5B196E9CF8" referredColumn="EBD800CA-8991-BE07-832C-960959C9840D"/>
+<colAssociation fkAssociation="CB6B44F1-6FF6-D89D-3CD6-2CFAABE6A6F0" referredColumn="65B3D443-7F47-AAB0-61E8-4038756F169E"/>
 </associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="4295ECB1-D8EF-4AF5-5CE3-5E02E66B1814" name="Plan_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="B34FF843-7E55-0913-5735-0244F6E8B156" name="Plan_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>C6C9863B-B342-DC88-5FC8-7457D2631A3F</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="DC437B6A-DA08-2D36-3157-44E8E61F93DD"/>
-<colUsage columnID="8C02D759-FFA4-5848-1507-6FEE1B8136F1"/>
+<colUsage columnID="8D9F2818-5DA0-02D9-5E3C-97E09B525FAA"/>
+<colUsage columnID="C07AA5BB-8B29-9051-A933-27E7D5045617"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="D3C48100-BE21-5A35-4E62-5322DC49CE2F" name="Plan_Carrera_FK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="B9C7DB3C-4219-E151-92A4-86FB029B347C" name="Plan_Carrera_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>77CDBC0E-9C46-1457-1188-4C7AB3820027</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="8C02D759-FFA4-5848-1507-6FEE1B8136F1"/>
+<colUsage columnID="C07AA5BB-8B29-9051-A933-27E7D5045617"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

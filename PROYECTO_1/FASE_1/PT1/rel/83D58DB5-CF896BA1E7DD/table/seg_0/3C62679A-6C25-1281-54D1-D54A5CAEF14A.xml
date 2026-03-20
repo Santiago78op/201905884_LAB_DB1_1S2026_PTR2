@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D81F3613-C47A-9979-2533-0010428BF38C" name="Estudiante">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C62679A-6C25-1281-54D1-D54A5CAEF14A" name="Estudiante">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>73DD045A-B968-95CD-7B90-66A0470B6CDD</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="CARNE" id="AAC834A6-F1B4-E9F1-DCC1-887F3FA3EC39">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="CARNE" id="5B524C91-7492-421C-052A-EB7A8A2B3060">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>BD107227-82EC-88C2-AE16-0154FF7C96D0</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -20,9 +20,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="121F893A-77C8-B9CF-EDF6-1B7D70187619">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Nombre" id="449CC661-5988-53DC-3D9E-88085FCEE3DF">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>BB5E8D56-9592-79DE-DD6D-63F43F971B42</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -32,9 +32,9 @@
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ingreso_Familiar" id="652C78DB-4E22-722C-DF09-8F4E2C8341DE">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Ingreso_Familiar" id="E6A5FC07-9635-5C0F-3411-1D6FBC02B326">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>A5529EC5-0393-2209-B6AA-EF851CC03172</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -45,9 +45,9 @@
 <ownDataTypeParameters>,15,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Fecha_Nacimiento" id="FD12920C-A71C-04BE-3F21-FF88E97513A4">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<Column name="Fecha_Nacimiento" id="130CE163-14FD-3D78-64FB-CE8886ADB2D5">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>C3545B7D-1103-15C7-B089-66E13AAF00C9</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -58,16 +58,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="E17780F8-0876-B44A-94B7-6731182BAD12" name="Estudiante_PK">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ind_PK_UK id="B186FBE6-9516-339E-F586-B519BE098CFD" name="Estudiante_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 15:35:54 UTC</createdTime>
 <generatorID>7202BAAB-7E42-C3BD-117E-89C368206A1D</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="AAC834A6-F1B4-E9F1-DCC1-887F3FA3EC39"/>
+<colUsage columnID="5B524C91-7492-421C-052A-EB7A8A2B3060"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

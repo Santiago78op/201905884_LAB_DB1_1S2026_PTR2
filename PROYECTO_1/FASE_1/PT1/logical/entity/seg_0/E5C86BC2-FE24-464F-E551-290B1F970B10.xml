@@ -22,7 +22,6 @@
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -107,9 +106,9 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID1" id="0063B1BF-2742-4FB2-792F-442A86BE788E">
-<createdBy>julian</createdBy>
-<createdTime>2026-03-20 02:03:55 UTC</createdTime>
+<Attribute name="ID1" id="EA5C428E-B66B-ABED-0B01-ED2DC9F8B1C1">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:18:38 UTC</createdTime>
 <generatorID>77CDBC0E-9C46-1457-1188-4C7AB3820027</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
@@ -132,10 +131,10 @@
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>E9D6BC80-2FC4-DEF0-DAA0-9786664947D7,0063B1BF-2742-4FB2-792F-442A86BE788E</newElementsIDs>
+<newElementsIDs>0063B1BF-2742-4FB2-792F-442A86BE788E,E9D6BC80-2FC4-DEF0-DAA0-9786664947D7</newElementsIDs>
 <usedAttributes>
 <attributeRef>E9D6BC80-2FC4-DEF0-DAA0-9786664947D7</attributeRef>
-<attributeRef>0063B1BF-2742-4FB2-792F-442A86BE788E</attributeRef>
+<attributeRef>EA5C428E-B66B-ABED-0B01-ED2DC9F8B1C1</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

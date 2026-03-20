@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="59279A08-7FB1-3761-48DA-D1EA554EDF95" name="Pensum">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:14:39 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Obligatorio" id="5A9CFA19-9025-B06A-9C35-20EF89B993A4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:14:47 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Creditos" id="0CA0B434-71E7-868B-13B6-8E7C9C19F2A3">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:15:16 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nota_Aprobacion" id="EA289CB3-2E68-E516-E621-8BAC104E30FC">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:15:57 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Zona_Minima" id="2BDF9064-F8DE-D140-F754-3D82072B0EA4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:16:32 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID1" id="90894043-0F48-1A43-E602-DE1F5FB8AB87">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:34:49 UTC</createdTime>
+<generatorID>A3CB586F-B64E-5202-8694-AC17A9FA23FF</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>670B96D8-C3BA-E9C8-FFE3-A5910DE28484</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID" id="8AC2D09F-FB6E-03FB-3142-870611C95C8D">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:42:56 UTC</createdTime>
+<generatorID>521AA757-2734-2E18-68B2-4C3F9EA2E4F1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>E9D6BC80-2FC4-DEF0-DAA0-9786664947D7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID11" id="458C4723-CC9D-AB3F-C5C9-1F2E62965F5C">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:45:21 UTC</createdTime>
+<generatorID>521AA757-2734-2E18-68B2-4C3F9EA2E4F1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>EA5C428E-B66B-ABED-0B01-ED2DC9F8B1C1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1CFF0254-5172-1668-A624-4D216F4735CB" name="PENSUM_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:35:28 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>90894043-0F48-1A43-E602-DE1F5FB8AB87,8AC2D09F-FB6E-03FB-3142-870611C95C8D,458C4723-CC9D-AB3F-C5C9-1F2E62965F5C</newElementsIDs>
+<usedAttributes>
+<attributeRef>90894043-0F48-1A43-E602-DE1F5FB8AB87</attributeRef>
+<attributeRef>8AC2D09F-FB6E-03FB-3142-870611C95C8D</attributeRef>
+<attributeRef>458C4723-CC9D-AB3F-C5C9-1F2E62965F5C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CURSO_PENSUM" directorySegmentName="seg_0" id="A3CB586F-B64E-5202-8694-AC17A9FA23FF">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-20 14:34:49 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>F8C9B51A-E125-168D-0FC8-48DECE29ED6A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>BBD95EED-D423-EDE5-B409-242CE5C161A8</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>59279A08-7FB1-3761-48DA-D1EA554EDF95</targetEntity>
+<transferable>true</transferable>
+</Relation>
