@@ -14,4 +14,47 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="670B96D8-C3BA-E9C8-FFE3-A5910DE28484">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:38:50 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="FF82E327-E20C-FB92-9018-2C614C933607">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:39:03 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F8C9B51A-E125-168D-0FC8-48DECE29ED6A" name="CURSO_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:39:36 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>670B96D8-C3BA-E9C8-FFE3-A5910DE28484</newElementsIDs>
+<usedAttributes>
+<attributeRef>670B96D8-C3BA-E9C8-FFE3-A5910DE28484</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

@@ -396,9 +396,9 @@ Definir la vigencia y estructura académica que aplica a una carrera.
 | `codigo_plan`      | Identificador único del plan (PK) | NUMERIC(10,0) |
 | `nombre`           | Nombre del plan | VARCHAR(100) |
 | `anio_inicio`      | Año de inicio del plan | NUMERIC(4,0) |
-| `ciclo_inicio`     | Ciclo de inicio del plan | NUMERIC(1,0) |
+| `ciclo_inicio`     | Ciclo de inicio del plan | NUMERIC(2,0) |
 | `anio_fin`         | Año de finalización del plan | NUMERIC(4,0) |
-| `ciclo_fin`        | Ciclo de finalización del plan | NUMERIC(1,0) |
+| `ciclo_fin`        | Ciclo de finalización del plan | NUMERIC(2,0) |
 | `creditos_cierre`  | Créditos requeridos para cierre de carrera | NUMERIC(10,0) |
 
 ### Observación

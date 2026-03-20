@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="73DD045A-B968-95CD-7B90-66A0470B6CDD" name="Estudiante">
-<createdBy>72358</createdBy>
-<createdTime>2026-03-19 23:13:55 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CE9EBDAD-B9F7-70CF-DF82-5691466E2C3A" name="Salon">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:50:10 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -15,23 +15,22 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="CARNE" id="BD107227-82EC-88C2-AE16-0154FF7C96D0">
+<Attribute name="ID" id="5B01904A-A086-C381-523C-06231D1AB2DD">
 <createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:46:28 UTC</createdTime>
+<createdTime>2026-03-20 01:51:13 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="BB5E8D56-9592-79DE-DD6D-63F43F971B42">
+<Attribute name="Nombre" id="1C3BB091-0DDB-7593-1419-037299A7EA34">
 <createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:46:40 UTC</createdTime>
+<createdTime>2026-03-20 01:51:29 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -39,12 +38,12 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>100</dataTypeSize>
-<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Ingreso_Familiar" id="A5529EC5-0393-2209-B6AA-EF851CC03172">
+<Attribute name="Capacidad_Maxima" id="F6C62B33-56EE-54C9-3519-A7F5851B1E5F">
 <createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:47:05 UTC</createdTime>
+<createdTime>2026-03-20 01:51:29 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
@@ -52,35 +51,38 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>15</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,15,2</ownDataTypeParameters>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Fecha_Nacimiento" id="C3545B7D-1103-15C7-B089-66E13AAF00C9">
+<Attribute name="ID1" id="84735F45-FDD1-CBED-66CF-5C7D91E5C3D2">
 <createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:47:39 UTC</createdTime>
+<createdTime>2026-03-20 01:53:49 UTC</createdTime>
+<generatorID>D50B0EAE-C0AE-0CE8-4790-A3D54C7F9BB7</generatorID>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
+<referedAttribute>882501B7-B694-5370-CC8C-5C51CC8365EB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="7202BAAB-7E42-C3BD-117E-89C368206A1D" name="CARNE_PK">
+<identifier id="10991F7F-904A-6696-C909-735440ED2A06" name="SALON_PK">
 <createdBy>julian</createdBy>
-<createdTime>2026-03-20 01:47:58 UTC</createdTime>
+<createdTime>2026-03-20 01:53:13 UTC</createdTime>
 <ownerDesignName>PT1</ownerDesignName>
 <engineerTo>
 <item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>BD107227-82EC-88C2-AE16-0154FF7C96D0</newElementsIDs>
+<newElementsIDs>5B01904A-A086-C381-523C-06231D1AB2DD,84735F45-FDD1-CBED-66CF-5C7D91E5C3D2</newElementsIDs>
 <usedAttributes>
-<attributeRef>BD107227-82EC-88C2-AE16-0154FF7C96D0</attributeRef>
+<attributeRef>5B01904A-A086-C381-523C-06231D1AB2DD</attributeRef>
+<attributeRef>84735F45-FDD1-CBED-66CF-5C7D91E5C3D2</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="EDIFICIO_SALON_FK" directorySegmentName="seg_0" id="D50B0EAE-C0AE-0CE8-4790-A3D54C7F9BB7">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:53:49 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>C07D3A2A-1C34-1814-5675-CDD40BB3B88A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4BD3F7DB-458B-1968-0492-28135495FEC4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>CE9EBDAD-B9F7-70CF-DF82-5691466E2C3A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

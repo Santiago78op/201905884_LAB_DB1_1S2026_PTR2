@@ -14,4 +14,59 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID" id="AF9DD879-5A01-3E73-5C72-52058F2D2350">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:40:37 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Hora_Inicio" id="CE7D309B-5987-000D-8D95-56781FF69F93">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:40:47 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Hora_Fin" id="88F8EABF-7588-8F53-03DF-1E8A7F51A7E1">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:41:16 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="97541156-91E5-236F-3908-14EB7C93A1B6" name="PERIODO_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 01:41:35 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>AF9DD879-5A01-3E73-5C72-52058F2D2350</newElementsIDs>
+<usedAttributes>
+<attributeRef>AF9DD879-5A01-3E73-5C72-52058F2D2350</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>
