@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8A4C5A71-50F2-4A33-0CB6-8CEEFDB8B09B" name="Seccion">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>89AB6F4F-FBD3-5EF1-CC32-533EEA184462</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="189E1F7E-74E6-C03A-7B70-224288FA8B14">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>FF1AC213-3946-24E6-D8A3-EEF9AB519DA2</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Anio" id="39373E84-493B-38A4-B5C6-FEC42D27EEF0">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>84727224-DC4C-459E-6349-5C08831ECA00</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ciclo" id="096EC200-948A-2B22-413D-CD4DBC958F4D">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>4CAC1206-A01B-2A4A-A474-C6C84827916B</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Curso_ID" id="5941E325-02FB-4D22-4139-C91CD5E16253">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>FA94A916-822F-269E-3625-2F99B16DCD10</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E2D43BAB-E5D8-AAE4-2EA4-B40DE352B05A" referredColumn="CC1B0108-2518-A61A-34B6-096BADF7882F"/>
+</associations>
+</Column>
+<Column name="Docente_ID" id="AC04C47D-699D-073F-787D-D1417E873527">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>215F8407-8360-4F18-C492-3B6979051FC1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4E1E697A-7F53-1C38-9945-C8C29EED64E2" referredColumn="7D1D0B95-8DD1-1BDC-D0D3-DBA2D4BCA248"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB39AC40-8785-F715-8666-94BB3987B0FA" name="Seccion_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>7D980714-FBF3-4AB3-1C68-B5001AE0682C</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="189E1F7E-74E6-C03A-7B70-224288FA8B14"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FE8F8E61-2789-9443-2558-85D44F08D1B9" name="Seccion_Curso_FK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>6E5114AB-C56E-D164-3248-BA3419A4461B</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5941E325-02FB-4D22-4139-C91CD5E16253"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5588E557-3D2D-04E9-3127-1A501C3543F4" name="Seccion_Docente_FK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>2616C5BA-90C8-D8A8-811D-740A2390DCE8</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC04C47D-699D-073F-787D-D1417E873527"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

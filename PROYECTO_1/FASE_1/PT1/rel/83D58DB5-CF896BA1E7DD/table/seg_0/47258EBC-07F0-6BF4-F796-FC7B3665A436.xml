@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="47258EBC-07F0-6BF4-F796-FC7B3665A436" name="Salon">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>CE9EBDAD-B9F7-70CF-DF82-5691466E2C3A</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="36174953-F858-4390-37B3-6AE96901432B">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>5B01904A-A086-C381-523C-06231D1AB2DD</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="ADE8F1DC-96E7-08AD-2927-418A3C7F6B4B">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>1C3BB091-0DDB-7593-1419-037299A7EA34</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Capacidad_Maxima" id="E8743526-64B7-1B8D-CD40-AEA57703A6CC">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>F6C62B33-56EE-54C9-3519-A7F5851B1E5F</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Edificio_ID" id="E435C8F2-4C72-D305-2476-659A167A2D41">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>84735F45-FDD1-CBED-66CF-5C7D91E5C3D2</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77E920CC-46C3-0F1C-1E23-E705F27F08C3" referredColumn="D855C67D-3D88-EA4D-D024-F25EA275D1A9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C005BC5-C072-A993-B4B6-78C5D43795C9" name="Salon_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>10991F7F-904A-6696-C909-735440ED2A06</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36174953-F858-4390-37B3-6AE96901432B"/>
+<colUsage columnID="E435C8F2-4C72-D305-2476-659A167A2D41"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="450F98F1-A08B-D3AF-79EE-52598E467AA2" name="Salon_Edificio_FK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>D50B0EAE-C0AE-0CE8-4790-A3D54C7F9BB7</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E435C8F2-4C72-D305-2476-659A167A2D41"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

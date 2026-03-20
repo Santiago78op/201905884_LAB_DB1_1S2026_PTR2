@@ -56,6 +56,21 @@
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ID1" id="1EA37E14-F16C-C6A8-BE46-39E3920D58DE">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:40:26 UTC</createdTime>
+<generatorID>B8320151-DE58-2519-739A-2C1DDEF2A8BB</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>FF1AC213-3946-24E6-D8A3-EEF9AB519DA2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="E5CBDDBD-E576-A104-91C1-5719887DD281" name="DOCENTE_PK">

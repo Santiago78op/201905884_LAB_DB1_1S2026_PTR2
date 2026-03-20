@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7EBB3E36-DCBC-D69E-4454-29C62A4E56FB" name="Docente">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>3D092A2E-D4BA-AE1D-446A-28BB01C38493</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="7D1D0B95-8DD1-1BDC-D0D3-DBA2D4BCA248">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>175AC80A-4ECA-669B-1573-DB50AB787645</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="B9EABA9D-15AB-8690-34CC-3CA4D2582017">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>CBF195CF-9FA6-E299-831A-454FFC9BB9A0</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Sueldo_Mensual" id="D645CED5-309F-C08B-98FB-C3D5A25A5BEF">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>F89FF12F-7C54-288D-62C3-6EEE11CE923F</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Seccion_ID" id="1AC626C0-83BC-E8A2-1E11-C03127FB3BF0">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>1EA37E14-F16C-C6A8-BE46-39E3920D58DE</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B6DB7A35-129C-73BB-44F5-5A9ED6C0FF23" referredColumn="189E1F7E-74E6-C03A-7B70-224288FA8B14"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="62623E90-383A-C632-608E-75974D1ABB6E" name="Docente_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>E5CBDDBD-E576-A104-91C1-5719887DD281</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D1D0B95-8DD1-1BDC-D0D3-DBA2D4BCA248"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DB7D9821-8DD1-E11E-3336-E6F496268DAA" name="Docente__IDX">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>B8320151-DE58-2519-739A-2C1DDEF2A8BB</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="1AC626C0-83BC-E8A2-1E11-C03127FB3BF0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88312226-48E9-4B86-793E-ADF9701C6C0D" name="Docente_Seccion_FK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>B8320151-DE58-2519-739A-2C1DDEF2A8BB</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1AC626C0-83BC-E8A2-1E11-C03127FB3BF0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B0FB0804-2864-345B-123D-5E0A829E7E0D" name="Periodo">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>9B641AC5-0360-72D2-FAEF-B838722AE107</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="68A3491D-ACCF-B994-ECE9-9069EC771184">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>AF9DD879-5A01-3E73-5C72-52058F2D2350</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_Inicio" id="6D9935B4-8C5B-1D89-B4D1-4A70678477B1">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>CE7D309B-5987-000D-8D95-56781FF69F93</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_Fin" id="01F56B8E-4E98-A4D4-DF1B-7B985D93D4D9">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>88F8EABF-7588-8F53-03DF-1E8A7F51A7E1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="50174D31-9369-6218-5F63-CFEAE50C7148" name="Periodo_PK">
+<createdBy>julian</createdBy>
+<createdTime>2026-03-20 03:43:40 UTC</createdTime>
+<generatorID>97541156-91E5-236F-3908-14EB7C93A1B6</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68A3491D-ACCF-B994-ECE9-9069EC771184"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
