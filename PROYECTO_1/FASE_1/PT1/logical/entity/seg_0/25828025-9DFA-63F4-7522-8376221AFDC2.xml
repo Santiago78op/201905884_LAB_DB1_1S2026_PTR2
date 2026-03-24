@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="25828025-9DFA-63F4-7522-8376221AFDC2" name="PRERREQUISITO">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:11:31 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_PLAN" id="6740DEEE-18D3-DE94-07F0-760BDC34423D">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:21:48 UTC</createdTime>
+<generatorID>A503FFC0-4C00-305B-C5D0-7F94AE3CC7A4</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>533BB218-977F-BF74-6907-7C1BE896D18B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_CARRERA" id="0F4D188F-BC97-7432-3757-07C240D53C30">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:21:48 UTC</createdTime>
+<generatorID>A503FFC0-4C00-305B-C5D0-7F94AE3CC7A4</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>4B091988-1C6F-A00E-2AC3-1B52FDE740C2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_CURSO" id="DFC53CFA-02FD-6250-37BA-110F35F42FB4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:21:48 UTC</createdTime>
+<generatorID>A503FFC0-4C00-305B-C5D0-7F94AE3CC7A4</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>AAE8E61C-15E9-14EA-AB58-70A15040460E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_CURSO1" id="81F00A61-8FCD-DEA7-2819-8586A81F6E69">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:22:17 UTC</createdTime>
+<generatorID>F54FF24B-B9B8-576E-B63D-4E03A6DA1082</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>B6C93439-8390-62C2-5522-9EC31124AA69</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2E547C5D-F646-52E2-69B9-47B07984EA85" name="PRERREQUISITO PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:23:40 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>81F00A61-8FCD-DEA7-2819-8586A81F6E69</attributeRef>
+<attributeRef>DFC53CFA-02FD-6250-37BA-110F35F42FB4</attributeRef>
+<attributeRef>0F4D188F-BC97-7432-3757-07C240D53C30</attributeRef>
+<attributeRef>6740DEEE-18D3-DE94-07F0-760BDC34423D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

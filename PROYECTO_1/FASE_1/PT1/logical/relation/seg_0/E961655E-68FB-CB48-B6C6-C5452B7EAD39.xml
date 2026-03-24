@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="HORARIO_SE" directorySegmentName="seg_0" id="E961655E-68FB-CB48-B6C6-C5452B7EAD39">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:44:57 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>A25640D2-BE21-43B3-723C-F374C55F4107</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B5330A78-2C0F-36C7-5FFA-989F1E97E220</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>68C6D124-118E-AA25-613E-062A92202CAC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

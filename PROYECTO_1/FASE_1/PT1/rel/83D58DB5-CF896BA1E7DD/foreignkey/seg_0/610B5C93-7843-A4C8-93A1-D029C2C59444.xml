@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="610B5C93-7843-A4C8-93A1-D029C2C59444" containerWithKeyObject="022F5C6E-1EAC-A35D-C136-6D5DD284AB16" localFKIndex="D8A5FEF3-1949-CC2D-3367-5EA5326E6DC6" name="HORARIO_DIA_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>08DE0C5F-7CE4-97A5-E928-6DCBB6FB8FE1</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<referredTableLongName>DIA</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>AF96F69E-B1A8-48E1-9782-3D3C6A33E14F</referredTableID>
+<keyObject>A0008493-B580-5D23-35B3-9C9808ACCAEA</keyObject>
+<referredKeyID>A0008493-B580-5D23-35B3-9C9808ACCAEA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_DIA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

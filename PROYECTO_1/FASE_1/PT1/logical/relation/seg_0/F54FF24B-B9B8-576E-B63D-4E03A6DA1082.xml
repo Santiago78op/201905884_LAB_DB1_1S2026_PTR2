@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PRERRQ_CU" directorySegmentName="seg_0" id="F54FF24B-B9B8-576E-B63D-4E03A6DA1082">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:22:17 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>1513469A-4517-4164-F8F3-133EF2E3F77D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9F802136-AE1C-D194-4EF9-9A5C9D0558E1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>25828025-9DFA-63F4-7522-8376221AFDC2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

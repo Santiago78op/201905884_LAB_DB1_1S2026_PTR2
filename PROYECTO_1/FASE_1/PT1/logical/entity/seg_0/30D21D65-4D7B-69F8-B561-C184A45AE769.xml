@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="30D21D65-4D7B-69F8-B561-C184A45AE769" name=" ASIGNACION">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:24:27 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ZONA" id="E98AE0C9-86A8-621F-19BE-065B04CCA0ED">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:24:59 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOTA" id="908042E0-1D03-3F68-4E13-1A3772CD1ED8">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:25:08 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_ESTUDIANTE" id="190EF1F9-8130-5799-70EA-A6D5FC2EDAAB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:28:04 UTC</createdTime>
+<generatorID>2744BA46-884A-FC3E-91D8-7A35627A0ABC</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>768A1D67-228B-A399-83FC-75896A955896</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_SECCION" id="9B9A225A-4EA1-4337-A268-CBBD1332B54E">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:29:01 UTC</createdTime>
+<generatorID>4E2893CA-7830-A67F-456C-1C85E6A506C9</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>471C5A0A-B2AE-E4DE-A0C6-9C877351CF6D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_CURSO" id="E93D5E1B-0643-ACC3-8154-3F36206D80F6">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:29:01 UTC</createdTime>
+<generatorID>4E2893CA-7830-A67F-456C-1C85E6A506C9</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>3ED77E73-3330-C53C-69F3-E754D17C2707</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ANIO" id="4C4545CA-A6C5-725A-82CA-5740C94BFCC8">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:29:01 UTC</createdTime>
+<generatorID>4E2893CA-7830-A67F-456C-1C85E6A506C9</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>75914ABE-D452-7663-84AE-8B20956961AE</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CICLO" id="DE5717F2-26DB-2776-88B0-F199234953A5">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:29:01 UTC</createdTime>
+<generatorID>4E2893CA-7830-A67F-456C-1C85E6A506C9</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>7B628B63-22E7-82A8-2EB1-694455A70694</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6B425B35-AC26-EFB5-7175-EF04AE790CEA" name="ASIGNACION PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:31:16 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DE5717F2-26DB-2776-88B0-F199234953A5</attributeRef>
+<attributeRef>E93D5E1B-0643-ACC3-8154-3F36206D80F6</attributeRef>
+<attributeRef>9B9A225A-4EA1-4337-A268-CBBD1332B54E</attributeRef>
+<attributeRef>190EF1F9-8130-5799-70EA-A6D5FC2EDAAB</attributeRef>
+<attributeRef>4C4545CA-A6C5-725A-82CA-5740C94BFCC8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

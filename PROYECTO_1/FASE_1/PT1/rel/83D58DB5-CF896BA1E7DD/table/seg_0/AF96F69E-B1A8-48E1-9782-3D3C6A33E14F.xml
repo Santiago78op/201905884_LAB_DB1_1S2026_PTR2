@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AF96F69E-B1A8-48E1-9782-3D3C6A33E14F" name="DIA">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>00C249FC-0AE1-882F-FFEA-FF7D832F1C2E</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DIA" id="B06023C4-9775-7EDE-B250-7D61B7ACA470">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>4B630703-5390-DE04-360A-E9CA3E38416B</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="4BA46FF4-EB87-A9D9-9DB1-E878471695EA">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>4B391119-CF3A-0ACA-DAD9-9FAB0B609D62</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A0008493-B580-5D23-35B3-9C9808ACCAEA" name="DIA_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>9A26EE74-44C1-2BC3-0F26-879E8E43BF14</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B06023C4-9775-7EDE-B250-7D61B7ACA470"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

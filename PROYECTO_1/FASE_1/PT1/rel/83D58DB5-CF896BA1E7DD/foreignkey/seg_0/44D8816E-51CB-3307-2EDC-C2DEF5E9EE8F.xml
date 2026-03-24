@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="44D8816E-51CB-3307-2EDC-C2DEF5E9EE8F" containerWithKeyObject="DE701E09-435E-0288-4D33-AB2C5AFD3D6F" localFKIndex="0C2CEA6D-A36E-1ABC-1083-58AAC43FD271" name="PLAN_JORNADA_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>27AE00D8-2667-BFEE-6B84-BC658CB85958</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<referredTableLongName>JORNADA</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>3B3BD0AE-042F-E0CC-7EEB-342C134DF74D</referredTableID>
+<keyObject>9C3440DD-245B-CE36-7802-B6E216BE2DD1</keyObject>
+<referredKeyID>9C3440DD-245B-CE36-7802-B6E216BE2DD1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_JORNADA</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

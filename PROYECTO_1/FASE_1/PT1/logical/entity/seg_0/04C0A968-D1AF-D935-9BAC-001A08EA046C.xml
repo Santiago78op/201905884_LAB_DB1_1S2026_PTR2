@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="04C0A968-D1AF-D935-9BAC-001A08EA046C" name="INSCRIPCION">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:48:37 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="FECHA_INSCRIPCION" id="95AF300B-115C-C152-B99C-2B933A4003CD">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:49:06 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_ESTUDIANTE" id="4AB48BEA-5DD4-4179-0B33-A3FF8A688C91">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:50:49 UTC</createdTime>
+<generatorID>1E6B423D-FD06-6395-0697-6949FA2E6B4B</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>768A1D67-228B-A399-83FC-75896A955896</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_CARRERA" id="92B5031E-7020-D728-AD24-0122F2B56507">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:52:43 UTC</createdTime>
+<generatorID>0D494469-CD59-CA2A-9163-6E4C22232805</generatorID>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>D630A6FA-DD61-04AC-2F8C-99C30EB709CA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="048F91F9-2062-2FB6-321C-9C1269847D02" name="INSCRIPCION PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:53:20 UTC</createdTime>
+<ownerDesignName>PT1</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>4AB48BEA-5DD4-4179-0B33-A3FF8A688C91,92B5031E-7020-D728-AD24-0122F2B56507</newElementsIDs>
+<usedAttributes>
+<attributeRef>4AB48BEA-5DD4-4179-0B33-A3FF8A688C91</attributeRef>
+<attributeRef>92B5031E-7020-D728-AD24-0122F2B56507</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
