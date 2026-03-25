@@ -1,0 +1,774 @@
+-- ============================================================
+-- TABLA: CARRERA
+-- Descripción: Registra las carreras disponibles en la universidad.
+-- Dependencias: UNIDAD_ACADEMICA
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE CARRERA 
+( 
+    ID_CARRERA                   NUMBER (10)     NOT NULL, 
+    NOMBRE                       VARCHAR2 (100)  NOT NULL, 
+    UNIDAD_ACADEMICA_ID_UNIDAD_A NUMBER (10)     NOT NULL 
+);
+
+-- CARRERA PK(ID_CARRERA)
+ALTER TABLE CARRERA 
+    ADD CONSTRAINT CARRERA_PK 
+    PRIMARY KEY ( ID_CARRERA );
+
+-- UNIDAD_ACADEMICA_ID_UNIDAD_A FK REFERENCES UNIDAD_ACADEMICA(ID_UNIDAD_A) ON DELETE CASCADE
+ALTER TABLE CARRERA 
+    ADD CONSTRAINT CARRERA_UNIDAD_ACADEMICA_FK FOREIGN KEY 
+    ( UNIDAD_ACADEMICA_ID_UNIDAD_A ) 
+    REFERENCES UNIDAD_ACADEMICA 
+    ( ID_UNIDAD_A ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: ESTUDIANTE
+-- Descripción: Registra los estudiantes matriculados en la universidad.
+-- Dependencias: Ninguna
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE ESTUDIANTE 
+( 
+    ID_ESTUDIANTE    NUMBER (10)    NOT NULL, 
+    NOMBRE           VARCHAR2 (100) NOT NULL, 
+    INGRESO_FAMILIAR NUMBER (8,2)   NOT NULL, 
+    FECHA_NACIMIENTO DATE           NOT NULL 
+);
+
+-- INGRESO_FAMILIAR debe ser mayor o igual a 0
+ALTER TABLE ESTUDIANTE 
+    ADD CONSTRAINT ESTUDIANTE_CK_1 
+    CHECK ( INGRESO_FAMILIAR >= 0 );
+
+-- ESTUDIANTE PK(ID_ESTUDIANTE)
+ALTER TABLE ESTUDIANTE 
+    ADD CONSTRAINT ESTUDIANTE_PK 
+    PRIMARY KEY ( ID_ESTUDIANTE );
+
+-- ============================================================
+-- TABLA: DOCENTE
+-- Descripción: Registra los docentes que imparten clases en la universidad.
+-- Dependencias: Ninguna
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE DOCENTE 
+( 
+    ID_DOCENTE     NUMBER (10)     NOT NULL, 
+    NOMBRE         VARCHAR2 (100)  NOT NULL, 
+    SUELDO_MENSUAL NUMBER (10,2)   NOT NULL 
+);
+
+-- SUELDO_MENSUAL debe ser mayor a 0
+ALTER TABLE DOCENTE 
+    ADD CONSTRAINT DOCENTE_CK_1 
+    CHECK ( SUELDO_MENSUAL > 0 );
+
+-- DOCENTE PK(ID_DOCENTE)
+ALTER TABLE DOCENTE 
+    ADD CONSTRAINT DOCENTE_PK 
+    PRIMARY KEY ( ID_DOCENTE );
+
+-- ============================================================
+-- TABLA: CURSO
+-- Descripción: Registra los cursos disponibles en la universidad.
+-- Dependencias: Ninguna
+-- Restricciones: Ninguna
+-- ============================================================
+CREATE TABLE CURSO 
+( 
+    ID_CURSO NUMBER (10)  NOT NULL , 
+    NOMBRE   VARCHAR2 (100)  NOT NULL 
+);
+
+-- CURSO PK(ID_CURSO)
+ALTER TABLE CURSO 
+    ADD CONSTRAINT CURSO_PK 
+    PRIMARY KEY ( ID_CURSO );
+
+-- ============================================================
+-- TABLA: EDIFICIO
+-- Descripción: Registra los edificios donde se encuentran los salones.
+-- Dependencias: Ninguna
+-- Restricciones: Ninguna
+-- ============================================================
+CREATE TABLE EDIFICIO 
+( 
+    ID_EDIFICIO NUMBER (10)     NOT NULL, 
+    NOMBRE      VARCHAR2 (100)  NOT NULL 
+);
+
+-- EDIFICIO PK(ID_EDIFICIO)
+ALTER TABLE EDIFICIO 
+    ADD CONSTRAINT EDIFICIO_PK 
+    PRIMARY KEY ( ID_EDIFICIO );
+
+-- ============================================================
+-- TABLA: SALON
+-- Descripción: Registra los salones disponibles para las clases.
+-- Dependencias: EDIFICIO
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE SALON 
+( 
+    ID_SALON             NUMBER (10)  NOT NULL, 
+    CAPACIDAD            NUMBER (4)   NOT NULL, 
+    EDIFICIO_ID_EDIFICIO NUMBER (10)  NOT NULL 
+);
+
+-- CAPACIDAD debe ser mayor a 0
+ALTER TABLE SALON 
+    ADD CONSTRAINT SALON_CK_1 
+    CHECK ( CAPACIDAD > 0 );
+
+-- SALON PK(ID_SALON, EDIFICIO_ID_EDIFICIO)
+ALTER TABLE SALON 
+    ADD CONSTRAINT SALON_PK 
+    PRIMARY KEY ( ID_SALON, EDIFICIO_ID_EDIFICIO );
+
+-- EDIFICIO_ID_EDIFICIO FK REFERENCES EDIFICIO(ID_EDIFICIO) ON DELETE CASCADE
+ALTER TABLE SALON 
+    ADD CONSTRAINT SALON_EDIFICIO_FK FOREIGN KEY 
+    ( EDIFICIO_ID_EDIFICIO ) 
+    REFERENCES EDIFICIO 
+    ( ID_EDIFICIO ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: PERIODO
+-- Descripción: Registra los periodos horarios para las clases.
+-- Dependencias: Ninguna
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE PERIODO 
+( 
+    ID_PERIODO  NUMBER (10)   NOT NULL, 
+    HORA_INICIO VARCHAR2 (5)  NOT NULL, 
+    HORA_FIN    VARCHAR2 (5)  NOT NULL 
+);
+
+-- HORA_INICIO y HORA_FIN deben tener el formato HH:MM
+ALTER TABLE PERIODO 
+    ADD CONSTRAINT PERIODO_CK_1 
+    CHECK ( REGEXP_LIKE(HORA_INICIO, '^\d{2}:\d{2}$') );
+
+ALTER TABLE PERIODO 
+    ADD CONSTRAINT PERIODO_CK_2 
+    CHECK ( REGEXP_LIKE(HORA_FIN, '^\d{2}:\d{2}$') );
+
+-- PERIODO PK(ID_PERIODO)
+ALTER TABLE PERIODO 
+    ADD CONSTRAINT PERIODO_PK 
+    PRIMARY KEY ( ID_PERIODO );
+
+-- ============================================================
+-- TABLA: DIA
+-- Descripción: Registra los días de la semana para las clases.
+-- Dependencias: Ninguna
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE DIA 
+( 
+    ID_DIA NUMBER (1)     NOT NULL, 
+    NOMBRE VARCHAR2 (20)  NOT NULL 
+);
+
+-- ID_DIA debe estar entre 1 y 7, donde 1 representa Lunes y 7 representa Domingo
+ALTER TABLE DIA 
+    ADD CONSTRAINT DIA_CK_1 
+    CHECK ( NUMERO_DIA BETWEEN 1 AND 7 );
+
+-- DIA PK(ID_DIA)
+ALTER TABLE DIA 
+    ADD CONSTRAINT DIA_PK 
+    PRIMARY KEY ( ID_DIA );
+
+-- ============================================================
+-- TABLA: JORNADA
+-- Descripción: Registra las jornadas académicas disponibles en la universidad.
+-- Dependencias: Ninguna
+-- Restricciones: Ninguna
+-- ============================================================
+CREATE TABLE JORNADA 
+( 
+    ID_JORNADA NUMBER (10)    NOT NULL, 
+    NOMBRE     VARCHAR2 (50)  NOT NULL 
+);
+
+-- JORNADA PK(ID_JORNADA)
+ALTER TABLE JORNADA 
+    ADD CONSTRAINT JORNADA_PK 
+    PRIMARY KEY ( ID_JORNADA );
+
+-- ============================================================
+-- TABLA: UNIDAD_ACADEMICA
+-- Descripción: Registra las unidades académicas a las que pertenecen las carreras.
+-- Dependencias: Ninguna
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE UNIDAD_ACADEMICA 
+( 
+    ID_UNIDAD_A NUMBER (10)  NOT NULL , 
+    NOMBRE      VARCHAR2 (10)  NOT NULL 
+);
+
+-- UNIDAD_ACADEMICA PK(ID_UNIDAD_A)
+ALTER TABLE UNIDAD_ACADEMICA 
+    ADD CONSTRAINT UNIDAD_ACADEMICA_PK 
+    PRIMARY KEY ( ID_UNIDAD_A );
+
+-- SECUENCIA PARA GENERAR LOS ID DE LAS UNIDADES ACADEMICAS
+CREATE SEQUENCE UNIDAD_ACADEMICA_ID_UNIDAD_A 
+START WITH 1 
+    NOCACHE 
+    ORDER ;
+
+-- TRIGGER PARA ASIGNAR AUTOMATICAMENTE EL ID_UNIDAD_A EN LA TABLA UNIDAD_ACADEMICA
+CREATE OR REPLACE TRIGGER UNIDAD_ACADEMICA_ID_UNIDAD_A 
+BEFORE INSERT ON UNIDAD_ACADEMICA 
+FOR EACH ROW 
+WHEN (NEW.ID_UNIDAD_A IS NULL) 
+BEGIN 
+    :NEW.ID_UNIDAD_A := UNIDAD_ACADEMICA_ID_UNIDAD_A.NEXTVAL; 
+END;
+
+-- ============================================================
+-- TABLA: PLAN
+-- Descripción: Registra los planes de estudio para cada carrera.
+-- Dependencias: CARRERA, JORNADA
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE PLAN 
+( 
+    ID_PLAN            NUMBER (10)  NOT NULL, 
+    ANIO_INICIO        NUMBER (4)   NOT NULL, 
+    CICLO_INICIO       NUMBER (1)   NOT NULL, 
+    ANIO_FIN           NUMBER (4)   NOT NULL, 
+    CICLO_FIN          NUMBER (1)   NOT NULL, 
+    CREDITOS_CIERRE    NUMBER (3)   NOT NULL, 
+    CARRERA_ID_CARRERA NUMBER (10)  NOT NULL, 
+    JORNADA_ID_JORNADA NUMBER (10)  NOT NULL 
+);
+
+-- ============================================================
+-- Nota: El Ciclo 1 Semestre 1
+--       El Ciclo 2 Semestre 1 Primera Retrasada
+--       El Ciclo 3 Semestre 1 Segunda Retrasada
+--       El Ciclo 4 Semestre 1 Primer Interciclo
+--       El Ciclo 5 Semestre 2 
+--       El Ciclo 6 Semestre 2 Primera Retrasada
+--       El Ciclo 7 Semestre 2 Segunda Retrasada
+--       El Ciclo 8 Semestre 2 Segundo Interciclo
+-- ============================================================
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_CK_1 
+    CHECK ( CICLO_INICIO IN (1, 8) );
+
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_CK_2 
+    CHECK ( CICLO_FIN IN (1, 8) );
+
+-- CREDITOS_CIERRE debe ser mayor a 0
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_CK_3 
+    CHECK ( CREDITOS_NECESARIOS_CIERRE > 0 );
+
+-- ANIO_FIN debe ser mayor a ANIO_INICIO, o si son iguales, CICLO_FIN debe ser mayor o igual a CICLO_INICIO
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_CK_4 
+    CHECK ( (ANIO_FIN > ANIO_INICIO) OR 
+            (ANIO_FIN = ANIO_INICIO AND 
+            CICLO_FIN >= CICLO_INICIO));
+
+-- PLAN PK(ID_PLAN, CARRERA_ID_CARRERA)           
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_PK 
+    PRIMARY KEY ( ID_PLAN, CARRERA_ID_CARRERA );
+
+-- CARRERA_ID_CARRERA FK REFERENCES CARRERA(ID_CARRERA) ON DELETE CASCADE
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_CARRERA_FK FOREIGN KEY 
+    ( CARRERA_ID_CARRERA ) 
+    REFERENCES CARRERA 
+    ( ID_CARRERA ) 
+    ON DELETE CASCADE;
+
+-- JORNADA_ID_JORNADA FK REFERENCES JORNADA(ID_JORNADA) ON DELETE CASCADE
+ALTER TABLE PLAN 
+    ADD CONSTRAINT PLAN_JORNADA_FK FOREIGN KEY 
+    ( JORNADA_ID_JORNADA ) 
+    REFERENCES JORNADA 
+    ( ID_JORNADA ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: SECCION
+-- Descripción: Registra las secciones de cada curso para cada año y ciclo.
+-- Dependencias: CURSO, DOCENTE
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE SECCION 
+( 
+    ID_SECCION         NUMBER (10)    NOT NULL , 
+    ANIO               NUMBER (4)     NOT NULL , 
+    CICLO              NUMBER (1)     NOT NULL , 
+    CURSO_ID_CURSO     NUMBER (10)    NOT NULL , 
+    DOCENTE_ID_DOCENTE NUMBER (10)    NOT NULL , 
+    CUPO               NUMBER (3)     NOT NULL , 
+    ESTADO             VARCHAR2 (10)  NOT NULL 
+);
+
+-- CICLO debe estar entre 1 y 8
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_CK_1 
+    CHECK ( CICLO IN (1, 8) );
+
+-- CUPO debe ser mayor a 0
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_CK_2 
+    CHECK ( CUPO > 0 );
+
+-- ESTADO debe ser 'ABIERTA' o 'CERRADA'
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_CK_3 
+    CHECK ( ESTADO IN ('ABIERTA', 'CERRADA') );
+
+-- SECCION PK(ID_SECCION, CURSO_ID_CURSO, ANIO, CICLO)
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_PK 
+    PRIMARY KEY ( ID_SECCION, CURSO_ID_CURSO, ANIO, CICLO );
+
+-- ============================================================
+-- TABLA: INSCRIPCION
+-- Descripción: Registra las inscripciones de los estudiantes en las carreras.
+-- Dependencias: ESTUDIANTE, CARRERA
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE INSCRIPCION 
+( 
+    FECHA_INSCRIPCION        DATE           NOT NULL, 
+    ESTUDIANTE_ID_ESTUDIANTE NUMBER (10)    NOT NULL, 
+    CARRERA_ID_CARRERA       NUMBER (10)    NOT NULL, 
+    ESTADO                   VARCHAR2 (10)  NOT NULL, 
+    FECHA_CIERRE             DATE 
+);
+
+-- ESTADO debe ser 'ACTIVA' o 'CERRADA'
+ALTER TABLE INSCRIPCION 
+    ADD CONSTRAINT INSCRIPCION_CK_1 
+    CHECK ( ESTADO IN ('ACTIVA', 'CERRADA') );
+
+-- INSCRIPCION PK(ESTUDIANTE_ID_ESTUDIANTE, CARRERA_ID_CARRERA)
+ALTER TABLE INSCRIPCION 
+    ADD CONSTRAINT INSCRIPCION_PK 
+    PRIMARY KEY ( ESTUDIANTE_ID_ESTUDIANTE, CARRERA_ID_CARRERA ) ;
+
+-- CARRERA_ID_CARRERA FK REFERENCES CARRERA(ID_CARRERA) ON DELETE CASCADE
+ALTER TABLE INSCRIPCION 
+    ADD CONSTRAINT INSCRIPCION_CARRERA_FK FOREIGN KEY 
+    ( CARRERA_ID_CARRERA ) 
+    REFERENCES CARRERA 
+    ( ID_CARRERA ) 
+    ON DELETE CASCADE;
+
+-- ESTUDIANTE_ID_ESTUDIANTE FK REFERENCES ESTUDIANTE(ID_ESTUDIANTE) ON DELETE CASCADE
+ALTER TABLE INSCRIPCION 
+    ADD CONSTRAINT INSCRIPCION_ESTUDIANTE_FK FOREIGN KEY 
+    ( ESTUDIANTE_ID_ESTUDIANTE ) 
+    REFERENCES ESTUDIANTE 
+    ( ID_ESTUDIANTE ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: PENSUM
+-- Descripción: Registra los cursos que forman parte del pensum de cada plan de estudio.
+-- Dependencias: PLAN, CURSO
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE PENSUM 
+( 
+    OBLIGATORIEDAD          CHAR (1)     NOT NULL, 
+    CREDITOS                NUMBER (3)   NOT NULL, 
+    NOTA_APROBACION         NUMBER (5,2) NOT NULL, 
+    ZONA_MINIMA             NUMBER (5,2) NOT NULL, 
+    PLAN_ID_PLAN            NUMBER (10)  NOT NULL, 
+    PLAN_CARRERA_ID_CARRERA NUMBER (10)  NOT NULL, 
+    CURSO_ID_CURSO          NUMBER (10)  NOT NULL 
+);
+
+-- OBLIGATORIEDAD debe ser 'S' para obligatorio o 'N' para opcional
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_CK_1 
+    CHECK ( OBLIGATORIEDAD IN ('S', 'N') );
+
+-- CREDITOS debe ser mayor a 0
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_CK_2 
+    CHECK ( CREDITOS > 0 );
+
+-- NOTA_APROBACION debe estar entre 1 y 100
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_CK_3 
+    CHECK ( NOTA_APROBACION BETWEEN 1 AND 100 );
+
+-- ZONA_MINIMA debe estar entre 0 y 100
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_CK_4 
+    CHECK ( ZONA_MINIMA BETWEEN 0 AND 100 );
+
+-- PENSUM PK(PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO)
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_PK 
+    PRIMARY KEY ( PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO ) ;
+
+-- CURSO_ID_CURSO FK REFERENCES CURSO(ID_CURSO) ON DELETE CASCADE
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_CURSO_FK FOREIGN KEY 
+    ( CURSO_ID_CURSO ) 
+    REFERENCES CURSO 
+    ( ID_CURSO ) 
+    ON DELETE CASCADE;
+
+-- PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA FK REFERENCES PLAN(ID_PLAN, CARRERA_ID_CARRERA) ON DELETE CASCADE
+ALTER TABLE PENSUM 
+    ADD CONSTRAINT PENSUM_PLAN_FK FOREIGN KEY 
+    ( 
+     PLAN_ID_PLAN,
+     PLAN_CARRERA_ID_CARRERA
+    ) 
+    REFERENCES PLAN 
+    ( 
+     ID_PLAN,
+     CARRERA_ID_CARRERA
+    ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: PRERREQUISITO
+-- Descripción: Registra los cursos que son prerrequisitos para otros 
+--              cursos en el pensum de cada plan de estudio.
+-- Dependencias: PENSUM, CURSO
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE PRERREQUISITO 
+( 
+    PENSUM_PLAN_ID_PLAN            NUMBER (10)  NOT NULL, 
+    PENSUM_PLAN_CARRERA_ID_CARRERA NUMBER (10)  NOT NULL, 
+    PENSUM_CURSO_ID_CURSO          NUMBER (10)  NOT NULL, 
+    CURSO_ID_CURSO                 NUMBER (10)  NOT NULL 
+);
+
+-- PRERREQUISITO PK(PENSUM_PLAN_ID_PLAN, PENSUM_PLAN_CARRERA_ID_CARRERA, PENSUM_CURSO_ID_CURSO, CURSO_ID_CURSO)
+ALTER TABLE PRERREQUISITO 
+    ADD CONSTRAINT PRERREQUISITO_PK 
+    PRIMARY KEY ( CURSO_ID_CURSO, PENSUM_CURSO_ID_CURSO, PENSUM_PLAN_CARRERA_ID_CARRERA, PENSUM_PLAN_ID_PLAN );
+
+-- CURSO_ID_CURSO FK REFERENCES CURSO(ID_CURSO) ON DELETE CASCADE
+ALTER TABLE PRERREQUISITO 
+    ADD CONSTRAINT PRERREQUISITO_CURSO_FK FOREIGN KEY 
+    ( CURSO_ID_CURSO ) 
+    REFERENCES CURSO 
+    ( ID_CURSO ) 
+    ON DELETE CASCADE;
+
+-- PENSUM_PLAN_ID_PLAN, PENSUM_PLAN_CARRERA_ID_CARRERA, PENSUM_CURSO_ID_CURSO FK REFERENCES PENSUM(PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO) ON DELETE CASCADE
+ALTER TABLE PRERREQUISITO 
+    ADD CONSTRAINT PRERREQUISITO_PENSUM_FK FOREIGN KEY 
+    ( 
+     PENSUM_PLAN_ID_PLAN,
+     PENSUM_PLAN_CARRERA_ID_CARRERA,
+     PENSUM_CURSO_ID_CURSO
+    ) 
+    REFERENCES PENSUM 
+    ( 
+     PLAN_ID_PLAN,
+     PLAN_CARRERA_ID_CARRERA,
+     CURSO_ID_CURSO
+    ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: ASIGNACION
+-- Descripción: Registra las asignaciones de estudiantes a secciones, incluyendo sus notas y zonas.
+-- Dependencias: ESTUDIANTE, SECCION, PENSUM
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE ASIGNACION 
+( 
+    ZONA                           NUMBER (2)   NOT NULL, 
+    NOTA                           NUMBER (3)   NOT NULL, 
+    ESTUDIANTE_ID_ESTUDIANTE       NUMBER (10)  NOT NULL, 
+    SECCION_ID_SECCION             NUMBER (10)  NOT NULL, 
+    SECCION_CURSO_ID_CURSO         NUMBER (10)  NOT NULL, 
+    SECCION_ANIO                   NUMBER (4)   NOT NULL, 
+    SECCION_CICLO                  NUMBER (1)   NOT NULL, 
+    PENSUM_PLAN_ID_PLAN            NUMBER (10)  NOT NULL, 
+    PENSUM_PLAN_CARRERA_ID_CARRERA NUMBER (10)  NOT NULL, 
+    PENSUM_CURSO_ID_CURSO          NUMBER (10)  NOT NULL 
+);
+
+-- CICLO debe estar entre 1 y 8
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_CK_1 
+    CHECK ( CICLO IN (1, 8) );
+
+-- ZONA debe estar entre 0 y 100
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_CK_2 
+    CHECK ( ZONA BETWEEN 0 AND 100 );
+
+-- NOTA debe estar entre 0 y 100
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_CK_3 
+    CHECK ( NOTA BETWEEN 0 AND 100 );
+
+-- ASIGNACION PK(SECCION_CICLO, SECCION_CURSO_ID_CURSO, SECCION_ID_SECCION, ESTUDIANTE_ID_ESTUDIANTE, SECCION_ANIO) 
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_PK 
+    PRIMARY KEY ( SECCION_CICLO, SECCION_CURSO_ID_CURSO, SECCION_ID_SECCION, ESTUDIANTE_ID_ESTUDIANTE, SECCION_ANIO );
+
+-- PENSUM_PLAN_ID_PLAN, PENSUM_PLAN_CARRERA_ID_CARRERA, PENSUM_CURSO_ID_CURSO FK REFERENCES PENSUM(PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO) ON DELETE CASCADE
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_CURSO_FK FOREIGN KEY 
+    ( CURSO_ID_CURSO ) 
+    REFERENCES CURSO 
+    ( ID_CURSO ) 
+    ON DELETE CASCADE;
+
+-- DOCENTE_ID_DOCENTE FK REFERENCES DOCENTE(ID_DOCENTE) ON DELETE CASCADE
+ALTER TABLE SECCION 
+    ADD CONSTRAINT SECCION_DOCENTE_FK FOREIGN KEY 
+    ( DOCENTE_ID_DOCENTE ) 
+    REFERENCES DOCENTE 
+    ( ID_DOCENTE ) 
+    ON DELETE CASCADE;
+
+-- ESTUDIANTE_ID_ESTUDIANTE FK REFERENCES ESTUDIANTE(ID_ESTUDIANTE) ON DELETE CASCADE
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_ESTUDIANTE_FK FOREIGN KEY 
+    ( ESTUDIANTE_ID_ESTUDIANTE ) 
+    REFERENCES ESTUDIANTE 
+    ( ID_ESTUDIANTE ) 
+    ON DELETE CASCADE;
+
+-- PENSUM_PLAN_ID_PLAN, PENSUM_PLAN_CARRERA_ID_CARRERA, PENSUM_CURSO_ID_CURSO FK REFERENCES PENSUM(PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO) ON DELETE CASCADE
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_PENSUM_FK FOREIGN KEY 
+    ( 
+     PENSUM_PLAN_ID_PLAN,
+     PENSUM_PLAN_CARRERA_ID_CARRERA,
+     PENSUM_CURSO_ID_CURSO
+    ) 
+    REFERENCES PENSUM 
+    ( 
+     PLAN_ID_PLAN,
+     PLAN_CARRERA_ID_CARRERA,
+     CURSO_ID_CURSO
+    ) 
+    ON DELETE CASCADE;
+
+-- SECCION_ID_SECCION, SECCION_CURSO_ID_CURSO, SECCION_ANIO, SECCION_CICLO FK REFERENCES SECCION(ID_SECCION, CURSO_ID_CURSO, ANIO, CICLO) ON DELETE CASCADE
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_SECCION_FK FOREIGN KEY 
+    ( 
+     SECCION_ID_SECCION,
+     SECCION_CURSO_ID_CURSO,
+     SECCION_ANIO,
+     SECCION_CICLO
+    ) 
+    REFERENCES SECCION 
+    ( 
+     ID_SECCION,
+     CURSO_ID_CURSO,
+     ANIO,
+     CICLO
+    ) 
+    ON DELETE CASCADE;
+
+-- ============================================================
+-- TABLA: HORARIO
+-- Descripción: Registra los horarios de las secciones, incluyendo el día, periodo y salón asignados.
+-- Dependencias: SECCION, DIA, PERIODO, SALON
+-- Restricciones: Tiene
+-- ============================================================
+CREATE TABLE HORARIO 
+( 
+    SECCION_ID_SECCION         NUMBER (10)  NOT NULL, 
+    SECCION_CURSO_ID_CURSO     NUMBER (10)  NOT NULL, 
+    SECCION_ANIO               NUMBER (4)   NOT NULL, 
+    SECCION_CICLO              NUMBER (1)   NOT NULL, 
+    PERIODO_ID_PERIODO         NUMBER (10)  NOT NULL, 
+    DIA_ID_DIA                 NUMBER (1)   NOT NULL, 
+    SALON_ID_SALON             NUMBER (10)  NOT NULL, 
+    SALON_EDIFICIO_ID_EDIFICIO NUMBER (10)  NOT NULL 
+);
+
+-- CICLO debe estar entre 1 y 8
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_CK_1 
+    CHECK ( CICLO IN (1, 8) );
+
+-- HORARIO PK(SECCION_CURSO_ID_CURSO, SECCION_ID_SECCION, SECCION_ANIO, SECCION_CICLO, PERIODO_ID_PERIODO, DIA_ID_DIA, SALON_EDIFICIO_ID_EDIFICIO, SALON_ID_SALON)
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_PK 
+    PRIMARY KEY ( SECCION_CURSO_ID_CURSO, SECCION_ID_SECCION, SECCION_ANIO, SECCION_CICLO, PERIODO_ID_PERIODO, DIA_ID_DIA, SALON_EDIFICIO_ID_EDIFICIO, SALON_ID_SALON );
+
+-- Un horario no puede tener el mismo salón, día, periodo y sección al mismo tiempo
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO__UN UNIQUE ( SALON_EDIFICIO_ID_EDIFICIO , SALON_ID_SALON , DIA_ID_DIA , PERIODO_ID_PERIODO , SECCION_ANIO , SECCION_CICLO );
+
+-- SECCION_ID_SECCION, SECCION_CURSO_ID_CURSO, SECCION_ANIO, SECCION_CICLO FK REFERENCES SECCION(ID_SECCION, CURSO_ID_CURSO, ANIO, CICLO) ON DELETE CASCADE
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_DIA_FK FOREIGN KEY 
+    ( 
+     DIA_ID_DIA
+    ) 
+    REFERENCES DIA 
+    ( 
+     ID_DIA
+    ) 
+    ON DELETE CASCADE;
+
+-- PERIODO_ID_PERIODO FK REFERENCES PERIODO(ID_PERIODO) ON DELETE CASCADE
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_PERIODO_FK FOREIGN KEY 
+    ( 
+     PERIODO_ID_PERIODO
+    ) 
+    REFERENCES PERIODO 
+    ( 
+     ID_PERIODO
+    ) 
+    ON DELETE CASCADE;
+
+-- SALON_ID_SALON, SALON_EDIFICIO_ID_EDIFICIO FK REFERENCES SALON(ID_SALON, EDIFICIO_ID_EDIFICIO) ON DELETE CASCADE
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_SALON_FK FOREIGN KEY 
+    ( 
+     SALON_ID_SALON,
+     SALON_EDIFICIO_ID_EDIFICIO
+    ) 
+    REFERENCES SALON 
+    ( 
+     ID_SALON,
+     EDIFICIO_ID_EDIFICIO
+    ) 
+    ON DELETE CASCADE;
+
+-- SECCION_ID_SECCION, SECCION_CURSO_ID_CURSO, SECCION_ANIO, SECCION_CICLO FK REFERENCES SECCION(ID_SECCION, CURSO_ID_CURSO, ANIO, CICLO) ON DELETE CASCADE
+ALTER TABLE HORARIO 
+    ADD CONSTRAINT HORARIO_SECCION_FK FOREIGN KEY 
+    ( 
+     SECCION_ID_SECCION,
+     SECCION_CURSO_ID_CURSO,
+     SECCION_ANIO,
+     SECCION_CICLO
+    ) 
+    REFERENCES SECCION 
+    ( 
+     ID_SECCION,
+     CURSO_ID_CURSO,
+     ANIO,
+     CICLO
+    ) 
+    ON DELETE CASCADE;
+
+
+-- ************************************************************
+
+-- ============================================================
+-- TRIGGERS PARA VALIDAR RESTRICCIONES DE NEGOCIO
+-- ============================================================
+
+-- ============================================================
+-- Tabla:   INSCRIPCION (BEFORE INSERT / BEFORE UPDATE)
+-- Lógica:  Contar inscripciones activas del estudiante. Si COUNT >= 2, lanzar error.
+-- Tipo:    TRIGGER OBLIGATORIO
+-- Razón:   CHECK no puede referenciar agregados (COUNT) sobre la misma tabla.
+-- Descripción: Este trigger asegura que un estudiante no pueda tener más de dos inscripciones activas al mismo tiempo.
+-- ============================================================
+CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
+BEFORE INSERT ON INSCRIPCION
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+    -- Contar inscripciones activas del estudiante, excluyendo la fila que se está insertando o actualizando
+    SELECT COUNT(*)
+        INTO v_count
+    FROM INSCRIPCION
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE AND
+            AND ESTADO = 'ACTIVA'
+
+    -- Si el conteo es mayor o igual a 2, lanzar error
+    IF v_count >= 2 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Un estudiante no puede tener más de dos inscripciones activas.');
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
+BEFORE UPDATE ON INSCRIPCION
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+
+    IF :NEW.ESTUDIANTE_ID_ESTUDIANTE != :OLD.ESTUDIANTE_ID_ESTUDIANTE THEN 
+        RAISE_APPLICATION_ERROR(-20004, 'No se puede cambiar el estudiante de una inscripción. Para cambiar el estudiante, se debe crear una nueva inscripción para el nuevo estudiante.');
+    END IF;
+
+    IF :NEW.CARRERA_ID_CARRERA != :OLD.CARRERA_ID_CARRERA THEN 
+        RAISE_APPLICATION_ERROR(-20005, 'No se puede cambiar la carrera de una inscripción. Para cambiar la carrera, se debe crear una nueva inscripción para la nueva carrera.');
+    END IF;
+
+    IF :NEW.ESTADO = 'ACTIVA' AND :OLD.ESTADO = 'CERRADA' THEN 
+        -- Si se está intentando reactivar una inscripción cerrada, contar inscripciones activas del estudiante, excluyendo la fila que se está actualizando
+        SELECT COUNT(*)
+            INTO v_count
+        FROM INSCRIPCION
+            WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+                AND ESTADO = 'ACTIVA'
+
+        -- Si el conteo es mayor o igual a 2, lanzar error
+        IF v_count >= 2 THEN
+            RAISE_APPLICATION_ERROR(-20001, 'Un estudiante no puede tener más de dos inscripciones activas.');
+        END IF;
+    END IF;
+END;
+
+-- ============================================================
+-- Tabla:   ASIGNACION (BEFORE INSERT)
+-- Lógica:  Para cada prerrequisito del plan del estudiante para ese curso, verificar que exista
+--           una ASIGNACION aprobada previa. Si falta alguno, lanzar error.
+-- Tipo:    TRIGGER OBLIGATORIO
+-- Razón:   Requiere JOIN entre varias tablas.
+-- Descripción: Este trigger asegura que un estudiante cumpla con todos los prerrequisitos antes de ser asignado a una sección.
+-- ============================================================
+CREATE OR REPLACE TRIGGER ASIGNACION_PRERREQUISITOS
+BEFORE INSERT ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+    -- Contar prerrequisitos del curso que no han sido aprobados por el estudiante
+    SELECT COUNT(*)
+    INTO v_count
+    FROM PRERREQUISITO p
+    LEFT JOIN ASIGNACION a ON p.CURSO_ID_CURSO = a.PENSUM_CURSO_ID_CURSO
+                            AND a.ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+                            AND a.NOTA >= p.NOTA_APROBACION
+    WHERE p.PENSUM_PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN
+      AND p.PENSUM_PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+      AND p.PENSUM_CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO
+      AND a.ESTUDIANTE_ID_ESTUDIANTE IS NULL; -- No se encontró asignación aprobada para este prerrequisito
+
+    -- Si el conteo es mayor a 0, significa que hay prerrequisitos no cumplidos, lanzar error
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'El estudiante no cumple con todos los prerrequisitos para este curso.');
+    END IF;
+END;
+
+
+/
