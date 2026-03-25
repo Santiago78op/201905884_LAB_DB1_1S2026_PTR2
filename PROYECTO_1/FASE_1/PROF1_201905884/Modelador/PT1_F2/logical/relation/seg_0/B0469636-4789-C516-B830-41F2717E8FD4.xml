@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ASIGNACION_PE" directorySegmentName="seg_0" id="B0469636-4789-C516-B830-41F2717E8FD4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:28:58 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>664B1F25-1B5B-15F0-6990-2DB01FA5079C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A8F8FABC-A0C8-4815-078C-4DC9B007E45C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>30D21D65-4D7B-69F8-B561-C184A45AE769</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

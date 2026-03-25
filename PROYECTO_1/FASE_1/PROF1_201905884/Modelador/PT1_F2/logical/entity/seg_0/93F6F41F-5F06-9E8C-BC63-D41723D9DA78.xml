@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="93F6F41F-5F06-9E8C-BC63-D41723D9DA78" name="SALON">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 20:52:17 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_SALON" id="720493E5-097C-BC79-94C7-8BCC5A2E2788">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 20:52:23 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CAPACIDAD" id="CAD29635-52EA-98B0-9593-D8A54917502C">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 20:55:41 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_EDIFICIO" id="9CB89E67-1CF0-7FDF-BB67-D5EF340FACB3">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 21:03:47 UTC</createdTime>
+<generatorID>F3A3035A-61D2-38F5-C5EA-EA4FE3B52010</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<referedAttribute>A41990CE-130D-88C4-DEC3-89BC50B365B9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A23572E5-7A35-123D-9AA9-8FD2190A4AB0" name="SALON PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 20:55:39 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>720493E5-097C-BC79-94C7-8BCC5A2E2788</attributeRef>
+<attributeRef>9CB89E67-1CF0-7FDF-BB67-D5EF340FACB3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A2322EB4-3D5A-49F6-A929-985253678D86" name="PRERREQUISITO">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>25828025-9DFA-63F4-7522-8376221AFDC2</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PENSUM_PLAN_ID_PLAN" id="D54137B5-9780-D12C-3155-377CB8B53910">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>6740DEEE-18D3-DE94-07F0-760BDC34423D</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14354D4B-FAF3-ABC9-A460-88F1C14EBDA0" referredColumn="01C284A8-DB3A-C73C-2596-D0992991B9D4"/>
+</associations>
+</Column>
+<Column name="PENSUM_PLAN_CARRERA_ID_CARRERA" id="1A1E5DB0-CFB0-98E6-0C49-03B4251B88AE">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>0F4D188F-BC97-7432-3757-07C240D53C30</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14354D4B-FAF3-ABC9-A460-88F1C14EBDA0" referredColumn="D924416F-F6E0-4A83-2CF8-0B20ED028A87"/>
+</associations>
+</Column>
+<Column name="PENSUM_CURSO_ID_CURSO" id="F4BFAA0A-32D9-3FFB-36FD-3B11E7431390">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>DFC53CFA-02FD-6250-37BA-110F35F42FB4</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14354D4B-FAF3-ABC9-A460-88F1C14EBDA0" referredColumn="1CF45D5E-F9EA-500B-AA2C-3480E4458FCC"/>
+</associations>
+</Column>
+<Column name="CURSO_ID_CURSO" id="467243C0-B9DC-78DF-3604-266249B7FDEB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>81F00A61-8FCD-DEA7-2819-8586A81F6E69</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ACC621C3-5973-2756-B740-34300349F503" referredColumn="ACFDCEF1-BB2A-9F79-7C75-ADA9D9248CFA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="825A51FA-EC21-AFD2-0522-198693E0AEFB" name="PRERREQUISITO_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>2E547C5D-F646-52E2-69B9-47B07984EA85</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="467243C0-B9DC-78DF-3604-266249B7FDEB"/>
+<colUsage columnID="F4BFAA0A-32D9-3FFB-36FD-3B11E7431390"/>
+<colUsage columnID="1A1E5DB0-CFB0-98E6-0C49-03B4251B88AE"/>
+<colUsage columnID="D54137B5-9780-D12C-3155-377CB8B53910"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EEE66F94-2108-E0DC-6F5B-5935E792F4A6" name="PRERREQUISITO_CURSO_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>F54FF24B-B9B8-576E-B63D-4E03A6DA1082</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="467243C0-B9DC-78DF-3604-266249B7FDEB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0A045BBA-24DF-B6ED-1EB7-0235F85B87F7" name="PRERREQUISITO_PENSUM_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>A503FFC0-4C00-305B-C5D0-7F94AE3CC7A4</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D54137B5-9780-D12C-3155-377CB8B53910"/>
+<colUsage columnID="1A1E5DB0-CFB0-98E6-0C49-03B4251B88AE"/>
+<colUsage columnID="F4BFAA0A-32D9-3FFB-36FD-3B11E7431390"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

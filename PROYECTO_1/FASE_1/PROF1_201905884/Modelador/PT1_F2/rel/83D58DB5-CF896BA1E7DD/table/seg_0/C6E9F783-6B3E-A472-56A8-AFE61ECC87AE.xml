@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C6E9F783-6B3E-A472-56A8-AFE61ECC87AE" name="DOCENTE">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>9F103547-2B86-0B01-3820-F5B01EBD8F05</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_DOCENTE" id="5BADFCBE-64F8-22C9-6BED-BB6CE4DF076C">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>9050CFB4-E233-42DA-C154-F030C88D9887</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOMBRE" id="B472915A-C2B6-56AD-B8F4-8A003C15E8B1">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>C99271A5-8728-CA41-AD03-DF4569ACA75E</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUELDO_MENSUAL" id="ACC419D3-ECB5-2999-296E-652AE0302EB0">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>B816721E-DD04-E412-4DF1-271AE18A98D7</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D84F1752-091D-8FCF-956A-630F8F2D4D71" name="DOCENTE_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>87484E9B-58E7-D114-3AFD-0A4CCEBE9969</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5BADFCBE-64F8-22C9-6BED-BB6CE4DF076C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="DOCENTE_CK_1" directorySegmentName="seg_0" id="48942C6C-77DF-33A4-3472-FF130671A39F">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 14:59:01 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[SUELDO_MENSUAL > 0]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

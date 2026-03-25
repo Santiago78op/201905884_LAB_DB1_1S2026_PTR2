@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FAAEC5BB-C2F6-6AFE-935B-054AE7E15ACB" name="ESTUDIANTE">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:16:24 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_ESTUDIANTE" id="768A1D67-228B-A399-83FC-75896A955896">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:16:36 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOMBRE" id="7CE63273-E908-B2D7-6A93-E2141C1593AB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:18:58 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INGRESO_FAMILIAR" id="F6E97A37-1C6E-E19A-0EC7-A38F8AB724F9">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:27:12 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FECHA_NACIMIENTO" id="A0C324FC-83BE-461B-404E-30E8B801BAD8">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:28:15 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BACD19BB-4A93-CD7F-E21C-72AADA5B4862" name="ESTUDIANTE PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 18:18:53 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>768A1D67-228B-A399-83FC-75896A955896</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

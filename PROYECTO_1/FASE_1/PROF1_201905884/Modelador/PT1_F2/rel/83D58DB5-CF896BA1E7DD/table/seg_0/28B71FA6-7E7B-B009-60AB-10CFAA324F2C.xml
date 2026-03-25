@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="28B71FA6-7E7B-B009-60AB-10CFAA324F2C" name="PERIODO">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>F27614FF-5298-A522-3053-796DAC10FCA0</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PERIODO" id="1394EF9D-A979-33AD-982A-09EB319540BB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>43291858-0809-3477-800F-BC88936C5EA3</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HORA_INICIO" id="F239752A-230F-0CBE-C62F-6A76E9785CED">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>9317D319-46B0-C75B-A4F4-8FA8EF353DF5</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HORA_FIN" id="29634EAE-4175-F1B8-9F02-52F2F36A6113">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>26C1B768-0426-9867-747D-173C367ABAA0</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06C2CB3C-826F-353E-3F8B-3D702368DEEF" name="PERIODO_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>D68296DA-90FF-18D9-0009-1AF75F54881C</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1394EF9D-A979-33AD-982A-09EB319540BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="PERIODO_CK_1" directorySegmentName="seg_0" id="932CE9EB-FA6A-44A4-DB09-2B8E97DB4FA8">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 15:11:39 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[REGEXP_LIKE(HORA_INICIO, '^\d{2}:\d{2}$')]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PERIODO_CK_2" directorySegmentName="seg_0" id="03EE7DC7-38F4-D4C8-705B-29E68B2E3C27">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 15:11:39 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[REGEXP_LIKE(HORA_FIN, '^\d{2}:\d{2}$')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

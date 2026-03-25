@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4000D821-B5BD-F8B5-3EA4-95E4A368F807" name="PENSUM">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>A8F8FABC-A0C8-4815-078C-4DC9B007E45C</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OBLIGATORIEDAD" id="087EC8C5-2C85-04D6-B9F3-C064D2ED5E51">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>E18C7738-769F-31F1-2D2E-E3A3DBD1990F</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CREDITOS" id="3AA8838C-D755-3B33-B804-5165E9D04CFB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>65F8D658-F07F-85CB-C0C3-90C5B8EC97AF</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTA_APROBACION" id="55542C91-8C5E-692D-C6CB-DD7C32DA7530">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>831C998D-B28D-5C75-2144-D17A70620B54</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ZONA_MINIMA" id="01F9A75C-D478-9866-427B-F4735E9D79D9">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>2896677F-DE57-3512-3429-7B6DD05F13FE</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PLAN_ID_PLAN" id="01C284A8-DB3A-C73C-2596-D0992991B9D4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>533BB218-977F-BF74-6907-7C1BE896D18B</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B0795023-A641-99D3-E7DC-B5C2177CD8E1" referredColumn="11A9FE09-3AB8-32FC-BA1F-C80130A22696"/>
+</associations>
+</Column>
+<Column name="PLAN_CARRERA_ID_CARRERA" id="D924416F-F6E0-4A83-2CF8-0B20ED028A87">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>4B091988-1C6F-A00E-2AC3-1B52FDE740C2</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B0795023-A641-99D3-E7DC-B5C2177CD8E1" referredColumn="AFDE733C-A35F-8370-7C18-8CB71A824FEA"/>
+</associations>
+</Column>
+<Column name="CURSO_ID_CURSO" id="1CF45D5E-F9EA-500B-AA2C-3480E4458FCC">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>AAE8E61C-15E9-14EA-AB58-70A15040460E</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F846B581-199C-56BE-FEDD-47CC00EF1884" referredColumn="ACFDCEF1-BB2A-9F79-7C75-ADA9D9248CFA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C4E05859-EB4A-8D14-8730-DF1627842CEE" name="PENSUM_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>664B1F25-1B5B-15F0-6990-2DB01FA5079C</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01C284A8-DB3A-C73C-2596-D0992991B9D4"/>
+<colUsage columnID="D924416F-F6E0-4A83-2CF8-0B20ED028A87"/>
+<colUsage columnID="1CF45D5E-F9EA-500B-AA2C-3480E4458FCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6D137CDD-D00C-4D42-C30D-46474040D41D" name="PENSUM_CURSO_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>3D2CA966-E6A5-B1B0-58FF-FCA463262695</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1CF45D5E-F9EA-500B-AA2C-3480E4458FCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="757301E9-7B4E-84B0-0C30-7F30BFFF83CA" name="PENSUM_PLAN_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>604B12AB-7345-9333-3E79-412709876AA1</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01C284A8-DB3A-C73C-2596-D0992991B9D4"/>
+<colUsage columnID="D924416F-F6E0-4A83-2CF8-0B20ED028A87"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="PENSUM_CK_1" directorySegmentName="seg_0" id="60D0E6A1-3211-2A6A-F3F4-C8C84D4E97B4">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:18:54 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[OBLIGATORIEDAD IN ('S', 'N')]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PENSUM_CK_2" directorySegmentName="seg_0" id="4AC5F529-213E-D9CE-E082-3E6E1D023C86">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:19:16 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[CREDITOS > 0]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PENSUM_CK_3" directorySegmentName="seg_0" id="B5C89106-A601-E01C-1189-722BB6274A04">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:19:16 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[NOTA_APROBACION BETWEEN 1 AND 100]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="PENSUM_CK_4" directorySegmentName="seg_0" id="A661937C-3A8D-CF61-4E8E-DD33A4257FD9">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:19:16 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[ZONA_MINIMA BETWEEN 0 AND 100]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

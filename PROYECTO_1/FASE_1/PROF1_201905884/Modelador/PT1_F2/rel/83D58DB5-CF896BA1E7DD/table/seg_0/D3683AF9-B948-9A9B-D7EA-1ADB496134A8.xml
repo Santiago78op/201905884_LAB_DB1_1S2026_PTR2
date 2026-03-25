@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3683AF9-B948-9A9B-D7EA-1ADB496134A8" name="INSCRIPCION">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>04C0A968-D1AF-D935-9BAC-001A08EA046C</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FECHA_INSCRIPCION" id="2F7E8131-90D1-9448-7409-3FD3D7295AF3">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>95AF300B-115C-C152-B99C-2B933A4003CD</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ESTUDIANTE_ID_ESTUDIANTE" id="D594EF0C-7C8A-D1BC-F975-C4AECAF0CF6C">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>4AB48BEA-5DD4-4179-0B33-A3FF8A688C91</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3FE70E2-1E4A-B7B0-C540-1AA8C551407B" referredColumn="50E2F177-C3D5-07F9-0F37-82AC71D3D2C1"/>
+</associations>
+</Column>
+<Column name="CARRERA_ID_CARRERA" id="4FD1259E-ABC2-261D-9469-9F83A73C8C67">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>92B5031E-7020-D728-AD24-0122F2B56507</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CD70DF0B-A634-E69F-DAFA-66BD73BE8131" referredColumn="D9D06332-6748-179D-7153-CCB518AE9D6A"/>
+</associations>
+</Column>
+<Column name="ESTADO" id="6CF9532C-B7C4-B69D-C05E-B7C6168D5FF0">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:17:19 UTC</createdTime>
+<generatorID>46ACB290-EBA9-1203-5757-B499A448EB84</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FECHA_CIERRE" id="9DF9A554-7098-7DC5-E248-CDF2B10478CB">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:17:19 UTC</createdTime>
+<generatorID>0A813D40-0BED-E395-7FD7-6D1F57905EC5</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2BCD3AFD-62B5-522A-4210-A872B2D52DD7" name="INSCRIPCION_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>048F91F9-2062-2FB6-321C-9C1269847D02</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D594EF0C-7C8A-D1BC-F975-C4AECAF0CF6C"/>
+<colUsage columnID="4FD1259E-ABC2-261D-9469-9F83A73C8C67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="658FB8B6-5BC7-20C8-594F-FFD5E0BD3417" name="INSCRIPCION_CARRERA_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>0D494469-CD59-CA2A-9163-6E4C22232805</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FD1259E-ABC2-261D-9469-9F83A73C8C67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5479CD2A-9F24-4DE2-2F95-AA3302C06650" name="INSCRIPCION_ESTUDIANTE_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:48:47 UTC</createdTime>
+<generatorID>1E6B423D-FD06-6395-0697-6949FA2E6B4B</generatorID>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D594EF0C-7C8A-D1BC-F975-C4AECAF0CF6C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="INSCRIPCION_CK_1" directorySegmentName="seg_0" id="5061CD22-95FE-F5A3-21F2-CC5343903532">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-25 16:17:38 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<rule><![CDATA[ESTADO IN ('ACTIVA', 'CERRADA')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

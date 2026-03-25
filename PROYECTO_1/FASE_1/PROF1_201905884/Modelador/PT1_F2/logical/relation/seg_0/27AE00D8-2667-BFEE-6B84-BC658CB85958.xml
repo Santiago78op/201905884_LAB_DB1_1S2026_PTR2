@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PLAN_JO" directorySegmentName="seg_0" id="27AE00D8-2667-BFEE-6B84-BC658CB85958">
+<createdBy>72358</createdBy>
+<createdTime>2026-03-24 22:09:26 UTC</createdTime>
+<ownerDesignName>PT1_F2</ownerDesignName>
+<engineerTo>
+<item key="83D58DB5-F520-8D64-BC65-CF896BA1E7DD" value="true"/>
+</engineerTo>
+<sourcePk>70B513FC-C258-4357-A6E4-C63FFFAD13DF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3E655062-9EC0-DB91-1AD3-A7491107EF10</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D4DB1AAB-6E42-DC18-42EA-B51B0B926D47</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>
