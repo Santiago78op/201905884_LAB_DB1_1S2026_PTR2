@@ -77,9 +77,9 @@ ALTER TABLE DOCENTE
 -- Dependencias: Ninguna
 -- Restricciones: Ninguna
 -- ============================================================
-CREATE TABLE CURSO 
+CREATE TABLE CURSO
 ( 
-    ID_CURSO NUMBER (10)  NOT NULL , 
+    ID_CURSO NUMBER (10)     NOT NULL, 
     NOMBRE   VARCHAR2 (100)  NOT NULL 
 );
 
@@ -351,7 +351,8 @@ CREATE TABLE INSCRIPCION
     FECHA_INSCRIPCION        DATE           NOT NULL, 
     ESTUDIANTE_ID_ESTUDIANTE NUMBER (10)    NOT NULL, 
     CARRERA_ID_CARRERA       NUMBER (10)    NOT NULL, 
-    ESTADO                   VARCHAR2 (10)  NOT NULL, 
+    ESTADO                   VARCHAR2 (10)  NOT NULL,
+    CREDITOS_ACUMULADOS      NUMBER (3)     DEFAULT 0, 
     FECHA_CIERRE             DATE 
 );
 
@@ -390,7 +391,8 @@ ALTER TABLE INSCRIPCION
 CREATE TABLE PENSUM 
 ( 
     OBLIGATORIEDAD          CHAR (1)     NOT NULL, 
-    CREDITOS                NUMBER (3)   NOT NULL, 
+    CREDITOS                NUMBER (3)   NOT NULL,
+    PREREQUISITO_CREDITOS   NUMBER (3)   NOT NULL, 
     NOTA_APROBACION         NUMBER (5,2) NOT NULL, 
     ZONA_MINIMA             NUMBER (5,2) NOT NULL, 
     PLAN_ID_PLAN            NUMBER (10)  NOT NULL, 
@@ -408,15 +410,15 @@ ALTER TABLE PENSUM
     ADD CONSTRAINT PENSUM_CK_2 
     CHECK ( CREDITOS > 0 );
 
--- NOTA_APROBACION debe estar entre 1 y 100
+-- NOTA_APROBACION debe estar entre 61 y 100
 ALTER TABLE PENSUM 
     ADD CONSTRAINT PENSUM_CK_3 
-    CHECK ( NOTA_APROBACION BETWEEN 1 AND 100 );
+    CHECK ( NOTA_APROBACION BETWEEN 61 AND 100 );
 
--- ZONA_MINIMA debe estar entre 0 y 100
+-- ZONA_MINIMA debe estar entre 36 y 50
 ALTER TABLE PENSUM 
     ADD CONSTRAINT PENSUM_CK_4 
-    CHECK ( ZONA_MINIMA BETWEEN 0 AND 100 );
+    CHECK ( ZONA_MINIMA BETWEEN 36 AND 50 );
 
 -- PENSUM PK(PLAN_ID_PLAN, PLAN_CARRERA_ID_CARRERA, CURSO_ID_CURSO)
 ALTER TABLE PENSUM 
@@ -497,32 +499,38 @@ ALTER TABLE PRERREQUISITO
 -- ============================================================
 CREATE TABLE ASIGNACION 
 ( 
-    ZONA                           NUMBER (2)   NOT NULL, 
-    NOTA                           NUMBER (3)   NOT NULL, 
-    ESTUDIANTE_ID_ESTUDIANTE       NUMBER (10)  NOT NULL, 
-    SECCION_ID_SECCION             NUMBER (10)  NOT NULL, 
-    SECCION_CURSO_ID_CURSO         NUMBER (10)  NOT NULL, 
-    SECCION_ANIO                   NUMBER (4)   NOT NULL, 
-    SECCION_CICLO                  NUMBER (1)   NOT NULL, 
-    PENSUM_PLAN_ID_PLAN            NUMBER (10)  NOT NULL, 
-    PENSUM_PLAN_CARRERA_ID_CARRERA NUMBER (10)  NOT NULL, 
-    PENSUM_CURSO_ID_CURSO          NUMBER (10)  NOT NULL 
+    ZONA                           NUMBER (2)     NOT NULL, 
+    NOTA                           NUMBER (3)     NOT NULL, 
+    ESTADO                         VARCHAR2 (10)  DEFAULT 'CURSANDO',
+    ESTUDIANTE_ID_ESTUDIANTE       NUMBER (10)    NOT NULL, 
+    SECCION_ID_SECCION             NUMBER (10)    NOT NULL, 
+    SECCION_CURSO_ID_CURSO         NUMBER (10)    NOT NULL, 
+    SECCION_ANIO                   NUMBER (4)     NOT NULL, 
+    SECCION_CICLO                  NUMBER (1)     NOT NULL, 
+    PENSUM_PLAN_ID_PLAN            NUMBER (10)    NOT NULL, 
+    PENSUM_PLAN_CARRERA_ID_CARRERA NUMBER (10)    NOT NULL, 
+    PENSUM_CURSO_ID_CURSO          NUMBER (10)    NOT NULL 
 );
 
 -- CICLO debe estar entre 1 y 8
 ALTER TABLE ASIGNACION 
     ADD CONSTRAINT ASIGNACION_CK_1 
-    CHECK ( CICLO IN (1, 8) );
+    CHECK ( SECCION_CICLO IN (1, 8) );
 
--- ZONA debe estar entre 0 y 100
+-- ZONA debe estar entre 0 y 35
 ALTER TABLE ASIGNACION 
     ADD CONSTRAINT ASIGNACION_CK_2 
-    CHECK ( ZONA BETWEEN 0 AND 100 );
+    CHECK ( ZONA BETWEEN 0 AND 35 );
 
--- NOTA debe estar entre 0 y 100
+-- NOTA debe estar entre 61 y 100
 ALTER TABLE ASIGNACION 
     ADD CONSTRAINT ASIGNACION_CK_3 
-    CHECK ( NOTA BETWEEN 0 AND 100 );
+    CHECK ( NOTA BETWEEN 61 AND 100 );
+
+-- ESTADO debe ser 'APROBADO', 'REPROBADO' o 'CURSANDO'
+ALTER TABLE ASIGNACION 
+    ADD CONSTRAINT ASIGNACION_CK_4 
+    CHECK ( ESTADO IN ('APROBADO', 'REPROBADO', 'CURSANDO') );
 
 -- ASIGNACION PK(SECCION_CICLO, SECCION_CURSO_ID_CURSO, SECCION_ID_SECCION, ESTUDIANTE_ID_ESTUDIANTE, SECCION_ANIO) 
 ALTER TABLE ASIGNACION 
@@ -689,6 +697,8 @@ ALTER TABLE HORARIO
 -- Razón:   CHECK no puede referenciar agregados (COUNT) sobre la misma tabla.
 -- Descripción: Este trigger asegura que un estudiante no pueda tener más de dos inscripciones activas al mismo tiempo.
 -- ============================================================
+
+-- TRIGGER PARA INSERTAR INSCRIPCION
 CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
 BEFORE INSERT ON INSCRIPCION
 FOR EACH ROW
@@ -708,6 +718,7 @@ BEGIN
     END IF;
 END;
 
+-- TRIGGER PARA ACTUALIZAR INSCRIPCION
 CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
 BEFORE UPDATE ON INSCRIPCION
 FOR EACH ROW
@@ -739,26 +750,42 @@ BEGIN
 END;
 
 -- ============================================================
--- Tabla:   ASIGNACION (BEFORE INSERT)
--- Lógica:  Para cada prerrequisito del plan del estudiante para ese curso, verificar que exista
---           una ASIGNACION aprobada previa. Si falta alguno, lanzar error.
+-- Tabla:   ASIGNACION (TRIGGER)
+-- Lógica:  Para cada asignación, verificar que la zona y nota sean suficientes para
+--           aprobar el curso según el pensum. Si no, lanzar error.
 -- Tipo:    TRIGGER OBLIGATORIO
--- Razón:   Requiere JOIN entre varias tablas.
--- Descripción: Este trigger asegura que un estudiante cumpla con todos los prerrequisitos antes de ser asignado a una sección.
+-- Razón:   CHECK no puede referenciar agregados (SELECT) sobre la misma tabla.
+-- Descripción: Esta restricción asegura que un estudiante solo pueda ser asignado a una sección
+--              si cumple con los requisitos de zona y nota establecidos en el pensum para ese curso.
+-- Para la aprobación de un curso requiere que:
+-- ZONA >= PENSUM.ZONA_MINIMA
+-- NOTA >= PENSUM.NOTA_APROBACION
 -- ============================================================
-CREATE OR REPLACE TRIGGER ASIGNACION_PRERREQUISITOS
+
+-- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA INSERTAR
+CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
 BEFORE INSERT ON ASIGNACION
 FOR EACH ROW
 DECLARE
     v_count NUMBER;
 BEGIN
-    -- Contar prerrequisitos del curso que no han sido aprobados por el estudiante
+    -- Obtener los valores de zona minima y nota de aprobación del pensum para el curso que se está asignando
+    IF :NEW.ESTADO != 'CURSANDO' THEN
+        RAISE_APPLICATION_ERROR(-20003, 'No se puede asignar un curso con estado diferente a CURSANDO. 
+        Para asignar un curso con estado APROBADO o REPROBADO, primero se debe asignar el curso con 
+        estado CURSANDO y luego actualizar el estado a APROBADO o REPROBADO.');
+    END IF;
+
+    -- Logica para los prerrequisitos, se cuenta el numero de prerrequisitos del curso que no han sido aprobados por el estudiante
     SELECT COUNT(*)
     INTO v_count
     FROM PRERREQUISITO p
-    LEFT JOIN ASIGNACION a ON p.CURSO_ID_CURSO = a.PENSUM_CURSO_ID_CURSO
-                            AND a.ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-                            AND a.NOTA >= p.NOTA_APROBACION
+    LEFT JOIN ASIGNACION a ON 
+        p.PENSUM_PLAN_ID_PLAN = a.PENSUM_PLAN_ID_PLAN AND 
+        p.PENSUM_PLAN_CARRERA_ID_CARRERA = a.PENSUM_PLAN_CARRERA_ID_CARRERA AND
+        p.CURSO_ID_CURSO = a.PENSUM_CURSO_ID_CURSO AND 
+        a.ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE AND 
+        a.NOTA >= p.NOTA_APROBACION
     WHERE p.PENSUM_PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN
       AND p.PENSUM_PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
       AND p.PENSUM_CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO
@@ -768,7 +795,62 @@ BEGIN
     IF v_count > 0 THEN
         RAISE_APPLICATION_ERROR(-20002, 'El estudiante no cumple con todos los prerrequisitos para este curso.');
     END IF;
+
 END;
 
+-- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA ACTUALIZAR
+CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
+BEFORE UPDATE ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_zona_minima NUMBER(5,2);
+    v_nota_aprobacion NUMBER(5,2);
+    v_creditos NUMBER(3);
+BEGIN
+
+    IF :NEW.ESTADO == 'APROBADO' THEN
+        -- Obtener los valores de zona minima y nota de aprobación del pensum para el curso que se está asignando
+        SELECT ZONA_MINIMA, NOTA_APROBACION, CREDITOS
+
+        INTO v_zona_minima, v_nota_aprobacion, v_creditos
+        FROM PENSUM WHERE 
+            PENSUM.PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN AND
+            PENSUM.PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA AND
+            PENSUM.CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO;
+
+        -- Valida si la zona referida en la asignación es menor a la zona mínima requerida por el pensum
+        IF :NEW.ZONA < v_zona_minima THEN
+            RAISE_APPLICATION_ERROR(-20003, 'La zona del estudiante no cumple con la zona mínima requerida por el pensum para este curso.');
+        END IF;
+
+        -- Valida si la nota referida en la asignación es menor a la nota de aprobación requerida por el pensum
+        IF :NEW.NOTA < v_nota_aprobacion THEN
+            RAISE_APPLICATION_ERROR(-20003, 'La nota del estudiante no cumple con la nota de aprobación requerida por el pensum para este curso.');
+        END IF;
+
+        -- Set a CREDITOS ACUMULADOS en INSCRIPCION sumando los creditos del curso aprobado
+        UPDATE INSCRIPCION
+        SET CREDITOS_ACUMULADOS = v_creditos + CREDITOS_ACUMULADOS 
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+            AND CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+            AND ESTADO = 'ACTIVA';
+    
+    ELSIF :NEW.ESTADO == 'REPROBADO' THEN
+        -- Obtener los valores de zona minima y nota de aprobación del pensum para el curso que se está asignando
+        SELECT ZONA_MINIMA, NOTA_APROBACION
+        INTO v_zona_minima, v_nota_aprobacion
+        FROM PENSUM WHERE 
+            PENSUM.PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN AND
+            PENSUM.PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA AND
+            PENSUM.CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO;
+
+        -- Valida si la zona referida en la asignación es mayor o igual a la zona mínima requerida por el pensum
+        IF :NEW.ZONA >= v_zona_minima  AND :NEW.NOTA >= v_nota_aprobacion THEN
+            RAISE_APPLICATION_ERROR(-20003, 'No se puede marcar un curso como REPROBADO si la zona y nota del estudiante cumplen con los requisitos 
+            de aprobación del pensum para este curso.');
+        END IF;
+
+    END IF;     
+END;
 
 /
