@@ -1,10 +1,16 @@
 -- ============================================================
+-- DROP ALL VIEWS
+-- ============================================================
+DROP VIEW V_COMPANEROS_TODOS_CURSOS;
+
+-- ============================================================
 -- DROP ALL TRIGGERS
 -- ============================================================
 DROP TRIGGER TRG_UNIDAD_ACADEMICA;
 DROP TRIGGER INSCRIPCION_LIMIT_ACTIVAS;
 DROP TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA;
 DROP TRIGGER ASIGNACION_CALCULAR_PROMEDIO;
+DROP TRIGGER INSCRIPCION_VERIFICAR_CIERRE_CARRERA;
 
 -- ============================================================
 -- DROP ALL FUNCTIONS

@@ -345,15 +345,19 @@ ALTER TABLE SECCION
 -- Descripción: Registra las inscripciones de los estudiantes en las carreras.
 -- Dependencias: ESTUDIANTE, CARRERA
 -- Restricciones: Tiene
+-- Se agrego:
+-- PLAN_ID_PLAN: indica el plan de estudios vigente que sigue el estudiante en esta carrera.
+-- Necesario para verificar el cierre de carrera (cursos obligatorios + creditos de cierre).
 -- ============================================================
-CREATE TABLE INSCRIPCION 
-( 
-    FECHA_INSCRIPCION        DATE           NOT NULL, 
-    ESTUDIANTE_ID_ESTUDIANTE NUMBER (10)    NOT NULL, 
-    CARRERA_ID_CARRERA       NUMBER (10)    NOT NULL, 
+CREATE TABLE INSCRIPCION
+(
+    FECHA_INSCRIPCION        DATE           NOT NULL,
+    ESTUDIANTE_ID_ESTUDIANTE NUMBER (10)    NOT NULL,
+    CARRERA_ID_CARRERA       NUMBER (10)    NOT NULL,
+    PLAN_ID_PLAN             NUMBER (10)    NOT NULL,
     ESTADO                   VARCHAR2 (10)  NOT NULL,
-    CREDITOS_ACUMULADOS      NUMBER (3)     DEFAULT 0, 
-    FECHA_CIERRE             DATE 
+    CREDITOS_ACUMULADOS      NUMBER (3)     DEFAULT 0,
+    FECHA_CIERRE             DATE
 );
 
 -- ESTADO debe ser 'ACTIVA' o 'CERRADA'
@@ -375,11 +379,20 @@ ALTER TABLE INSCRIPCION
     ON DELETE CASCADE;
 
 -- ESTUDIANTE_ID_ESTUDIANTE FK REFERENCES ESTUDIANTE(ID_ESTUDIANTE) ON DELETE CASCADE
-ALTER TABLE INSCRIPCION 
-    ADD CONSTRAINT INSCRIPCION_ESTUDIANTE_FK FOREIGN KEY 
-    ( ESTUDIANTE_ID_ESTUDIANTE ) 
-    REFERENCES ESTUDIANTE 
-    ( ID_ESTUDIANTE ) 
+ALTER TABLE INSCRIPCION
+    ADD CONSTRAINT INSCRIPCION_ESTUDIANTE_FK FOREIGN KEY
+    ( ESTUDIANTE_ID_ESTUDIANTE )
+    REFERENCES ESTUDIANTE
+    ( ID_ESTUDIANTE )
+    ON DELETE CASCADE;
+
+-- (PLAN_ID_PLAN, CARRERA_ID_CARRERA) FK REFERENCES PLAN(ID_PLAN, CARRERA_ID_CARRERA) ON DELETE CASCADE
+-- Garantiza que el plan pertenece a la misma carrera en la que se inscribió el estudiante.
+ALTER TABLE INSCRIPCION
+    ADD CONSTRAINT INSCRIPCION_PLAN_FK FOREIGN KEY
+    ( PLAN_ID_PLAN, CARRERA_ID_CARRERA )
+    REFERENCES PLAN
+    ( ID_PLAN, CARRERA_ID_CARRERA )
     ON DELETE CASCADE;
 
 -- ============================================================
