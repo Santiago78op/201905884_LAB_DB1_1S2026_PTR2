@@ -13,7 +13,7 @@
 -- ============================================================
 
 -- TRIGGER PARA INSERTAR INSCRIPCION
-CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
+CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS_INS
 BEFORE INSERT ON INSCRIPCION
 FOR EACH ROW
 DECLARE
@@ -34,7 +34,7 @@ END;
 /
 
 -- TRIGGER PARA ACTUALIZAR INSCRIPCION
-CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
+CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS_UPD
 BEFORE UPDATE ON INSCRIPCION
 FOR EACH ROW
 DECLARE
@@ -138,7 +138,7 @@ END;
 /
 
 -- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA INSERTAR
-CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
+CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA_INS
 BEFORE INSERT ON ASIGNACION
 FOR EACH ROW
 DECLARE
@@ -234,7 +234,7 @@ END;
 /
 
 -- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA ACTUALIZAR
-CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
+CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA_UPD
 BEFORE UPDATE ON ASIGNACION
 FOR EACH ROW
 DECLARE
@@ -284,94 +284,150 @@ END;
 /
 
 -- ============================================================
--- Tabla:   ASIGNACION (AFTER UPDATE) → INSCRIPCION
+-- Tabla:   ASIGNACION (UPDATE) → INSCRIPCION
 -- Evento:  Cada vez que un curso cambia a estado APROBADO.
--- Lógica:
---   1. Obtiene el PLAN_ID_PLAN activo del estudiante en la carrera (de INSCRIPCION).
---   2. Cuenta los cursos obligatorios (OBLIGATORIEDAD='S') del plan actual que el
---      estudiante aún NO ha aprobado. Para la búsqueda de aprobados se consideran
---      TODOS los planes de la misma carrera (portabilidad entre planes anteriores).
---   3. Verifica que los créditos acumulados del estudiante >= PLAN.CREDITOS_CIERRE.
---   4. Si ambas condiciones se cumplen → cierra la inscripción:
---      INSCRIPCION.ESTADO = 'CERRADA', INSCRIPCION.FECHA_CIERRE = SYSDATE.
--- Tipo:    TRIGGER OBLIGATORIO
--- Razón:   CHECK no puede referenciar agregados de otras tablas.
+-- Tipo:    COMPOUND TRIGGER (evita ORA-04091 mutating table)
+-- Razón:   Un trigger FOR EACH ROW en ASIGNACION no puede hacer
+--          SELECT sobre la misma tabla ASIGNACION. El compound
+--          trigger resuelve esto en dos fases:
+--            AFTER EACH ROW  → solo captura IDs, no consulta ASIGNACION
+--            AFTER STATEMENT → procesa cuando la tabla ya no muta
+-- Lógica (ejecutada en AFTER STATEMENT):
+--   1. Obtiene el PLAN_ID_PLAN activo del estudiante en la carrera.
+--   2. Determina si el período de vigencia del plan ha expirado
+--      comparando (ANIO_FIN, CICLO_FIN) con el semestre actual.
+--   3. Cuenta los cursos obligatorios (OBLIGATORIEDAD='S') del plan
+--      que el estudiante aún NO ha aprobado. Se consideran aprobados
+--      en TODOS los planes de la misma carrera (portabilidad).
+--   4. Verifica créditos acumulados >= PLAN.CREDITOS_CIERRE.
+--   5. Cierra la inscripción si:
+--      - Créditos >= CREDITOS_CIERRE (siempre obligatorio), Y
+--      - Sin obligatorios pendientes O el plan ya expiró.
+-- Nota sobre CICLO: 1 = Semestre 1 (ene-jun), 8 = Semestre 2 (jul-dic).
 -- ============================================================
 CREATE OR REPLACE TRIGGER INSCRIPCION_VERIFICAR_CIERRE_CARRERA
-AFTER UPDATE ON ASIGNACION
-FOR EACH ROW
-WHEN (NEW.ESTADO = 'APROBADO' AND OLD.ESTADO != 'APROBADO')
-DECLARE
-    v_plan_id             NUMBER;
-    v_carrera_id          NUMBER;
-    v_pendientes          NUMBER;
-    v_creditos_cierre     NUMBER;
-    v_creditos_acumulados NUMBER;
+FOR UPDATE ON ASIGNACION
+COMPOUND TRIGGER
+
+    -- Colección para guardar los pares (estudiante, carrera) a procesar
+    TYPE t_rec IS RECORD (
+        estudiante_id NUMBER,
+        carrera_id    NUMBER
+    );
+    TYPE t_tab IS TABLE OF t_rec INDEX BY PLS_INTEGER;
+    g_filas t_tab;
+    g_idx   PLS_INTEGER := 0;
+
+-- Fase 1: capturar IDs sin consultar ASIGNACION (tabla mutante)
+AFTER EACH ROW IS
 BEGIN
-    -- 1. Obtener el plan actual del estudiante en la carrera
-    SELECT PLAN_ID_PLAN, CARRERA_ID_CARRERA
-    INTO v_plan_id, v_carrera_id
-    FROM INSCRIPCION
-    WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-      AND CARRERA_ID_CARRERA       = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
-      AND ESTADO = 'ACTIVA';
-
-    -- 2. Contar cursos obligatorios del plan actual que el estudiante NO ha aprobado.
-    --    Se buscan aprobados en cualquier plan de la misma carrera (portabilidad de planes).
-    SELECT COUNT(*)
-    INTO v_pendientes
-    FROM PENSUM p
-    WHERE p.PLAN_ID_PLAN            = v_plan_id
-      AND p.PLAN_CARRERA_ID_CARRERA = v_carrera_id
-      AND p.OBLIGATORIEDAD          = 'S'
-      AND p.CURSO_ID_CURSO NOT IN (
-          SELECT DISTINCT a.PENSUM_CURSO_ID_CURSO
-          FROM ASIGNACION a
-          WHERE a.ESTUDIANTE_ID_ESTUDIANTE       = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-            AND a.PENSUM_PLAN_CARRERA_ID_CARRERA = v_carrera_id
-            AND a.ESTADO                         = 'APROBADO'
-      );
-
-    -- 3. Obtener créditos de cierre requeridos por el plan vigente
-    SELECT CREDITOS_CIERRE
-    INTO v_creditos_cierre
-    FROM PLAN
-    WHERE ID_PLAN            = v_plan_id
-      AND CARRERA_ID_CARRERA = v_carrera_id;
-
-    -- Leer créditos acumulados del estudiante (ya actualizados por el BEFORE UPDATE trigger)
-    SELECT CREDITOS_ACUMULADOS
-    INTO v_creditos_acumulados
-    FROM INSCRIPCION
-    WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-      AND CARRERA_ID_CARRERA       = v_carrera_id
-      AND ESTADO = 'ACTIVA';
-
-    -- 4. Si no quedan obligatorios pendientes y se alcanzaron los créditos → cerrar carrera
-    IF v_pendientes = 0 AND v_creditos_acumulados >= v_creditos_cierre THEN
-        UPDATE INSCRIPCION
-        SET ESTADO       = 'CERRADA',
-            FECHA_CIERRE = SYSDATE
-        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-          AND CARRERA_ID_CARRERA       = v_carrera_id
-          AND ESTADO = 'ACTIVA';
+    IF :NEW.ESTADO = 'APROBADO' AND :OLD.ESTADO != 'APROBADO' THEN
+        g_idx := g_idx + 1;
+        g_filas(g_idx).estudiante_id := :NEW.ESTUDIANTE_ID_ESTUDIANTE;
+        g_filas(g_idx).carrera_id    := :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA;
     END IF;
+END AFTER EACH ROW;
 
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        NULL; -- El estudiante no tiene inscripción activa en esta carrera, no hacer nada
-END;
+-- Fase 2: procesar al finalizar el statement (ASIGNACION ya no muta)
+AFTER STATEMENT IS
+    v_plan_id        NUMBER;
+    v_carrera_id     NUMBER;
+    v_pendientes     NUMBER;
+    v_cred_cierre    NUMBER;
+    v_cred_acum      NUMBER;
+    v_anio_fin       NUMBER;
+    v_ciclo_fin      NUMBER;
+    v_anio_actual    NUMBER;
+    v_ciclo_actual   NUMBER;
+    v_plan_expirado  NUMBER;
+BEGIN
+    v_anio_actual  := TO_NUMBER(TO_CHAR(SYSDATE, 'YYYY'));
+    v_ciclo_actual := CASE
+                          WHEN TO_NUMBER(TO_CHAR(SYSDATE, 'MM')) <= 6 THEN 1
+                          ELSE 8
+                      END;
+
+    FOR i IN 1 .. g_idx LOOP
+        v_plan_expirado := 0;
+        BEGIN
+            -- 1. Plan activo del estudiante en la carrera
+            SELECT PLAN_ID_PLAN, CARRERA_ID_CARRERA
+            INTO v_plan_id, v_carrera_id
+            FROM INSCRIPCION
+            WHERE ESTUDIANTE_ID_ESTUDIANTE = g_filas(i).estudiante_id
+              AND CARRERA_ID_CARRERA       = g_filas(i).carrera_id
+              AND ESTADO = 'ACTIVA';
+
+            -- 2. Vigencia del plan y créditos de cierre
+            SELECT ANIO_FIN, CICLO_FIN, CREDITOS_CIERRE
+            INTO v_anio_fin, v_ciclo_fin, v_cred_cierre
+            FROM PLAN
+            WHERE ID_PLAN            = v_plan_id
+              AND CARRERA_ID_CARRERA = v_carrera_id;
+
+            IF    v_anio_actual > v_anio_fin
+               OR (v_anio_actual = v_anio_fin AND v_ciclo_actual > v_ciclo_fin)
+            THEN
+                v_plan_expirado := 1;
+            END IF;
+
+            -- 3. Cursos obligatorios pendientes (portabilidad entre planes)
+            SELECT COUNT(*)
+            INTO v_pendientes
+            FROM PENSUM p
+            WHERE p.PLAN_ID_PLAN            = v_plan_id
+              AND p.PLAN_CARRERA_ID_CARRERA = v_carrera_id
+              AND p.OBLIGATORIEDAD          = 'S'
+              AND p.CURSO_ID_CURSO NOT IN (
+                  SELECT DISTINCT a.PENSUM_CURSO_ID_CURSO
+                  FROM ASIGNACION a
+                  WHERE a.ESTUDIANTE_ID_ESTUDIANTE       = g_filas(i).estudiante_id
+                    AND a.PENSUM_PLAN_CARRERA_ID_CARRERA = v_carrera_id
+                    AND a.ESTADO                         = 'APROBADO'
+              );
+
+            -- 4. Créditos acumulados (ya actualizados por el BEFORE UPDATE trigger)
+            SELECT CREDITOS_ACUMULADOS
+            INTO v_cred_acum
+            FROM INSCRIPCION
+            WHERE ESTUDIANTE_ID_ESTUDIANTE = g_filas(i).estudiante_id
+              AND CARRERA_ID_CARRERA       = v_carrera_id
+              AND ESTADO = 'ACTIVA';
+
+            -- 5. Condición de cierre
+            IF v_cred_acum >= v_cred_cierre
+               AND (v_pendientes = 0 OR v_plan_expirado = 1)
+            THEN
+                UPDATE INSCRIPCION
+                SET ESTADO       = 'CERRADA',
+                    FECHA_CIERRE = SYSDATE
+                WHERE ESTUDIANTE_ID_ESTUDIANTE = g_filas(i).estudiante_id
+                  AND CARRERA_ID_CARRERA       = v_carrera_id
+                  AND ESTADO = 'ACTIVA';
+            END IF;
+
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN NULL;
+        END;
+    END LOOP;
+
+    -- Limpiar colección para el próximo statement
+    g_idx := 0;
+    g_filas.DELETE;
+END AFTER STATEMENT;
+
+END INSCRIPCION_VERIFICAR_CIERRE_CARRERA;
 /
 
 -- ============================================================
 -- VIEW: V_COMPANEROS_TODOS_CURSOS
 -- Descripción: Para cada estudiante que ha cerrado al menos una
 --              carrera, muestra los nombres de los estudiantes
---              que estuvieron en la MISMA SECCIÓN en TODOS Y
---              CADA UNO de los cursos que llevó el cerrado.
+--              que llevaron TODOS Y CADA UNO de los mismos cursos
+--              que llevó el cerrado (en cualquier sección, año o ciclo).
 -- División relacional usando doble NOT EXISTS:
---   "no existe ningún curso del cerrado en el que el compañero
---    NO haya estado en la misma sección".
+--   "no existe ningún curso del cerrado que el compañero
+--    NO haya llevado en algún momento".
 -- Uso:
 --   SELECT * FROM V_COMPANEROS_TODOS_CURSOS;
 --   SELECT * FROM V_COMPANEROS_TODOS_CURSOS
@@ -398,7 +454,7 @@ WHERE EXISTS (
     WHERE ESTUDIANTE_ID_ESTUDIANTE = c.ESTUDIANTE_ID_ESTUDIANTE
 )
 -- División relacional: no debe existir ningún curso del cerrado
--- donde el compañero NO haya estado en la misma sección
+-- que el compañero NO haya llevado (en cualquier sección, año o ciclo)
 AND NOT EXISTS (
     SELECT 1
     FROM ASIGNACION a_cerrado
@@ -407,10 +463,7 @@ AND NOT EXISTS (
           SELECT 1
           FROM ASIGNACION a_comp
           WHERE a_comp.ESTUDIANTE_ID_ESTUDIANTE = e_comp.ID_ESTUDIANTE
-            AND a_comp.SECCION_ID_SECCION       = a_cerrado.SECCION_ID_SECCION
             AND a_comp.SECCION_CURSO_ID_CURSO   = a_cerrado.SECCION_CURSO_ID_CURSO
-            AND a_comp.SECCION_ANIO             = a_cerrado.SECCION_ANIO
-            AND a_comp.SECCION_CICLO            = a_cerrado.SECCION_CICLO
       )
 )
 ORDER BY e_cerrado.NOMBRE, e_comp.NOMBRE;
