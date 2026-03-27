@@ -144,10 +144,11 @@ ALTER TABLE EDIFICIO
 -- Restricciones: Tiene
 -- ============================================================
 CREATE TABLE SALON 
-( 
-    ID_SALON             NUMBER (10)  NOT NULL, 
-    CAPACIDAD            NUMBER (4)   NOT NULL, 
-    EDIFICIO_ID_EDIFICIO NUMBER (10)  NOT NULL 
+(   
+    ID_SALON             NUMBER (10)    NOT NULL,
+    NOMBRE               VARCHAR2 (100) NOT NULL,
+    CAPACIDAD            NUMBER (4)     NOT NULL, 
+    EDIFICIO_ID_EDIFICIO NUMBER (10)    NOT NULL 
 );
 
 -- CAPACIDAD debe ser mayor a 0
