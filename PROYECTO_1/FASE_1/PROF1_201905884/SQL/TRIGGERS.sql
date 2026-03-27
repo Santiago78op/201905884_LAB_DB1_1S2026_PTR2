@@ -284,6 +284,44 @@ END;
 /
 
 -- ============================================================
+-- TRIGGER PARA EL PROMEDIO DEL ESTUDIANTE EN ASIGNACION
+-- Lógica: Cada vez que se actualice una asignación a APROBADO o REPROBADO, 
+-- se recalcula el promedio del estudiante en la carrera sumando las notas 
+-- de los cursos aprobados y dividiendo por el número de cursos aprobados.
+-- Tipo: TRIGGER OBLIGATORIO
+-- Razón: El promedio es un dato derivado que debe mantenerse actualizado automáticamente.
+-- ============================================================
+CREATE OR REPLACE TRIGGER ASIGNACION_ACTUALIZAR_PROMEDIO
+AFTER UPDATE ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_total_notas NUMBER;
+    v_cursos_aprobados NUMBER;
+BEGIN
+    -- Solo recalcular si el estado cambió a APROBADO o REPROBADO
+    IF :NEW.ESTADO IN ('APROBADO', 'REPROBADO') THEN
+        -- Calcular el total de notas y el número de cursos aprobados del estudiante en la carrera
+        SELECT NVL(SUM(NOTA), 0), COUNT(*)
+        INTO v_total_notas, v_cursos_aprobados
+        FROM ASIGNACION
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+          AND PENSUM_PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+          AND ESTADO = 'APROBADO';
+
+        -- Actualizar el promedio en la tabla INSCRIPCION
+        UPDATE INSCRIPCION
+        SET PROMEDIO_PONDERADO = CASE 
+                          WHEN v_cursos_aprobados > 0 THEN v_total_notas / v_cursos_aprobados 
+                          ELSE 0 
+                      END
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+          AND CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+          AND ESTADO = 'ACTIVA';
+    END IF;
+END;
+/
+
+-- ============================================================
 -- Tabla:   ASIGNACION (UPDATE) → INSCRIPCION
 -- Evento:  Cada vez que un curso cambia a estado APROBADO.
 -- Tipo:    COMPOUND TRIGGER (evita ORA-04091 mutating table)
