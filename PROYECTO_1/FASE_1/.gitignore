@@ -2,3 +2,8 @@
 **/*.local
 **/*.git
 **/*.DS_Store
+
+# Ignorar .env y .venv
+.env
+.venv
+
