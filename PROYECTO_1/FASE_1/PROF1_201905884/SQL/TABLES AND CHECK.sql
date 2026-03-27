@@ -29,7 +29,7 @@ WHEN (NEW.ID_UNIDAD_A IS NULL)
 BEGIN 
     :NEW.ID_UNIDAD_A := SEQ_UNIDAD_ACADEMICA.NEXTVAL; 
 END;
-
+/
 -- ============================================================
 -- TABLA: CARRERA
 -- Descripción: Registra las carreras disponibles en la universidad.

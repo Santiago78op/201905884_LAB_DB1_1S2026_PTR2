@@ -31,6 +31,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Un estudiante no puede tener más de dos inscripciones activas.');
     END IF;
 END;
+/
 
 -- TRIGGER PARA ACTUALIZAR INSCRIPCION
 CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS
@@ -62,6 +63,7 @@ BEGIN
         END IF;
     END IF;
 END;
+/
 
 -- ============================================================
 -- Tabla:   ASIGNACION (TRIGGER)
@@ -102,6 +104,7 @@ BEGIN
 
     RETURN v_count;
 END;
+/
 
 -- FUNCION PARA VALIDAR PRERREQUISITOS DE CREDITOS, EN CONJUNTO CON EL TRIGGER DE ASIGNACION
 CREATE OR REPLACE FUNCTION FN_CUMPLE_REQUISITOS_CREDITOS (
@@ -132,7 +135,7 @@ BEGIN
 
     RETURN v_count;
 END;
-
+/
 
 -- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA INSERTAR
 CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
@@ -175,58 +178,107 @@ BEGIN
     END IF;
 
 END;
+/
+
+-- FUNCION PARA VALIDAR LA ZONA Y NOTA EN ASIGNACION PARA ACTUALIZAR
+CREATE OR REPLACE FUNCTION FN_VALIDAR_NOTA_ZONA (
+    P_PLAN_ID_PLAN            IN NUMBER,
+    P_CARRERA_ID_CARRERA      IN NUMBER,
+    P_CURSO_ID_CURSO          IN NUMBER,
+    P_ZONA                    IN NUMBER,
+    P_NOTA                    IN NUMBER,
+    P_ESTADO                  IN VARCHAR2
+) RETURN NUMBER IS
+    v_zona_minima      NUMBER;
+    v_nota_aprobacion  NUMBER;
+BEGIN
+    SELECT ZONA_MINIMA, NOTA_APROBACION
+    INTO v_zona_minima, v_nota_aprobacion
+    FROM PENSUM
+    WHERE PLAN_ID_PLAN = P_PLAN_ID_PLAN
+      AND PLAN_CARRERA_ID_CARRERA = P_CARRERA_ID_CARRERA
+      AND CURSO_ID_CURSO = P_CURSO_ID_CURSO;
+
+    IF P_ESTADO = 'APROBADO' THEN
+        IF P_ZONA < v_zona_minima OR P_NOTA < v_nota_aprobacion THEN
+            RETURN 0;
+        END IF;
+
+    ELSIF P_ESTADO = 'REPROBADO' THEN
+        IF P_ZONA >= v_zona_minima AND P_NOTA >= v_nota_aprobacion THEN
+            RETURN 2;
+        END IF;
+    END IF;
+
+    RETURN 1;
+END;
+/
+
+-- FUNCION PARA SUMAR CREDITOS SI EL ESTUDIANTE APROBO EL CURSO
+CREATE OR REPLACE FUNCTION FN_SUMAR_CREDITOS (
+    P_PLAN_ID_PLAN            IN NUMBER,
+    P_CARRERA_ID_CARRERA      IN NUMBER,
+    P_CURSO_ID_CURSO          IN NUMBER
+) RETURN NUMBER IS
+    v_creditos NUMBER;
+BEGIN
+    SELECT CREDITOS
+    INTO v_creditos
+    FROM PENSUM
+    WHERE PLAN_ID_PLAN = P_PLAN_ID_PLAN
+      AND PLAN_CARRERA_ID_CARRERA = P_CARRERA_ID_CARRERA
+      AND CURSO_ID_CURSO = P_CURSO_ID_CURSO;
+
+    RETURN v_creditos;
+END;
+/
 
 -- TRIGGER PARA VALIDAR ZONA Y NOTA EN ASIGNACION PARA ACTUALIZAR
 CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA
 BEFORE UPDATE ON ASIGNACION
 FOR EACH ROW
 DECLARE
-    v_zona_minima NUMBER(5,2);
-    v_nota_aprobacion NUMBER(5,2);
-    v_creditos NUMBER(3);
+    v_valido   NUMBER;
+    v_creditos NUMBER;
 BEGIN
+    -- Solo validar si cambia el estado
+    IF :NEW.ESTADO IN ('APROBADO', 'REPROBADO') THEN
 
-    IF :NEW.ESTADO == 'APROBADO' THEN
-        -- Obtener los valores de zona minima y nota de aprobación del pensum para el curso que se está asignando
-        SELECT ZONA_MINIMA, NOTA_APROBACION, CREDITOS
+        v_valido := FN_VALIDAR_NOTA_ZONA(
+            :NEW.PENSUM_PLAN_ID_PLAN,
+            :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA,
+            :NEW.PENSUM_CURSO_ID_CURSO,
+            :NEW.ZONA,
+            :NEW.NOTA,
+            :NEW.ESTADO
+        );
 
-        INTO v_zona_minima, v_nota_aprobacion, v_creditos
-        FROM PENSUM WHERE 
-            PENSUM.PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN AND
-            PENSUM.PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA AND
-            PENSUM.CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO;
-
-        -- Valida si la zona referida en la asignación es menor a la zona mínima requerida por el pensum
-        IF :NEW.ZONA < v_zona_minima THEN
-            RAISE_APPLICATION_ERROR(-20003, 'La zona del estudiante no cumple con la zona mínima requerida por el pensum para este curso.');
-        END IF;
-
-        -- Valida si la nota referida en la asignación es menor a la nota de aprobación requerida por el pensum
-        IF :NEW.NOTA < v_nota_aprobacion THEN
+        IF v_valido = 0 THEN
             RAISE_APPLICATION_ERROR(-20003, 'La nota del estudiante no cumple con la nota de aprobación requerida por el pensum para este curso.');
         END IF;
 
-        -- Set a CREDITOS ACUMULADOS en INSCRIPCION sumando los creditos del curso aprobado
-        UPDATE INSCRIPCION
-        SET CREDITOS_ACUMULADOS = v_creditos + CREDITOS_ACUMULADOS 
-        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
-            AND CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
-            AND ESTADO = 'ACTIVA';
-    
-    ELSIF :NEW.ESTADO == 'REPROBADO' THEN
-        -- Obtener los valores de zona minima y nota de aprobación del pensum para el curso que se está asignando
-        SELECT ZONA_MINIMA, NOTA_APROBACION
-        INTO v_zona_minima, v_nota_aprobacion
-        FROM PENSUM WHERE 
-            PENSUM.PLAN_ID_PLAN = :NEW.PENSUM_PLAN_ID_PLAN AND
-            PENSUM.PLAN_CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA AND
-            PENSUM.CURSO_ID_CURSO = :NEW.PENSUM_CURSO_ID_CURSO;
-
-        -- Valida si la zona referida en la asignación es mayor o igual a la zona mínima requerida por el pensum
-        IF :NEW.ZONA >= v_zona_minima  AND :NEW.NOTA >= v_nota_aprobacion THEN
+        IF v_valido = 2 THEN
             RAISE_APPLICATION_ERROR(-20003, 'No se puede marcar un curso como REPROBADO si la zona y nota del estudiante cumplen con los requisitos 
             de aprobación del pensum para este curso.');
         END IF;
 
-    END IF;     
+    END IF;
+
+    -- SOLO SUMAR CRÉDITOS SI CAMBIA A APROBADO
+    IF :OLD.ESTADO != 'APROBADO' AND :NEW.ESTADO = 'APROBADO' THEN
+
+        v_creditos := FN_SUMAR_CREDITOS(
+            :NEW.PENSUM_PLAN_ID_PLAN,
+            :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA,
+            :NEW.PENSUM_CURSO_ID_CURSO
+        );
+
+        UPDATE INSCRIPCION
+        SET CREDITOS_ACUMULADOS = CREDITOS_ACUMULADOS + v_creditos
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+          AND CARRERA_ID_CARRERA = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+          AND ESTADO = 'ACTIVA';
+
+    END IF;
 END;
+/
