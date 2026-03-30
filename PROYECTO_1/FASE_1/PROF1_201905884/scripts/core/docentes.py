@@ -8,10 +8,9 @@ with open("../horario_primer_semestre_usac.csv", "r", encoding="utf-8-sig") as f
     for row in reader:
         nombre = row["catedratico"]
         if nombre:
-            id_docente = random.randint(1000, 9999)
             sueldo_mensual = random.randint(5000, 10000)
-            docentes.add((id_docente, nombre, sueldo_mensual))
+            docentes.add((nombre, sueldo_mensual))
 
 with open("../csv/4_docentes.csv", "w") as f:
-    for id_docente, nombre, sueldo_mensual in docentes:
-        f.write(f"{id_docente},{nombre},{sueldo_mensual}\n")
+    for i, (nombre, sueldo_mensual) in enumerate(docentes, start=1000):
+        f.write(f"{i},{nombre},{sueldo_mensual}\n")
