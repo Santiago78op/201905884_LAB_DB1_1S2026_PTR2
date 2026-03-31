@@ -1,0 +1,119 @@
+﻿CODIGO,NOMBRE,CREDITOS,SEMESTRE,CODIGO_PRERREQUISITO,TIPO
+0017,Área Social Humanística 1,4,1,,OBLIGATORIO
+0027,Biología,3,1,,OBLIGATORIO
+0069,Área Técnica Complementaria 1,3,1,,OBLIGATORIO
+0101,Área Matemática Básica 1,7,1,,OBLIGATORIO
+0354,Química 3,5,1,,OBLIGATORIO
+0006,Idioma Técnico 1,2,1,,OPCIONAL
+0039,Deportes 1,1,1,,OPCIONAL
+0005,Técnicas de Estudio e Investigación,3,1,,OBLIGATORIO
+0019,Área Social Humanística 2,4,1,0017,OBLIGATORIO
+0075,Dibujo Computarizado,1,1,0069,OBLIGATORIO
+0103,Área Matemática Básica 2,7,1,0101,OBLIGATORIO
+0147,Física Básica,5,1,0101,OBLIGATORIO
+0356,Química 4,5,1,0354,OBLIGATORIO
+0879,Climatología,3,1,0027,OBLIGATORIO
+0008,Idioma Técnico 2,2,1,0006,OPCIONAL
+0040,Deportes 2,1,1,(0039,OPCIONAL
+0040,Deportes 2,1,1,|0031),OPCIONAL
+0030,Geografía,3,1,0879,OBLIGATORIO
+0107,Área Matemática Intermedia 1,10,1,0103,OBLIGATORIO
+0150,Física 1,6,1,0103,OBLIGATORIO
+0150,Física 1,6,1,0147,OBLIGATORIO
+0362,Análisis Cualitativo,5,1,0356,OBLIGATORIO
+2025,Prácticas Iniciales,0,1,0103,OBLIGATORIO
+0009,Idioma Técnico 3,2,1,0008,OPCIONAL
+0080,Topografía 1,6,1,0107,OBLIGATORIO
+0080,Topografía 1,6,1,0075,OBLIGATORIO
+0112,Área Matemática Intermedia 2,5,1,0107,OBLIGATORIO
+0114,Área Matemática Intermedia 3,5,1,0107,OBLIGATORIO
+0152,Física 2,6,1,0107,OBLIGATORIO
+0152,Física 2,6,1,0150,OBLIGATORIO
+0170,Mecánica Analítica 1,5,1,0107,OBLIGATORIO
+0170,Mecánica Analítica 1,5,1,0150,OBLIGATORIO
+0358,Química Orgánica 1,4,1,0362,OBLIGATORIO
+0450,Geología,3,1,0030,OBLIGATORIO
+0450,Geología,3,1,0354,OBLIGATORIO
+0732,Estadística 1,5,1,0107,OBLIGATORIO
+0732,Estadística 1,5,1,0005,OBLIGATORIO
+0010,Lógica,2,1,0019,OPCIONAL
+0011,Idioma Técnico 4,2,1,0009,OPCIONAL
+0364,Análisis Cuantitativo,5,1,0362,OPCIONAL
+0028,Ecología,3,1,0450,OBLIGATORIO
+0082,Topografía 2,6,1,0080,OBLIGATORIO
+0090,Programación de Computadoras 1,3,1,0114,OBLIGATORIO
+0090,Programación de Computadoras 1,3,1,0732,OBLIGATORIO
+0250,Mecánica de Fluidos,6,1,0114,OBLIGATORIO
+0250,Mecánica de Fluidos,6,1,0170,OBLIGATORIO
+0300,Resistencia de Materiales 1,5,1,0114,OBLIGATORIO
+0300,Resistencia de Materiales 1,5,1,0170,OBLIGATORIO
+0335,Gestión de Desastres,3,1,0642,OBLIGATORIO
+0663,Legislación Ambiental 1,3,1,0732,OBLIGATORIO
+0700,Ingeniería Económica 1,5,1,0732,OBLIGATORIO
+0360,Química Orgánica 2,4,1,0358,OPCIONAL
+0368,Principios de Metrología,3,1,0732,OPCIONAL
+0368,Principios de Metrología,3,1,0152,OPCIONAL
+0368,Principios de Metrología,3,1,(0354,OPCIONAL
+0368,Principios de Metrología,3,1,|0348),OPCIONAL
+0380,Físico Química 1,4,1,0356,OPCIONAL
+0380,Físico Química 1,4,1,0114,OPCIONAL
+0734,Estadística 2,5,1,0732,OPCIONAL
+3116,Matemática Aplicada 3 (diplomado),0,1,0112,OPCIONAL
+3116,Matemática Aplicada 3 (diplomado),0,1,0114,OPCIONAL
+3118,Matemática Aplicada 1 (diplomado),0,1,0112,OPCIONAL
+3118,Matemática Aplicada 1 (diplomado),0,1,0114,OPCIONAL
+3123,Matemática Aplicada 5 (diplomado),0,1,0112,OPCIONAL
+3123,Matemática Aplicada 5 (diplomado),0,1,0114,OPCIONAL
+0084,Topografía 3,6,1,0082,OBLIGATORIO
+0252,Hidráulica,6,1,0250,OBLIGATORIO
+0370,Química Ambiental,3,1,0028,OBLIGATORIO
+0370,Química Ambiental,3,1,0358,OBLIGATORIO
+0390,Termodinámica 1,5,1,0250,OBLIGATORIO
+0431,Economía de los Recursos Naturales Renovables,3,1,0700,OBLIGATORIO
+0440,Microbiología,5,1,0358,OBLIGATORIO
+0440,Microbiología,5,1,0732,OBLIGATORIO
+0455,Materiales de Construcción 2,6,1,0300,OBLIGATORIO
+0456,Materiales de Construcción,6,1,0300,OBLIGATORIO
+0458,Mecánica de Suelos 1,5,1,0300,OBLIGATORIO
+0642,Seguridad e Higiene Industrial,3,1,(0663,OBLIGATORIO
+0642,Seguridad e Higiene Industrial,3,1,|0662),OBLIGATORIO
+0670,Legislación Ambiental 2,3,1,(0663,OBLIGATORIO
+0670,Legislación Ambiental 2,3,1,|0662),OBLIGATORIO
+0670,Legislación Ambiental 2,3,1,0358,OBLIGATORIO
+0361,Bioquímica 1,4,1,0360,OPCIONAL
+0739,Didáctica de la Matemática,2,1,,OPCIONAL
+3120,Matemática Aplicada 2 (diplomado),0,1,3118,OPCIONAL
+0060,Taller de Sist de inf Geográfica,2,1,0084,OBLIGATORIO
+0254,Hidrología,6,1,0252,OBLIGATORIO
+2036,Prácticas Intermedias,0,1,2025,OBLIGATORIO
+2036,Prácticas Intermedias,0,1,0663,OBLIGATORIO
+2036,Prácticas Intermedias,0,1,0370,OBLIGATORIO
+0656,Administración de Empresas 1,5,1,150CR,OPCIONAL
+0870,Sismología,6,1,0458,OPCIONAL
+0193,Manejo de Cuencas Hidrográficas,3,1,0084,OBLIGATORIO
+0193,Manejo de Cuencas Hidrográficas,3,1,0254,OBLIGATORIO
+0198,Calidad del Agua,3,1,0440,OBLIGATORIO
+0198,Calidad del Agua,3,1,0060,OBLIGATORIO
+0280,Ingeniería Sanitaria 1,5,1,0254,OBLIGATORIO
+0282,Ingeniería Sanitaria 2,5,1,0254,OBLIGATORIO
+0441,Manejo Adecuado de los Desechos Sólidos,3,1,0254,OBLIGATORIO
+0441,Manejo Adecuado de los Desechos Sólidos,3,1,0370,OBLIGATORIO
+7935,Seminario de Investigación Ambiental,4,1,200CR,OBLIGATORIO
+0262,Aguas Subterráneas,5,1,0254,OPCIONAL
+0392,Termodinámica 2,5,1,0390,OPCIONAL
+0001,Ética Profesional,4,1,200CR,OBLIGATORIO
+0196,Calidad del Aire,3,1,0198,OBLIGATORIO
+0706,Preparación y Evaluación de Proyectos 1,4,1,0700,OBLIGATORIO
+0706,Preparación y Evaluación de Proyectos 1,4,1,0441,OBLIGATORIO
+7989,Seminario de Investigación E.P.S. Ambiental,4,1,225CR,OBLIGATORIO
+0284,Saneamiento Ambiental,5,1,0280,OPCIONAL
+0284,Saneamiento Ambiental,5,1,0282,OPCIONAL
+0288,Introducción al Estudio de Impacto Ambiental,4,1,0706,OBLIGATORIO
+0288,Introducción al Estudio de Impacto Ambiental,4,1,0335,OBLIGATORIO
+2035,Prácticas Finales Ingeniería Ambiental,0,1,2036,OBLIGATORIO
+2035,Prácticas Finales Ingeniería Ambiental,0,1,200CR,OBLIGATORIO
+0434,Procesos Químicos Industriales,4,1,0198,OPCIONAL
+0434,Procesos Químicos Industriales,4,1,0196,OPCIONAL
+0437,Control de Contaminantes Industriales,4,1,0198,OPCIONAL
+0437,Control de Contaminantes Industriales,4,1,0196,OPCIONAL
+0708,Preparación y Evaluación de Proyectos 2,4,1,0706,OPCIONAL

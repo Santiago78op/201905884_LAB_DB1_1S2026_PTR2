@@ -3,6 +3,74 @@
 -- ============================================================
 -- TRIGGERS PARA VALIDAR RESTRICCIONES DE NEGOCIO
 -- ============================================================
+CREATE OR REPLACE TRIGGER INSCRIPCION_LIMIT_ACTIVAS_CT
+FOR INSERT OR UPDATE ON INSCRIPCION
+COMPOUND TRIGGER
+
+    TYPE t_estudiantes IS TABLE OF INSCRIPCION.ESTUDIANTE_ID_ESTUDIANTE%TYPE
+        INDEX BY PLS_INTEGER;
+
+    v_estudiantes t_estudiantes;
+    v_idx PLS_INTEGER := 0;
+
+    PROCEDURE agregar_estudiante(p_id INSCRIPCION.ESTUDIANTE_ID_ESTUDIANTE%TYPE) IS
+    BEGIN
+        FOR i IN 1 .. v_idx LOOP
+            IF v_estudiantes(i) = p_id THEN
+                RETURN;
+            END IF;
+        END LOOP;
+
+        v_idx := v_idx + 1;
+        v_estudiantes(v_idx) := p_id;
+    END;
+
+BEFORE EACH ROW IS
+BEGIN
+    IF UPDATING THEN
+        IF :NEW.ESTUDIANTE_ID_ESTUDIANTE != :OLD.ESTUDIANTE_ID_ESTUDIANTE THEN
+            RAISE_APPLICATION_ERROR(
+                -20004,
+                'No se puede cambiar el estudiante de una inscripción. Para cambiar el estudiante, se debe crear una nueva inscripción para el nuevo estudiante.'
+            );
+        END IF;
+
+        IF :NEW.CARRERA_ID_CARRERA != :OLD.CARRERA_ID_CARRERA THEN
+            RAISE_APPLICATION_ERROR(
+                -20005,
+                'No se puede cambiar la carrera de una inscripción. Para cambiar la carrera, se debe crear una nueva inscripción para la nueva carrera.'
+            );
+        END IF;
+    END IF;
+
+    agregar_estudiante(:NEW.ESTUDIANTE_ID_ESTUDIANTE);
+
+    IF UPDATING THEN
+        agregar_estudiante(:OLD.ESTUDIANTE_ID_ESTUDIANTE);
+    END IF;
+END BEFORE EACH ROW;
+
+AFTER STATEMENT IS
+    v_count NUMBER;
+BEGIN
+    FOR i IN 1 .. v_idx LOOP
+        SELECT COUNT(*)
+          INTO v_count
+          FROM INSCRIPCION
+         WHERE ESTUDIANTE_ID_ESTUDIANTE = v_estudiantes(i)
+           AND ESTADO = 'ACTIVA';
+
+        IF v_count > 2 THEN
+            RAISE_APPLICATION_ERROR(
+                -20001,
+                'Un estudiante no puede tener más de dos inscripciones activas.'
+            );
+        END IF;
+    END LOOP;
+END AFTER STATEMENT;
+
+END INSCRIPCION_LIMIT_ACTIVAS_CT;
+/
 
 -- ============================================================
 -- Tabla:   INSCRIPCION (BEFORE INSERT / BEFORE UPDATE)
@@ -177,6 +245,36 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20006, 'El estudiante no cumple con el número de créditos necesario para este curso.');
     END IF;
 
+END;
+/
+
+CREATE OR REPLACE TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA_INS
+BEFORE INSERT ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_count NUMBER;
+BEGIN
+    IF :NEW.ESTADO != 'CURSANDO' THEN
+        RAISE_APPLICATION_ERROR(
+            -20003,
+            'No se puede asignar un curso con estado diferente a CURSANDO. Para asignar un curso con estado APROBADO o REPROBADO, primero se debe asignar el curso con estado CURSANDO y luego actualizar el estado.'
+        );
+    END IF;
+
+    -- Solo validar requisito de créditos en INSERT
+    v_count := FN_CUMPLE_REQUISITOS_CREDITOS(
+        :NEW.PENSUM_PLAN_ID_PLAN,
+        :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA,
+        :NEW.PENSUM_CURSO_ID_CURSO,
+        :NEW.ESTUDIANTE_ID_ESTUDIANTE
+    );
+
+    IF v_count > 0 THEN
+        RAISE_APPLICATION_ERROR(
+            -20006,
+            'El estudiante no cumple con el número de créditos necesario para este curso.'
+        );
+    END IF;
 END;
 /
 
@@ -457,6 +555,59 @@ END AFTER STATEMENT;
 END INSCRIPCION_VERIFICAR_CIERRE_CARRERA;
 /
 
+-- ============================================================
+-- Si la carrera se cierra, ya no puede inscribirse a cursos ni cambiar estado de asignaciones.
+-- Este trigger se asegura de que no se puedan insertar o actualizar asignaciones para estudiantes con inscripción cerrada.
+-- Tipo: TRIGGER OBLIGATORIO
+-- Razón: Mantener la integridad de los datos y las reglas de negocio relacionadas con el cierre de carrera.
+-- ============================================================
+CREATE OR REPLACE TRIGGER ASIGNACION_NO_CURSAR_CERRADA
+BEFORE INSERT OR UPDATE ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_estado_inscripcion VARCHAR2(10);
+BEGIN
+    -- Verificar el estado de la inscripción del estudiante para la carrera
+    SELECT ESTADO
+    INTO v_estado_inscripcion
+    FROM INSCRIPCION
+    WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+      AND CARRERA_ID_CARRERA       = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+      AND ESTADO IN ('ACTIVA', 'CERRADA');
+    IF v_estado_inscripcion = 'CERRADA' THEN
+        RAISE_APPLICATION_ERROR(-20007, 'No se pueden asignar cursos a un estudiante con inscripción cerrada en la carrera.');
+    END IF;
+END;
+
+CREATE OR REPLACE TRIGGER ASIGNACION_NO_CURSAR_CERRADA
+BEFORE INSERT OR UPDATE ON ASIGNACION
+FOR EACH ROW
+DECLARE
+    v_estado_inscripcion VARCHAR2(10);
+BEGIN
+    BEGIN
+        SELECT ESTADO
+        INTO v_estado_inscripcion
+        FROM INSCRIPCION
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = :NEW.ESTUDIANTE_ID_ESTUDIANTE
+          AND CARRERA_ID_CARRERA       = :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+          AND ESTADO IN ('ACTIVA', 'CERRADA');
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(
+                -20008,
+                'El estudiante no tiene inscripción activa o cerrada en la carrera correspondiente.'
+            );
+    END;
+
+    IF v_estado_inscripcion = 'CERRADA' THEN
+        RAISE_APPLICATION_ERROR(
+            -20007,
+            'No se pueden asignar cursos a un estudiante con inscripción cerrada en la carrera.'
+        );
+    END IF;
+END;
+/
 -- ============================================================
 -- VIEW: V_COMPANEROS_TODOS_CURSOS
 -- Descripción: Para cada estudiante que ha cerrado al menos una

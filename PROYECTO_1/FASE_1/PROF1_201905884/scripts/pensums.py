@@ -9,7 +9,7 @@ from urllib3.exceptions import InsecureRequestWarning
 
 
 URL = "https://redesestudio.ingenieria.usac.edu.gt/redesDeEstudio/ingenieriaEnCienciasYSistemas/28/clar"
-OUTPUT_CSV = "pensum_ingenieria_en_ciencias_y_sistemas.csv"
+OUTPUT_CSV = "pensum_ingenieria_en_ciencias_y_sistemas_3.csv"
 
 SEMESTRES = {
     "PRIMER SEMESTRE": 1,
