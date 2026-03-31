@@ -419,6 +419,76 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE TRIGGER ASIGNACION_ACTUALIZAR_PROMEDIO
+FOR UPDATE ON ASIGNACION
+COMPOUND TRIGGER
+
+    TYPE t_rec IS RECORD (
+        estudiante_id NUMBER,
+        carrera_id    NUMBER
+    );
+
+    TYPE t_tab IS TABLE OF t_rec INDEX BY PLS_INTEGER;
+    g_filas t_tab;
+    g_idx PLS_INTEGER := 0;
+
+    PROCEDURE agregar_par(
+        p_estudiante_id NUMBER,
+        p_carrera_id    NUMBER
+    ) IS
+    BEGIN
+        FOR i IN 1 .. g_idx LOOP
+            IF g_filas(i).estudiante_id = p_estudiante_id
+               AND g_filas(i).carrera_id = p_carrera_id THEN
+                RETURN;
+            END IF;
+        END LOOP;
+
+        g_idx := g_idx + 1;
+        g_filas(g_idx).estudiante_id := p_estudiante_id;
+        g_filas(g_idx).carrera_id    := p_carrera_id;
+    END;
+
+AFTER EACH ROW IS
+BEGIN
+    IF :NEW.ESTADO IN ('APROBADO', 'REPROBADO') THEN
+        agregar_par(
+            :NEW.ESTUDIANTE_ID_ESTUDIANTE,
+            :NEW.PENSUM_PLAN_CARRERA_ID_CARRERA
+        );
+    END IF;
+END AFTER EACH ROW;
+
+AFTER STATEMENT IS
+    v_total_notas       NUMBER;
+    v_cursos_aprobados  NUMBER;
+BEGIN
+    FOR i IN 1 .. g_idx LOOP
+        SELECT NVL(SUM(NOTA), 0), COUNT(*)
+        INTO v_total_notas, v_cursos_aprobados
+        FROM ASIGNACION
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = g_filas(i).estudiante_id
+          AND PENSUM_PLAN_CARRERA_ID_CARRERA = g_filas(i).carrera_id
+          AND ESTADO = 'APROBADO';
+
+        UPDATE INSCRIPCION
+        SET PROMEDIO_PONDERADO =
+            CASE
+                WHEN v_cursos_aprobados > 0 THEN v_total_notas / v_cursos_aprobados
+                ELSE 0
+            END
+        WHERE ESTUDIANTE_ID_ESTUDIANTE = g_filas(i).estudiante_id
+          AND CARRERA_ID_CARRERA = g_filas(i).carrera_id
+          AND ESTADO = 'ACTIVA';
+    END LOOP;
+
+    g_idx := 0;
+    g_filas.DELETE;
+END AFTER STATEMENT;
+
+END ASIGNACION_ACTUALIZAR_PROMEDIO;
+/
+
 -- ============================================================
 -- Tabla:   ASIGNACION (UPDATE) → INSCRIPCION
 -- Evento:  Cada vez que un curso cambia a estado APROBADO.
