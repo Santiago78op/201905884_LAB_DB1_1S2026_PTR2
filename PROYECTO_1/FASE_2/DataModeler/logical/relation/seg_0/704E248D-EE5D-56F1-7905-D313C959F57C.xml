@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RT_Plan_Pens" directorySegmentName="seg_0" id="704E248D-EE5D-56F1-7905-D313C959F57C">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:32:50 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<sourcePk>DB23373A-91AB-399C-4A5E-5C20BE1EA9AE</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FB163E8C-1E38-4774-3A05-6AC87B0B344F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7F5AF09C-10E7-34F3-6BEA-26665E2B5254</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

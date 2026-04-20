@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="11D30354-AB12-0864-63EE-4C812626BDE6" name="Estudiante">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:54:10 UTC</createdTime>
+<comment><![CDATA[Un estudiante es un individuo que participa activamente en el proceso de aprendizaje, generalmente a través de sistemas educativos formales como escuelas, universidades y otras instituciones]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Carnet" id="87946238-C9A5-33DC-DE16-1DB8C06CAF4A">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:59:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del estudiante llave primaria, 201905884]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="8C3C77FA-C085-869C-0C81-AA37D6CFF0F9">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:00:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre del Estudiante]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IngresoFamiliar" id="C35F5501-05F2-D6FC-CDB0-7F6DC93E8887">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:09:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ingreso familiar de la familia del estudiante]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FechaNacimiento" id="858C27EF-E960-3E9A-F640-C02E192969F3">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:10:40 UTC</createdTime>
+<commentInRDBMS><![CDATA[Fecha de Nacimiento del estudiante]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="09FEB170-9D48-7405-AA1E-C10671D41AAC" name="Estudiante PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:00:07 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>87946238-C9A5-33DC-DE16-1DB8C06CAF4A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

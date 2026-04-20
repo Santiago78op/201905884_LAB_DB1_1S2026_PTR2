@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EE36173F-DBC5-998A-86C3-A60A2B4D1B14" name="Periodo">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Un período es un lapso de tiempo determinado en el que se desarrolla una acción, un fenómeno o una sucesión de eventos relacionados entre sí.]]></comment>
+<generatorID>37332A87-31A0-FCF6-9E13-2877D8E3D23C</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Periodo" id="2D5DBB0F-843F-753B-FF63-1BCA672AA264">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID periodo, llave primaria]]></commentInRDBMS>
+<generatorID>4CA92C64-5AC0-EEA0-0A68-0497B1241C84</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HoraInicio" id="8447EDFF-28ED-2506-4B2B-460C863FA3D5">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Hora de Inicio del Periodo de Clases]]></commentInRDBMS>
+<generatorID>4556EA65-FD21-C140-94E2-1F0EF6384C70</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HoraFin" id="61A7C2C0-17CB-A865-CC82-898964F84C1D">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Hora Fin del periodo de clases]]></commentInRDBMS>
+<generatorID>44C89160-5860-5292-E5AA-1BCDA89D6FDC</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="14612B57-69F9-8FF3-8D7B-ED81D36E566B" name="Periodo_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>450884D2-2F1B-693E-854B-774A16C72D15</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D5DBB0F-843F-753B-FF63-1BCA672AA264"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

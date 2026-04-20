@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31EE0985-9400-ADA5-1ADD-0C1299968CBA" name="Plan">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Es el Plan de Estudios que solicito el estudiante su inscripcion]]></comment>
+<generatorID>FB163E8C-1E38-4774-3A05-6AC87B0B344F</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Plan" id="64444FA4-6C04-B2E1-B129-C9A276D052A5">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[El plan se identifica con el nombre del plan ejemplo DIARIO, MIXTO...]]></commentInRDBMS>
+<generatorID>7073B48A-3350-651B-BAAA-7FCB9360B429</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carrera_Carrera" id="BF91CD9B-7FE8-3C46-61B7-F9CDEB3CC892">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Codigo de Carrera ID]]></commentInRDBMS>
+<generatorID>FC2739D1-8B54-517D-C2C8-6CB989DC50A1</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="41A21C96-D327-EB41-1391-F880C2E54E93" referredColumn="995644A7-DC1B-9B54-4187-29CFB367CA36"/>
+</associations>
+</Column>
+<Column name="Nombre" id="24ED7501-F612-548D-4327-D3CFA38268BE">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre del Plan, en su defecto tipo]]></commentInRDBMS>
+<generatorID>C3880C12-E512-46BC-DCA3-6ECD5FA06D66</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AnioInicial" id="DDE47013-8B99-FC7C-5B03-4ECB63328A1B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Año en el cual se inicio el Plan]]></commentInRDBMS>
+<generatorID>7000843B-BD9D-3131-4D5A-E26FFD4CF520</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CicloInicial" id="D1B31E9F-26E3-65A0-D555-853ACD913EC0">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ciclo en el cual se inicio el Plan de estudio]]></commentInRDBMS>
+<generatorID>038C44E7-1199-32A4-2BD6-96F4F1048249</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AnioFinal" id="5A112580-516A-A761-EE40-05545318A33B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Año en el cual se Finalizo el Plan]]></commentInRDBMS>
+<generatorID>481A1DFF-B041-7C02-9B14-B9D2D836CF15</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CicloFinal" id="6F671E68-D41A-B08B-A8B2-CED3EB06F574">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ciclo en el cual se dio fin al  Plan de estudio]]></commentInRDBMS>
+<generatorID>E51ACFDE-6EA0-2CCE-C4B1-E91C0E09C317</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumeroCreditosCierre" id="DF1FF20D-D3E2-FD06-EA9C-C8304158A9C3">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Numero de creditos con los que cerro el estudiante el plan de estudios para esa carrera]]></commentInRDBMS>
+<generatorID>1C854EED-70C7-D679-29E0-1FE1FE8C0F5D</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="877A9D26-4E47-48E3-ADC3-14E388336B7C" name="Plan_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>DB23373A-91AB-399C-4A5E-5C20BE1EA9AE</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="64444FA4-6C04-B2E1-B129-C9A276D052A5"/>
+<colUsage columnID="BF91CD9B-7FE8-3C46-61B7-F9CDEB3CC892"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="57E5C0DF-37BF-CF96-B355-3DA7C17B7B22" name="Plan_Carrera_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>EDBACAF1-E1A6-38B7-6209-CEB16FB348F6</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF91CD9B-7FE8-3C46-61B7-F9CDEB3CC892"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

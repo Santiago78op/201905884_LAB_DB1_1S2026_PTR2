@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="30E2DE5F-B71F-22FA-F011-1AA24EC91CF7" name="Estudiante">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Un estudiante es un individuo que participa activamente en el proceso de aprendizaje, generalmente a través de sistemas educativos formales como escuelas, universidades y otras instituciones]]></comment>
+<generatorID>11D30354-AB12-0864-63EE-4C812626BDE6</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Carnet" id="24C9C4AC-A8F0-8DAF-7173-090699DFEF60">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del estudiante llave primaria, 201905884]]></commentInRDBMS>
+<generatorID>87946238-C9A5-33DC-DE16-1DB8C06CAF4A</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="1A54B402-151B-796E-A1A7-C03D0D75ED74">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre del Estudiante]]></commentInRDBMS>
+<generatorID>8C3C77FA-C085-869C-0C81-AA37D6CFF0F9</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IngresoFamiliar" id="26BB0718-555C-E4B2-3426-DA218DEDBABD">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ingreso familiar de la familia del estudiante]]></commentInRDBMS>
+<generatorID>C35F5501-05F2-D6FC-CDB0-7F6DC93E8887</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FechaNacimiento" id="37F9B1BA-3794-AF23-8BB6-AD29E2FFC400">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Fecha de Nacimiento del estudiante]]></commentInRDBMS>
+<generatorID>858C27EF-E960-3E9A-F640-C02E192969F3</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D370A788-541E-4ED5-88C9-4C299F483193" name="Estudiante_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>09FEB170-9D48-7405-AA1E-C10671D41AAC</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24C9C4AC-A8F0-8DAF-7173-090699DFEF60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RT_Sec_Asg" directorySegmentName="seg_0" id="47978A54-E4C2-0A39-2B39-C6EBD162610E">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:51:49 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<sourcePk>C09784B6-2F59-35C6-E2D2-31343C0876B4</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>07248099-B96F-C095-E849-C5FB5CBAF265</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4A5132D4-5D07-5143-68A9-557D683BF7D9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7F5AF09C-10E7-34F3-6BEA-26665E2B5254" name="Pensum">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:05:46 UTC</createdTime>
+<comment><![CDATA[Un pensum es el plan de estudios de una carrera universitaria que organiza las materias y cursos que un estudiante debe cursar para completar su formación académica.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="33E1EFB2-4DFF-DEBF-A779-B058706FEA40">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:45:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[Codigo del curso referenciado al pensum]]></commentInRDBMS>
+<generatorID>687C3B8B-8BB0-199A-5A10-272831461344</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>AC25B709-9029-812B-1BD7-A0843C88D9E1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Plan" id="168868A7-8305-3B96-7CD1-34F1477DF896">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:32:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[Plan en el que se  incorporo el pensum]]></commentInRDBMS>
+<generatorID>704E248D-EE5D-56F1-7905-D313C959F57C</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>7073B48A-3350-651B-BAAA-7FCB9360B429</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Carrera" id="6B55EF6F-F385-B5B9-8D57-F28AFA72F21D">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:32:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[Carrera del plan asignada al pensum]]></commentInRDBMS>
+<generatorID>704E248D-EE5D-56F1-7905-D313C959F57C</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>FC2739D1-8B54-517D-C2C8-6CB989DC50A1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Obligatoriedad" id="095AC046-D0D6-F66A-7EC1-B8213FBAB0E6">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:37:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indica si es un curso obligatorio]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NumCreditos" id="DAA736E8-AE0A-6749-A8E5-FFE3E995EF24">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:52:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[Numero de Creditos por el estudiante]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NotaAprobacion" id="922706DA-6570-676B-1060-CEE84CC2DC1A">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:53:16 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nota de aprobación para ganar el curso]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ZonaMinima" id="9C698D44-0AA7-7BCC-C183-2F1414586C81">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:54:13 UTC</createdTime>
+<commentInRDBMS><![CDATA[Zona minima para poder tomar el examen final y aprobar el curso.]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CredPrerreq" id="5CA7AD2E-C7C1-9560-A02D-8992AEA3A814">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:56:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[Numero de creditos necesarios para tomar el curso]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D262FC91-AA5A-118A-3851-ABF8C0A7043E" name="Pensum PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:33:36 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6B55EF6F-F385-B5B9-8D57-F28AFA72F21D</attributeRef>
+<attributeRef>168868A7-8305-3B96-7CD1-34F1477DF896</attributeRef>
+<attributeRef>33E1EFB2-4DFF-DEBF-A779-B058706FEA40</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

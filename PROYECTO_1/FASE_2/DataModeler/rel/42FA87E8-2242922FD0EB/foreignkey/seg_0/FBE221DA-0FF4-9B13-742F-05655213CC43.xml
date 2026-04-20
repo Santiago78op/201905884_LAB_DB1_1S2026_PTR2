@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FBE221DA-0FF4-9B13-742F-05655213CC43" containerWithKeyObject="E9572EB7-19A9-6977-CC78-B7E6B5987028" localFKIndex="865B6B07-BAFD-A842-33B6-270695F9F5A0" name="Asignacion_Seccion_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<referredTableLongName>Seccion</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>4AE079DE-CB3A-01F4-6197-C9D2BE194ED1</referredTableID>
+<keyObject>58452DB8-59F8-12A2-35A9-593235981BF8</keyObject>
+<referredKeyID>58452DB8-59F8-12A2-35A9-593235981BF8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Curso_Codigo,Ciclo,Anio,Seccion</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3D5DBD5B-22D3-5338-575C-0ED966B3DD5C" name="Catedratico">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:11:12 UTC</createdTime>
+<comment><![CDATA[Es el más alto en el escalafón docente de una universidad. Antiguamente, las cátedras eran la base de la organización universitaria y tenían su propia autonomía económica y de investigación.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Cat" id="8B00AEC9-4AF2-EB60-899A-D34A28F84A4B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:15:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del catedratico]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="471086A7-6017-D4B1-DF66-58BBA72B5D03">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:17:45 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre del Catedratico]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SueldoMensual" id="9ABCAF36-023C-581A-F0A0-A5FEE6A1B7D1">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:26:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[Sueldo mensual del catedratico]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C138DCC6-3337-B174-EDA7-A3E6E055D12A" name="Catedratico PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:17:27 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8B00AEC9-4AF2-EB60-899A-D34A28F84A4B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

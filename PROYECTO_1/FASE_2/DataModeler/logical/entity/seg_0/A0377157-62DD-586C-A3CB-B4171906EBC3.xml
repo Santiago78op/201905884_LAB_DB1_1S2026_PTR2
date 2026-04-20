@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A0377157-62DD-586C-A3CB-B4171906EBC3" name="Carrera">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:50:51 UTC</createdTime>
+<comment><![CDATA[Una carrera universitaria es un programa de estudios en una universidad que permite obtener un título académico y capacitarse para ejercer una profesión.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Carrera" id="4205D5E7-BCD7-3B03-E5A0-44A1E82897BF">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:50:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[iID de Carrera como llave primaria como 9 o 35]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="7BF83FFD-6461-C0C9-9EB7-09933FA0C046">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:53:40 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre asignado a la carrera como "Ingenieria en Ciencias y Sistemas"]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CA948EBE-D2DE-77CB-22D1-924721A11E07" name="Carrera PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 14:53:37 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4205D5E7-BCD7-3B03-E5A0-44A1E82897BF</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="576C019B-FB55-C51F-B3D0-7157EAC5302B" name="Carrera">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Una carrera universitaria es un programa de estudios en una universidad que permite obtener un título académico y capacitarse para ejercer una profesión.]]></comment>
+<generatorID>A0377157-62DD-586C-A3CB-B4171906EBC3</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Carrera" id="995644A7-DC1B-9B54-4187-29CFB367CA36">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[iID de Carrera como llave primaria como 9 o 35]]></commentInRDBMS>
+<generatorID>4205D5E7-BCD7-3B03-E5A0-44A1E82897BF</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="416AB872-11CF-B3C0-82AD-047046062164">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre asignado a la carrera como "Ingenieria en Ciencias y Sistemas"]]></commentInRDBMS>
+<generatorID>7BF83FFD-6461-C0C9-9EB7-09933FA0C046</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C6FAF9C0-6726-2875-EF90-CEA31324C2DA" name="Carrera_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>CA948EBE-D2DE-77CB-22D1-924721A11E07</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="995644A7-DC1B-9B54-4187-29CFB367CA36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

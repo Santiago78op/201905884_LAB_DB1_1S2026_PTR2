@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4A5132D4-5D07-5143-68A9-557D683BF7D9" name="Asignacion">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:49:53 UTC</createdTime>
+<comment><![CDATA[Asignacion de un curso, acorde al pensum y plan de estudios.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Carnet" id="4FCD8F1D-9166-3573-ABD3-4E3BB7F8B52B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:50:55 UTC</createdTime>
+<generatorID>5FC78019-9A44-450C-A2FB-52B033CB862F</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>87946238-C9A5-33DC-DE16-1DB8C06CAF4A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="88F9C51A-455D-76C7-4DDE-EE7C784C18A4">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:51:49 UTC</createdTime>
+<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>CABD987C-1576-8058-8C68-55A8C985E22D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Seccion" id="CAB54843-B46D-80E1-43D9-9C79E08DDBE3">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:51:49 UTC</createdTime>
+<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>80E590C4-84F0-7B01-C37A-774BC9AE7049</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Anio" id="A52D5AA9-53A3-54E3-29AD-4E96C2DFEF8F">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:51:49 UTC</createdTime>
+<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>07DDA1A1-5645-CB93-C29C-EBC03C202B78</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ciclo" id="46D48096-4D85-39BA-5230-BABB1F535077">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:51:49 UTC</createdTime>
+<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>62AD2787-D531-6FA5-5739-97B6D6B46902</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Zona" id="7810C30D-36B3-34B7-2E17-645F3DBB3671">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:07:14 UTC</createdTime>
+<commentInRDBMS><![CDATA[Zona del Curso asignado]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nota" id="1E2DC214-C162-DDCC-5F05-271D52B31B4E">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:07:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nota obtenida en el curso asignado]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

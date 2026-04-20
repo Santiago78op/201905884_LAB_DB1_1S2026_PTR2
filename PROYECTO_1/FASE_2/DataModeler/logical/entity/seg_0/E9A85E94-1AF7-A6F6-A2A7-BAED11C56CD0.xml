@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E9A85E94-1AF7-A6F6-A2A7-BAED11C56CD0" name="Salon">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:37:51 UTC</createdTime>
+<comment><![CDATA[El salón de clases es un espacio que exige normas para la estancia de los estudiantes en un recinto educativo determinado.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Edificio" id="2E360E1B-A1A1-D9F0-DC34-F52E3EB38864">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:39:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Edificio T13]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Salon" id="BD7AD0EE-23F8-9053-7F67-AF21DD22A15B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:44:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID salon 113]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Capasidad" id="C2F466AC-0FFF-1783-6D69-7840CAF702CB">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:46:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[Capasidad de alumnos del salon]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B5C2DFBF-758C-1ED2-C3BE-CF4A6BD2B7D1" name="Salon PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:39:18 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>BD7AD0EE-23F8-9053-7F67-AF21DD22A15B,2E360E1B-A1A1-D9F0-DC34-F52E3EB38864</newElementsIDs>
+<usedAttributes>
+<attributeRef>BD7AD0EE-23F8-9053-7F67-AF21DD22A15B</attributeRef>
+<attributeRef>2E360E1B-A1A1-D9F0-DC34-F52E3EB38864</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="93D5AF89-7F6D-9756-E8EB-772CBC06DC6D" name="Inscripcion">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Inscripción es la acción y efecto de inscribir (grabar letreros o una imagen, apuntar el nombre de una persona para un objeto determinado).]]></comment>
+<generatorID>E8171C82-2FFD-1E05-0317-3BF605B31EF2</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Carrera_Carrera" id="523589CA-91FC-D6D6-8799-EBC26B94CB45">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID llave primaria de la Carrera, se junto con ID  Carnet, para llave compuesta Unica]]></commentInRDBMS>
+<generatorID>AD90AE63-D2F9-53B6-C057-A786DBBA7A7B</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2372AB48-3EBB-F54D-346E-DAEE82A5542A" referredColumn="995644A7-DC1B-9B54-4187-29CFB367CA36"/>
+</associations>
+</Column>
+<Column name="Estudiante_Carnet" id="8C757B28-E542-463E-4560-046227C508AE">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID llave primaria de la Carnet, se junto con ID  Carrera, para llave compuesta Unica]]></commentInRDBMS>
+<generatorID>4ABCD67F-5669-B48C-D881-61958F174857</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="476040BA-EE6A-CF03-77A5-24AD3A8D578A" referredColumn="24C9C4AC-A8F0-8DAF-7173-090699DFEF60"/>
+</associations>
+</Column>
+<Column name="FechaInscripcion" id="E71840D9-1EC9-9E85-6B3E-6706D8BA545A">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Fecha en la que se Inscribio el Estudiante a la Carrera]]></commentInRDBMS>
+<generatorID>F0F91953-8128-372D-7EA0-DB1464A06808</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED1E3802-EFB2-1516-F951-FFCD5FCCF6C3" name="Inscripcion_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>3D87B1BB-D306-EE4F-16AE-8755F45E9C8E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="523589CA-91FC-D6D6-8799-EBC26B94CB45"/>
+<colUsage columnID="8C757B28-E542-463E-4560-046227C508AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6ED881D9-3444-A184-7147-C25DF2AEC7A5" name="Inscripcion_Carrera_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>367EE3E5-EC38-4FE7-9AF0-67A8C7BB4E11</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="523589CA-91FC-D6D6-8799-EBC26B94CB45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B252E8D0-A2F3-A848-3E4E-DBC62202AD7D" name="Inscripcion_Estudiante_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>087EE8B2-7B2C-C030-EC0F-DEDC866A5359</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8C757B28-E542-463E-4560-046227C508AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

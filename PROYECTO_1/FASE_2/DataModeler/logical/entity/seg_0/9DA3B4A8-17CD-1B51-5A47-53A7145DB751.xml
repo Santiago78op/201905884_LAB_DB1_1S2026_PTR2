@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9DA3B4A8-17CD-1B51-5A47-53A7145DB751" name="Horario">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:56:14 UTC</createdTime>
+<comment><![CDATA[Horario en el cual se imparten los diferentes cursos en las secciones]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Codigo" id="0B1AF5DC-CE97-E9DF-052B-F0A58B7CF7DB">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:56:37 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Curso Asignado en el Horario]]></commentInRDBMS>
+<generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>CABD987C-1576-8058-8C68-55A8C985E22D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Seccion" id="A39A8A0C-DC2B-EB10-C8C7-5522E9745B58">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:56:37 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Seccion Asignado en el Horario]]></commentInRDBMS>
+<generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>80E590C4-84F0-7B01-C37A-774BC9AE7049</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Anio" id="020F1262-D381-9446-CAF9-9EF1400C0079">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:56:37 UTC</createdTime>
+<commentInRDBMS><![CDATA[Año en el que se habilito ese horario]]></commentInRDBMS>
+<generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>07DDA1A1-5645-CB93-C29C-EBC03C202B78</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ciclo" id="8DAC1325-7885-0FEE-0A28-559B4A1FDE47">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:56:37 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ciclo en el que se habilito el horario]]></commentInRDBMS>
+<generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>62AD2787-D531-6FA5-5739-97B6D6B46902</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Periodo" id="F93CA129-BB2B-4C6D-0D19-2559F9AA795E">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:57:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[Periodo del horario]]></commentInRDBMS>
+<generatorID>5AF81436-1889-A11D-9EC8-27E1E1D5B0BB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>4CA92C64-5AC0-EEA0-0A68-0497B1241C84</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dia" id="3975248C-35F5-322E-19AE-D2C65067546E">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:58:07 UTC</createdTime>
+<commentInRDBMS><![CDATA[Dia del Horario]]></commentInRDBMS>
+<generatorID>24DD9E71-8842-582E-81A2-227D4D3E3AAE</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>E7DE5669-F6EE-A564-1E88-06A8A371A257</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Edificio" id="4B99D9E0-351B-5990-E7C7-F341325EC1CA">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:57:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Edificio para impartir ese horario]]></commentInRDBMS>
+<generatorID>5542E01F-DCFC-F2B1-6F09-EC677F61B172</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>2E360E1B-A1A1-D9F0-DC34-F52E3EB38864</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Salon" id="6AC1A093-5AB7-4C4E-2EA9-42E1A7515D86">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:57:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Salon para impartir el horario]]></commentInRDBMS>
+<generatorID>5542E01F-DCFC-F2B1-6F09-EC677F61B172</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>BD7AD0EE-23F8-9053-7F67-AF21DD22A15B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

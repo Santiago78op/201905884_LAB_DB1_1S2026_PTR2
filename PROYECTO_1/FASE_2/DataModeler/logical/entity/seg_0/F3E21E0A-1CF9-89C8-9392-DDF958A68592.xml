@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F3E21E0A-1CF9-89C8-9392-DDF958A68592" name="Prerreq">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:55:52 UTC</createdTime>
+<comment><![CDATA[Asignatura obligatoria y previa a otra que también lo sea para alcanzar un grado.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Carrera" id="E7903083-5CEE-037D-9BE2-0FE11E01EC76">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:34:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Carrera a la que pertenece el prerrequisito]]></commentInRDBMS>
+<generatorID>66BB1B32-E5D0-A9C5-DA04-3AEF0A80B5C3</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>6B55EF6F-F385-B5B9-8D57-F28AFA72F21D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Plan" id="61B00BDD-D519-BF17-1B6F-43A057A8DBB4">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:34:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[plan a la que pertenece el prerrequisito]]></commentInRDBMS>
+<generatorID>66BB1B32-E5D0-A9C5-DA04-3AEF0A80B5C3</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>168868A7-8305-3B96-7CD1-34F1477DF896</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:34:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Curso  a la que pertenece el prerrequisito]]></commentInRDBMS>
+<generatorID>66BB1B32-E5D0-A9C5-DA04-3AEF0A80B5C3</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>33E1EFB2-4DFF-DEBF-A779-B058706FEA40</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Prerreq" id="19B9405F-15DC-2E69-E000-AB0B9A84776A">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:57:17 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del prerrequisto.]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C9D59790-86FD-F2EA-59F2-C4529C1C5C25" name="Prerreq PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:59:38 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>19B9405F-15DC-2E69-E000-AB0B9A84776A,3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B,61B00BDD-D519-BF17-1B6F-43A057A8DBB4,E7903083-5CEE-037D-9BE2-0FE11E01EC76</newElementsIDs>
+<usedAttributes>
+<attributeRef>19B9405F-15DC-2E69-E000-AB0B9A84776A</attributeRef>
+<attributeRef>3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B</attributeRef>
+<attributeRef>61B00BDD-D519-BF17-1B6F-43A057A8DBB4</attributeRef>
+<attributeRef>E7903083-5CEE-037D-9BE2-0FE11E01EC76</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

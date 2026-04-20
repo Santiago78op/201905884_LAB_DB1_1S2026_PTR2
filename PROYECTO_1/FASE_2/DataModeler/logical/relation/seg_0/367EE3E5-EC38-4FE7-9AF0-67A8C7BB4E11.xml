@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RT_Carr_Ins" directorySegmentName="seg_0" id="367EE3E5-EC38-4FE7-9AF0-67A8C7BB4E11">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:49:45 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<sourcePk>CA948EBE-D2DE-77CB-22D1-924721A11E07</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A0377157-62DD-586C-A3CB-B4171906EBC3</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E8171C82-2FFD-1E05-0317-3BF605B31EF2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

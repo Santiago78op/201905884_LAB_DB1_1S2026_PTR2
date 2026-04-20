@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="86DC2144-32E2-EEEE-C96B-34CCBF5BFD9B" name="Dia">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Un día es aproximadamente el periodo durante el cual la Tierra completa una rotación alrededor de su eje, lo que lleva unas 23 horas, 55 minutos con 56 segundos y si lo redondeamos daría 24 horas.]]></comment>
+<generatorID>ABAC9D94-CD2F-8E86-30B8-49751673B1D5</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Dia" id="4EB66093-8C1C-3FDD-EEE1-504F09EEC4AF">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID dias de la semana, llave primaria solo 7]]></commentInRDBMS>
+<generatorID>E7DE5669-F6EE-A564-1E88-06A8A371A257</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="545842B6-DE8E-3737-919B-D2554714FC6E">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Nombre del dia de la semana]]></commentInRDBMS>
+<generatorID>3FFAD946-7385-7A5B-B371-CFCB5BB5FB71</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EC26A187-7A75-3331-9CE9-ACC21F2591B3" name="Dia_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>36816F28-7C28-9D84-29DC-62610C4C054B</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4EB66093-8C1C-3FDD-EEE1-504F09EEC4AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

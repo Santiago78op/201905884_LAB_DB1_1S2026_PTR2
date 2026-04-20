@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3290A63-C50B-96B6-D9FF-7CDA96F2C1ED" name="Salon">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[El salón de clases es un espacio que exige normas para la estancia de los estudiantes en un recinto educativo determinado.]]></comment>
+<generatorID>E9A85E94-1AF7-A6F6-A2A7-BAED11C56CD0</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Edificio" id="6E876E37-B5DA-F844-E772-10F57C61BB86">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Edificio T13]]></commentInRDBMS>
+<generatorID>2E360E1B-A1A1-D9F0-DC34-F52E3EB38864</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Salon" id="72BC1D8B-ADE3-0900-4441-BA21CCAEEBD4">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID salon 113]]></commentInRDBMS>
+<generatorID>BD7AD0EE-23F8-9053-7F67-AF21DD22A15B</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Capasidad" id="2872A0DD-7EB6-B240-078C-22E29191E7C2">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Capasidad de alumnos del salon]]></commentInRDBMS>
+<generatorID>C2F466AC-0FFF-1783-6D69-7840CAF702CB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C50ACB16-F206-608D-2219-D1AB9A331BF0" name="Salon_PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>B5C2DFBF-758C-1ED2-C3BE-CF4A6BD2B7D1</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72BC1D8B-ADE3-0900-4441-BA21CCAEEBD4"/>
+<colUsage columnID="6E876E37-B5DA-F844-E772-10F57C61BB86"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

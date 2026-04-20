@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RT_Pr_Hr" directorySegmentName="seg_0" id="5AF81436-1889-A11D-9EC8-27E1E1D5B0BB">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:57:05 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<sourcePk>450884D2-2F1B-693E-854B-774A16C72D15</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>37332A87-31A0-FCF6-9E13-2877D8E3D23C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>9DA3B4A8-17CD-1B51-5A47-53A7145DB751</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

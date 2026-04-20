@@ -1,0 +1,199 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DD859C2F-F049-5EAA-B327-1B9CA873514B" name="Horario">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<comment><![CDATA[Horario en el cual se imparten los diferentes cursos en las secciones]]></comment>
+<generatorID>9DA3B4A8-17CD-1B51-5A47-53A7145DB751</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Seccion_Curso_Codigo" id="FEB4EA6B-275F-3CF1-9F3E-5683770E30DD">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Curso Asignado en el Horario]]></commentInRDBMS>
+<generatorID>0B1AF5DC-CE97-E9DF-052B-F0A58B7CF7DB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7596CF20-F963-075E-278B-CD4FDAEAC2AF" referredColumn="C0CE5E09-011C-A918-8CF2-B38E9FEDA5E7"/>
+</associations>
+</Column>
+<Column name="Seccion_Seccion" id="9ADD4993-3971-8238-9FCF-16EB143C724A">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID del Seccion Asignado en el Horario]]></commentInRDBMS>
+<generatorID>A39A8A0C-DC2B-EB10-C8C7-5522E9745B58</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7596CF20-F963-075E-278B-CD4FDAEAC2AF" referredColumn="686CF589-9819-39B0-65BC-ABA06323861B"/>
+</associations>
+</Column>
+<Column name="Seccion_Anio" id="3746A095-CAC4-1E6E-8FE1-0A20721EABC4">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Año en el que se habilito ese horario]]></commentInRDBMS>
+<generatorID>020F1262-D381-9446-CAF9-9EF1400C0079</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7596CF20-F963-075E-278B-CD4FDAEAC2AF" referredColumn="F9CFB09D-89D5-86C3-949C-9334F01FB38C"/>
+</associations>
+</Column>
+<Column name="Seccion_Ciclo" id="D2700EFB-4442-0DDA-9CB7-2B6FFADE7886">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ciclo en el que se habilito el horario]]></commentInRDBMS>
+<generatorID>8DAC1325-7885-0FEE-0A28-559B4A1FDE47</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7596CF20-F963-075E-278B-CD4FDAEAC2AF" referredColumn="FDBE3759-7380-F0DA-1DD8-69186FAEBEF7"/>
+</associations>
+</Column>
+<Column name="Periodo_Periodo" id="8CDCD09F-683B-FA17-1335-435A789E28AE">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Periodo del horario]]></commentInRDBMS>
+<generatorID>F93CA129-BB2B-4C6D-0D19-2559F9AA795E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="508F9C8E-A124-053F-9121-DBDF84377E26" referredColumn="2D5DBB0F-843F-753B-FF63-1BCA672AA264"/>
+</associations>
+</Column>
+<Column name="Dia_Dia" id="F360FBD2-08B5-9D37-C249-62E62D7B97BA">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Dia del Horario]]></commentInRDBMS>
+<generatorID>3975248C-35F5-322E-19AE-D2C65067546E</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5880E39F-7E54-D7CE-9CDE-4ABC699365BC" referredColumn="4EB66093-8C1C-3FDD-EEE1-504F09EEC4AF"/>
+</associations>
+</Column>
+<Column name="Salon_Edificio" id="852D8FE8-5AFD-13E7-77F6-70527E9BCE16">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Edificio para impartir ese horario]]></commentInRDBMS>
+<generatorID>4B99D9E0-351B-5990-E7C7-F341325EC1CA</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DA445E33-DCCB-A2F9-7DF2-094234318B96" referredColumn="6E876E37-B5DA-F844-E772-10F57C61BB86"/>
+</associations>
+</Column>
+<Column name="Salon_Salon" id="1D4F652D-F21E-8B12-65F0-8EC8F3417F6F">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Salon para impartir el horario]]></commentInRDBMS>
+<generatorID>6AC1A093-5AB7-4C4E-2EA9-42E1A7515D86</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DA445E33-DCCB-A2F9-7DF2-094234318B96" referredColumn="72BC1D8B-ADE3-0900-4441-BA21CCAEEBD4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A371D586-D238-2E1D-E28A-CFA15687A97F" name="Horario_Dia_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>24DD9E71-8842-582E-81A2-227D4D3E3AAE</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F360FBD2-08B5-9D37-C249-62E62D7B97BA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6CB85E46-DFC5-DC4F-78E7-86B8BB80B06A" name="Horario_Periodo_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>5AF81436-1889-A11D-9EC8-27E1E1D5B0BB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CDCD09F-683B-FA17-1335-435A789E28AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="895F2AF5-34D4-8AFF-C43E-426722551332" name="Horario_Salon_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>5542E01F-DCFC-F2B1-6F09-EC677F61B172</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D4F652D-F21E-8B12-65F0-8EC8F3417F6F"/>
+<colUsage columnID="852D8FE8-5AFD-13E7-77F6-70527E9BCE16"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0A2E70AF-1C3F-659C-EA64-3DAFAC92BC81" name="Horario_Seccion_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FEB4EA6B-275F-3CF1-9F3E-5683770E30DD"/>
+<colUsage columnID="D2700EFB-4442-0DDA-9CB7-2B6FFADE7886"/>
+<colUsage columnID="3746A095-CAC4-1E6E-8FE1-0A20721EABC4"/>
+<colUsage columnID="9ADD4993-3971-8238-9FCF-16EB143C724A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="07248099-B96F-C095-E849-C5FB5CBAF265" name="Seccion">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:05:50 UTC</createdTime>
+<comment><![CDATA[Una sección es un area especifica asignada a un salon en el cual se imparten clases]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Seccion" id="80E590C4-84F0-7B01-C37A-774BC9AE7049">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:37:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID seccion referenciada]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Anio" id="07DDA1A1-5645-CB93-C29C-EBC03C202B78">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:38:13 UTC</createdTime>
+<commentInRDBMS><![CDATA[Anio en el que estuvo vigente esta seccion]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ciclo" id="62AD2787-D531-6FA5-5739-97B6D6B46902">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:38:44 UTC</createdTime>
+<commentInRDBMS><![CDATA[Ciclo en la carrera que se dio esa seccion]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Codigo" id="CABD987C-1576-8058-8C68-55A8C985E22D">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:36:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[Codigo referenciado a esa seccion]]></commentInRDBMS>
+<generatorID>FFE22269-2AD2-6FE7-9B34-C47868577A17</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>AC25B709-9029-812B-1BD7-A0843C88D9E1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cat" id="2BE17FAA-4852-C286-A2F9-F155CB2FD9B4">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:37:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[Catedratico asignado a la seccion]]></commentInRDBMS>
+<generatorID>72B02DF2-69A9-4916-23D2-4E87AF6CF2AB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>8B00AEC9-4AF2-EB60-899A-D34A28F84A4B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C09784B6-2F59-35C6-E2D2-31343C0876B4" name="Seccion PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:40:31 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CABD987C-1576-8058-8C68-55A8C985E22D</attributeRef>
+<attributeRef>62AD2787-D531-6FA5-5739-97B6D6B46902</attributeRef>
+<attributeRef>07DDA1A1-5645-CB93-C29C-EBC03C202B78</attributeRef>
+<attributeRef>80E590C4-84F0-7B01-C37A-774BC9AE7049</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

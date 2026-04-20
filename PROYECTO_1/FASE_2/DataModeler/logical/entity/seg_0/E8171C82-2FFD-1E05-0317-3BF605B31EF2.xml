@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E8171C82-2FFD-1E05-0317-3BF605B31EF2" name="Inscripcion">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:48:17 UTC</createdTime>
+<comment><![CDATA[Inscripción es la acción y efecto de inscribir (grabar letreros o una imagen, apuntar el nombre de una persona para un objeto determinado).]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Carrera" id="AD90AE63-D2F9-53B6-C057-A786DBBA7A7B">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:49:45 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID llave primaria de la Carrera, se junto con ID  Carnet, para llave compuesta Unica]]></commentInRDBMS>
+<generatorID>367EE3E5-EC38-4FE7-9AF0-67A8C7BB4E11</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>4205D5E7-BCD7-3B03-E5A0-44A1E82897BF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Carnet" id="4ABCD67F-5669-B48C-D881-61958F174857">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:51:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID llave primaria de la Carnet, se junto con ID  Carrera, para llave compuesta Unica]]></commentInRDBMS>
+<generatorID>087EE8B2-7B2C-C030-EC0F-DEDC866A5359</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<referedAttribute>87946238-C9A5-33DC-DE16-1DB8C06CAF4A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FechaInscripcion" id="F0F91953-8128-372D-7EA0-DB1464A06808">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:48:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[Fecha en la que se Inscribio el Estudiante a la Carrera]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3D87B1BB-D306-EE4F-16AE-8755F45E9C8E" name="Inscripcion PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 17:30:31 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>AD90AE63-D2F9-53B6-C057-A786DBBA7A7B,4ABCD67F-5669-B48C-D881-61958F174857</newElementsIDs>
+<usedAttributes>
+<attributeRef>AD90AE63-D2F9-53B6-C057-A786DBBA7A7B</attributeRef>
+<attributeRef>4ABCD67F-5669-B48C-D881-61958F174857</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37332A87-31A0-FCF6-9E13-2877D8E3D23C" name="Periodo">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:32:55 UTC</createdTime>
+<comment><![CDATA[Un período es un lapso de tiempo determinado en el que se desarrolla una acción, un fenómeno o una sucesión de eventos relacionados entre sí.]]></comment>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Periodo" id="4CA92C64-5AC0-EEA0-0A68-0497B1241C84">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:33:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[ID periodo, llave primaria]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="HoraInicio" id="4556EA65-FD21-C140-94E2-1F0EF6384C70">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:34:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[Hora de Inicio del Periodo de Clases]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="HoraFin" id="44C89160-5860-5292-E5AA-1BCDA89D6FDC">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 15:35:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[Hora Fin del periodo de clases]]></commentInRDBMS>
+<ownerDesignName>DataModeler</ownerDesignName>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="450884D2-2F1B-693E-854B-774A16C72D15" name="Periodo PK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-20 16:12:27 UTC</createdTime>
+<ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4CA92C64-5AC0-EEA0-0A68-0497B1241C84</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
