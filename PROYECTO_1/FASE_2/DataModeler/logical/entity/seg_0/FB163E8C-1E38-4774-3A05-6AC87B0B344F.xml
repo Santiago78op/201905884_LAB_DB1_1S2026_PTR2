@@ -84,9 +84,9 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="AnioFinal" id="481A1DFF-B041-7C02-9B14-B9D2D836CF15">
 <createdBy>72358</createdBy>
@@ -112,9 +112,9 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="NumeroCreditosCierre" id="1C854EED-70C7-D679-29E0-1FE1FE8C0F5D">
 <createdBy>72358</createdBy>
@@ -136,8 +136,9 @@
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:30:54 UTC</createdTime>
 <ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

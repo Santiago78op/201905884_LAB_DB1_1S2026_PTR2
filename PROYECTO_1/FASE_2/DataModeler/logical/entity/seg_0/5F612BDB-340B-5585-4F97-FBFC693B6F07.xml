@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Codigo" id="AC25B709-9029-812B-1BD7-A0843C88D9E1">
+<Attribute name="CodigoCurso" id="AC25B709-9029-812B-1BD7-A0843C88D9E1">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:29:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID llave primaria del Curso 3378]]></commentInRDBMS>
@@ -30,7 +30,7 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="A2E4BB11-00D8-8373-A299-67B7336084C6">
+<Attribute name="NombreCurso" id="A2E4BB11-00D8-8373-A299-67B7336084C6">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:30:08 UTC</createdTime>
 <commentInRDBMS><![CDATA[Nombre del curso]]></commentInRDBMS>

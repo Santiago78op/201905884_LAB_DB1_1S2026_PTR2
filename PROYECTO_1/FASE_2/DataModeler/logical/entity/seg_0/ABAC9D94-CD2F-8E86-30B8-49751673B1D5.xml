@@ -30,7 +30,7 @@
 <dataTypePrecision>1</dataTypePrecision>
 <ownDataTypeParameters>,1,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombre" id="3FFAD946-7385-7A5B-B371-CFCB5BB5FB71">
+<Attribute name="NombreDia" id="3FFAD946-7385-7A5B-B371-CFCB5BB5FB71">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:32:21 UTC</createdTime>
 <commentInRDBMS><![CDATA[Nombre del dia de la semana]]></commentInRDBMS>

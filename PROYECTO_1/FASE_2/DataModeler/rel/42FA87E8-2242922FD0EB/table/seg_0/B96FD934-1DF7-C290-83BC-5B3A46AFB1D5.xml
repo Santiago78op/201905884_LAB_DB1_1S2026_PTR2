@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E9572EB7-19A9-6977-CC78-B7E6B5987028" name="Asignacion">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B96FD934-1DF7-C290-83BC-5B3A46AFB1D5" name="Asignacion">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <comment><![CDATA[Asignacion de un curso, acorde al pensum y plan de estudios.]]></comment>
 <generatorID>4A5132D4-5D07-5143-68A9-557D683BF7D9</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Estudiante_Carnet" id="76DD42CE-EF4B-A999-F71D-9AA35A4C1B57">
+<Column name="Estudiante_Carnet" id="903DA5FE-D260-F0E4-4CD8-A2D2A3F75B9C">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>4FCD8F1D-9166-3573-ABD3-4E3BB7F8B52B</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -22,13 +22,13 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="A81EC60C-B93F-1B36-DB9D-2B419D0C7AAE" referredColumn="24C9C4AC-A8F0-8DAF-7173-090699DFEF60"/>
+<colAssociation fkAssociation="005D4149-C363-7AE3-A60E-4A4AFD2DB5CC" referredColumn="0818B4DA-2AF4-EFDA-A5EB-907E2EE1AAC3"/>
 </associations>
 </Column>
-<Column name="Seccion_Curso_Codigo" id="5CC8CB40-0D0B-7D39-DCB5-E8142676CC82">
+<Column name="Seccion_Curso_CodigoCurso" id="A3DCB439-BBC5-D4DB-17E7-E955D964E46E">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
-<generatorID>88F9C51A-455D-76C7-4DDE-EE7C784C18A4</generatorID>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
+<generatorID>6A24D191-AF64-913F-AC7E-FE69B0E829B1</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -38,13 +38,13 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="FBE221DA-0FF4-9B13-742F-05655213CC43" referredColumn="C0CE5E09-011C-A918-8CF2-B38E9FEDA5E7"/>
+<colAssociation fkAssociation="DEDA18B1-4449-33B2-672A-E0C99901F1E0" referredColumn="3317932C-DACA-CB88-601D-DA2B91FCE144"/>
 </associations>
 </Column>
-<Column name="Seccion_Seccion" id="94062EAC-0333-7A91-AF33-1666DD5F4B7E">
+<Column name="Seccion_Seccion" id="C9EC2D7B-6615-F6DC-EF56-397E26676C70">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
-<generatorID>CAB54843-B46D-80E1-43D9-9C79E08DDBE3</generatorID>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
+<generatorID>D3E28477-734A-2AA6-E82F-DB8D09305456</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -54,13 +54,13 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="FBE221DA-0FF4-9B13-742F-05655213CC43" referredColumn="686CF589-9819-39B0-65BC-ABA06323861B"/>
+<colAssociation fkAssociation="DEDA18B1-4449-33B2-672A-E0C99901F1E0" referredColumn="1C1B977C-DEF9-7DC4-AE1A-ADA665F6A904"/>
 </associations>
 </Column>
-<Column name="Seccion_Anio" id="DE6DEE84-F153-3C90-A68E-FFA71F9F3812">
+<Column name="Seccion_Anio" id="05E5CDC2-C0D4-932D-53D9-4B818622C47C">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
-<generatorID>A52D5AA9-53A3-54E3-29AD-4E96C2DFEF8F</generatorID>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
+<generatorID>51E2D3C2-ADAC-281F-D83A-7958ADC0F0AB</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -70,28 +70,28 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="FBE221DA-0FF4-9B13-742F-05655213CC43" referredColumn="F9CFB09D-89D5-86C3-949C-9334F01FB38C"/>
+<colAssociation fkAssociation="DEDA18B1-4449-33B2-672A-E0C99901F1E0" referredColumn="B120B81F-B64A-5505-51CF-45BC7EB3740A"/>
 </associations>
 </Column>
-<Column name="Seccion_Ciclo" id="96028245-CF00-8ABA-79A7-E6509A76F7B8">
+<Column name="Seccion_Ciclo" id="5F16ED70-AA61-C74C-60D9-CAA3EAD219B1">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
-<generatorID>46D48096-4D85-39BA-5230-BABB1F535077</generatorID>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
+<generatorID>AFE965A5-66C2-E9D9-9048-F5CD84B02612</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="FBE221DA-0FF4-9B13-742F-05655213CC43" referredColumn="FDBE3759-7380-F0DA-1DD8-69186FAEBEF7"/>
+<colAssociation fkAssociation="DEDA18B1-4449-33B2-672A-E0C99901F1E0" referredColumn="8285C46C-8498-943B-AF51-2896C3B87D77"/>
 </associations>
 </Column>
-<Column name="Zona" id="D5625693-13D1-892F-980B-9DCB0DAA958D">
+<Column name="Zona" id="2C3EC205-4C60-B497-7B35-85678BF6A346">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Zona del Curso asignado]]></commentInRDBMS>
 <generatorID>7810C30D-36B3-34B7-2E17-645F3DBB3671</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -102,9 +102,9 @@
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nota" id="713A209F-4051-4C06-D808-1CC638EF2EFF">
+<Column name="Nota" id="E5BA2892-C253-0D35-0E65-46E773947919">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Nota obtenida en el curso asignado]]></commentInRDBMS>
 <generatorID>1E2DC214-C162-DDCC-5F05-271D52B31B4E</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -117,29 +117,29 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="743F148D-9760-6657-D0D5-E5BEE4833220" name="Asignacion_Estudiante_FK">
+<ind_PK_UK id="51537B7A-FB25-6FC9-E707-8ED5394E056D" name="Asignacion_Estudiante_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>5FC78019-9A44-450C-A2FB-52B033CB862F</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="76DD42CE-EF4B-A999-F71D-9AA35A4C1B57"/>
+<colUsage columnID="903DA5FE-D260-F0E4-4CD8-A2D2A3F75B9C"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="865B6B07-BAFD-A842-33B6-270695F9F5A0" name="Asignacion_Seccion_FK">
+<ind_PK_UK id="29060209-1C8E-2D81-3A2E-0DC8FDEEE667" name="Asignacion_Seccion_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
-<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<createdTime>2026-04-21 16:44:36 UTC</createdTime>
+<generatorID>6F84A7DB-AE6E-B5C2-6447-835E7A9A5BDD</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="5CC8CB40-0D0B-7D39-DCB5-E8142676CC82"/>
-<colUsage columnID="96028245-CF00-8ABA-79A7-E6509A76F7B8"/>
-<colUsage columnID="DE6DEE84-F153-3C90-A68E-FFA71F9F3812"/>
-<colUsage columnID="94062EAC-0333-7A91-AF33-1666DD5F4B7E"/>
+<colUsage columnID="A3DCB439-BBC5-D4DB-17E7-E955D964E46E"/>
+<colUsage columnID="05E5CDC2-C0D4-932D-53D9-4B818622C47C"/>
+<colUsage columnID="C9EC2D7B-6615-F6DC-EF56-397E26676C70"/>
+<colUsage columnID="5F16ED70-AA61-C74C-60D9-CAA3EAD219B1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

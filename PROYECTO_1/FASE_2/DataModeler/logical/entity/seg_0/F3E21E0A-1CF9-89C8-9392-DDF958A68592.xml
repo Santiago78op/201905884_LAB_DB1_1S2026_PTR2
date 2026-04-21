@@ -48,7 +48,7 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Codigo" id="3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B">
+<Attribute name="CodigoCurso" id="3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:34:43 UTC</createdTime>
 <commentInRDBMS><![CDATA[Curso  a la que pertenece el prerrequisito]]></commentInRDBMS>
@@ -64,7 +64,7 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Prerreq" id="19B9405F-15DC-2E69-E000-AB0B9A84776A">
+<Attribute name="CursoPrerrequisito" id="19B9405F-15DC-2E69-E000-AB0B9A84776A">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 16:57:17 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID del prerrequisto.]]></commentInRDBMS>

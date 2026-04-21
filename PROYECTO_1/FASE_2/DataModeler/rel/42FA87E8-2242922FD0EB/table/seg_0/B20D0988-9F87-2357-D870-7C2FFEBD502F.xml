@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89BC5389-4334-E737-CFA7-1AD24261A2AD" name="Catedratico">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B20D0988-9F87-2357-D870-7C2FFEBD502F" name="Catedratico">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <comment><![CDATA[Es el más alto en el escalafón docente de una universidad. Antiguamente, las cátedras eran la base de la organización universitaria y tenían su propia autonomía económica y de investigación.]]></comment>
 <generatorID>3D5DBD5B-22D3-5338-575C-0ED966B3DD5C</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Cat" id="83823BB7-B5C7-A47F-31E5-4122FFDDCDC8">
+<Column name="Catedratico" id="BACE789B-8265-BD1C-F0DB-95BDED821EF3">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID del catedratico]]></commentInRDBMS>
 <generatorID>8B00AEC9-4AF2-EB60-899A-D34A28F84A4B</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -22,9 +22,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="602451B3-0FEF-3624-FD1A-7A9F949D3079">
+<Column name="Nombre" id="133AC8C8-4B6B-90DF-D8D4-6F3CE641A9D3">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Nombre del Catedratico]]></commentInRDBMS>
 <generatorID>471086A7-6017-D4B1-DF66-58BBA72B5D03</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -35,9 +35,9 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="SueldoMensual" id="92D35F64-E017-356A-D6E1-DE4AC5E5B4F1">
+<Column name="SueldoMensual" id="2EDC5D60-C0A2-6C9A-8362-C3982FE746F3">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Sueldo mensual del catedratico]]></commentInRDBMS>
 <generatorID>9ABCAF36-023C-581A-F0A0-A5FEE6A1B7D1</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -51,16 +51,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="9C92AA3A-1196-0826-003C-FBF71F7EB887" name="Catedratico_PK">
+<ind_PK_UK id="6C5CB647-F896-4D4D-C761-D17C2ED55464" name="Catedratico_PK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>C138DCC6-3337-B174-EDA7-A3E6E055D12A</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="83823BB7-B5C7-A47F-31E5-4122FFDDCDC8"/>
+<colUsage columnID="BACE789B-8265-BD1C-F0DB-95BDED821EF3"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

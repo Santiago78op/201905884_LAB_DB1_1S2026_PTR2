@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4AE079DE-CB3A-01F4-6197-C9D2BE194ED1" name="Seccion">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C44F17E9-95C9-8EF0-3359-ECA2C2B2F267" name="Seccion">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <comment><![CDATA[Una sección es un area especifica asignada a un salon en el cual se imparten clases]]></comment>
 <generatorID>07248099-B96F-C095-E849-C5FB5CBAF265</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Seccion" id="686CF589-9819-39B0-65BC-ABA06323861B">
+<Column name="Seccion" id="1C1B977C-DEF9-7DC4-AE1A-ADA665F6A904">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID seccion referenciada]]></commentInRDBMS>
 <generatorID>80E590C4-84F0-7B01-C37A-774BC9AE7049</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -22,9 +22,9 @@
 <ownDataTypeParameters>2,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Anio" id="F9CFB09D-89D5-86C3-949C-9334F01FB38C">
+<Column name="Anio" id="B120B81F-B64A-5505-51CF-45BC7EB3740A">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Anio en el que estuvo vigente esta seccion]]></commentInRDBMS>
 <generatorID>07DDA1A1-5645-CB93-C29C-EBC03C202B78</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -35,22 +35,22 @@
 <ownDataTypeParameters>,4,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ciclo" id="FDBE3759-7380-F0DA-1DD8-69186FAEBEF7">
+<Column name="Ciclo" id="8285C46C-8498-943B-AF51-2896C3B87D77">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Ciclo en la carrera que se dio esa seccion]]></commentInRDBMS>
 <generatorID>62AD2787-D531-6FA5-5739-97B6D6B46902</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Curso_Codigo" id="C0CE5E09-011C-A918-8CF2-B38E9FEDA5E7">
+<Column name="Curso_CodigoCurso" id="3317932C-DACA-CB88-601D-DA2B91FCE144">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Codigo referenciado a esa seccion]]></commentInRDBMS>
 <generatorID>CABD987C-1576-8058-8C68-55A8C985E22D</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -62,12 +62,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="032BD25B-9AAA-BC60-DEDA-9CC8E69558C8" referredColumn="8A9E377F-16D7-E0B5-CF30-3DC71C322DB2"/>
+<colAssociation fkAssociation="4369B818-0348-F3C2-B348-FA0B850453C4" referredColumn="D2C6BB9D-6FE8-A7B1-EF50-99A87A61C34A"/>
 </associations>
 </Column>
-<Column name="Catedratico_Cat" id="848352D9-80C2-6374-D59A-24BEE7665BC7">
+<Column name="Catedratico_Catedratico" id="261F4892-95E1-0F11-AE8F-5BB39BBD1139">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Catedratico asignado a la seccion]]></commentInRDBMS>
 <generatorID>2BE17FAA-4852-C286-A2F9-F155CB2FD9B4</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -79,46 +79,46 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="849655C0-BF40-D1C6-1F1D-64F19A7C40C7" referredColumn="83823BB7-B5C7-A47F-31E5-4122FFDDCDC8"/>
+<colAssociation fkAssociation="3484FA28-93E2-AC08-1956-D383E99386CC" referredColumn="BACE789B-8265-BD1C-F0DB-95BDED821EF3"/>
 </associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="58452DB8-59F8-12A2-35A9-593235981BF8" name="Seccion_PK">
+<ind_PK_UK id="275CB7DD-BFCA-D6AA-3045-0EA444154120" name="Seccion_PK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>C09784B6-2F59-35C6-E2D2-31343C0876B4</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="C0CE5E09-011C-A918-8CF2-B38E9FEDA5E7"/>
-<colUsage columnID="FDBE3759-7380-F0DA-1DD8-69186FAEBEF7"/>
-<colUsage columnID="F9CFB09D-89D5-86C3-949C-9334F01FB38C"/>
-<colUsage columnID="686CF589-9819-39B0-65BC-ABA06323861B"/>
+<colUsage columnID="3317932C-DACA-CB88-601D-DA2B91FCE144"/>
+<colUsage columnID="B120B81F-B64A-5505-51CF-45BC7EB3740A"/>
+<colUsage columnID="1C1B977C-DEF9-7DC4-AE1A-ADA665F6A904"/>
+<colUsage columnID="8285C46C-8498-943B-AF51-2896C3B87D77"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="4E1C6064-DFB2-9279-236E-74DCE5AC97EA" name="Seccion_Catedratico_FK">
+<ind_PK_UK id="879E1290-7812-9E90-7DBE-E71CF855692E" name="Seccion_Catedratico_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>72B02DF2-69A9-4916-23D2-4E87AF6CF2AB</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="848352D9-80C2-6374-D59A-24BEE7665BC7"/>
+<colUsage columnID="261F4892-95E1-0F11-AE8F-5BB39BBD1139"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="01F49DE2-DAAC-3EF4-8BBE-CD419879EFD3" name="Seccion_Curso_FK">
+<ind_PK_UK id="F430781F-FCA8-8265-75C5-772451904313" name="Seccion_Curso_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>FFE22269-2AD2-6FE7-9B34-C47868577A17</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="C0CE5E09-011C-A918-8CF2-B38E9FEDA5E7"/>
+<colUsage columnID="3317932C-DACA-CB88-601D-DA2B91FCE144"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="39EEEE26-B343-ED6F-5ADF-A9A68CD13DF1" name="Prerreq">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CD3B28BA-C0D2-07FB-EE30-9480B2F95DFE" name="Prerreq">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <comment><![CDATA[Asignatura obligatoria y previa a otra que también lo sea para alcanzar un grado.]]></comment>
 <generatorID>F3E21E0A-1CF9-89C8-9392-DDF958A68592</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Pensum_Carrera" id="9F3FDB06-7E79-40D5-26E4-73A1FD2AF946">
+<Column name="Pensum_Carrera" id="A78F5E85-DE43-240A-BAFD-10CFD4D70C8B">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Carrera a la que pertenece el prerrequisito]]></commentInRDBMS>
 <generatorID>E7903083-5CEE-037D-9BE2-0FE11E01EC76</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -23,12 +23,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="8ED871E2-DEC0-E1F5-9942-6C7EA842EC34" referredColumn="0D1F8CF8-C228-AE81-2838-E9D3B0F7420B"/>
+<colAssociation fkAssociation="F8C0D935-AEE5-A862-03F0-EF1462683D67" referredColumn="C45A49BF-59E4-5961-1449-36453CFFD4B8"/>
 </associations>
 </Column>
-<Column name="Pensum_Plan" id="83CB3586-27D6-8710-2CDE-C3DE2342CD95">
+<Column name="Pensum_Plan" id="E94AA71E-8C51-88EC-3A7D-A9A6AB5EBBFB">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[plan a la que pertenece el prerrequisito]]></commentInRDBMS>
 <generatorID>61B00BDD-D519-BF17-1B6F-43A057A8DBB4</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -40,12 +40,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="8ED871E2-DEC0-E1F5-9942-6C7EA842EC34" referredColumn="9CB62114-E8EA-02B3-2C52-8EB504F69E49"/>
+<colAssociation fkAssociation="F8C0D935-AEE5-A862-03F0-EF1462683D67" referredColumn="DE1908AF-B371-A25E-E8FE-337A4D757E57"/>
 </associations>
 </Column>
-<Column name="Pensum_Curso_Codigo" id="0DA99352-479B-11FA-63D5-971B9DDB8C54">
+<Column name="Pensum_Curso_CodigoCurso" id="B2D230DF-BF58-ABB2-B948-B036BA837EB5">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Curso  a la que pertenece el prerrequisito]]></commentInRDBMS>
 <generatorID>3B2CC1DA-C4D6-BE47-46CB-8A703C36E42B</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -57,12 +57,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="8ED871E2-DEC0-E1F5-9942-6C7EA842EC34" referredColumn="7F388636-1DF0-36F2-209F-8F813C07F83F"/>
+<colAssociation fkAssociation="F8C0D935-AEE5-A862-03F0-EF1462683D67" referredColumn="07DB687C-47C8-9B81-C1BE-8A4071391B57"/>
 </associations>
 </Column>
-<Column name="Prerreq" id="40BB04B7-DF9C-30F2-F8F3-43C04EB615AD">
+<Column name="CursoPrerrequisito" id="BD415E50-27B3-EE31-207E-A95C1C500A7F">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID del prerrequisto.]]></commentInRDBMS>
 <generatorID>19B9405F-15DC-2E69-E000-AB0B9A84776A</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -75,32 +75,32 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="1B853D16-1613-5C5A-6ACE-0706B23C4330" name="Prerreq_PK">
+<ind_PK_UK id="D32DE49E-CFBF-56AB-BC48-99B3DD311FC7" name="Prerreq_PK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>C9D59790-86FD-F2EA-59F2-C4529C1C5C25</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="40BB04B7-DF9C-30F2-F8F3-43C04EB615AD"/>
-<colUsage columnID="0DA99352-479B-11FA-63D5-971B9DDB8C54"/>
-<colUsage columnID="83CB3586-27D6-8710-2CDE-C3DE2342CD95"/>
-<colUsage columnID="9F3FDB06-7E79-40D5-26E4-73A1FD2AF946"/>
+<colUsage columnID="BD415E50-27B3-EE31-207E-A95C1C500A7F"/>
+<colUsage columnID="B2D230DF-BF58-ABB2-B948-B036BA837EB5"/>
+<colUsage columnID="E94AA71E-8C51-88EC-3A7D-A9A6AB5EBBFB"/>
+<colUsage columnID="A78F5E85-DE43-240A-BAFD-10CFD4D70C8B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="193E3E23-B6D6-6AE9-68AF-A125DB5C804E" name="Prerreq_Pensum_FK">
+<ind_PK_UK id="ECB3FE90-55CE-9ACB-44D3-9E08E9BA4449" name="Prerreq_Pensum_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>66BB1B32-E5D0-A9C5-DA04-3AEF0A80B5C3</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="9F3FDB06-7E79-40D5-26E4-73A1FD2AF946"/>
-<colUsage columnID="83CB3586-27D6-8710-2CDE-C3DE2342CD95"/>
-<colUsage columnID="0DA99352-479B-11FA-63D5-971B9DDB8C54"/>
+<colUsage columnID="A78F5E85-DE43-240A-BAFD-10CFD4D70C8B"/>
+<colUsage columnID="E94AA71E-8C51-88EC-3A7D-A9A6AB5EBBFB"/>
+<colUsage columnID="B2D230DF-BF58-ABB2-B948-B036BA837EB5"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

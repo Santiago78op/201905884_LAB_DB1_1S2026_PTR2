@@ -31,10 +31,10 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Codigo" id="88F9C51A-455D-76C7-4DDE-EE7C784C18A4">
+<Attribute name="CodigoCurso" id="6A24D191-AF64-913F-AC7E-FE69B0E829B1">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:51:49 UTC</createdTime>
-<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<createdTime>2026-04-21 16:27:11 UTC</createdTime>
+<generatorID>6F84A7DB-AE6E-B5C2-6447-835E7A9A5BDD</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
 <item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
@@ -46,10 +46,10 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Seccion" id="CAB54843-B46D-80E1-43D9-9C79E08DDBE3">
+<Attribute name="Seccion" id="D3E28477-734A-2AA6-E82F-DB8D09305456">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:51:49 UTC</createdTime>
-<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<createdTime>2026-04-21 16:27:11 UTC</createdTime>
+<generatorID>6F84A7DB-AE6E-B5C2-6447-835E7A9A5BDD</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
 <item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
@@ -61,10 +61,10 @@
 <dataTypeSize>2</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Anio" id="A52D5AA9-53A3-54E3-29AD-4E96C2DFEF8F">
+<Attribute name="Anio" id="51E2D3C2-ADAC-281F-D83A-7958ADC0F0AB">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:51:49 UTC</createdTime>
-<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<createdTime>2026-04-21 16:27:11 UTC</createdTime>
+<generatorID>6F84A7DB-AE6E-B5C2-6447-835E7A9A5BDD</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
 <item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
@@ -76,10 +76,10 @@
 <dataTypePrecision>4</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Ciclo" id="46D48096-4D85-39BA-5230-BABB1F535077">
+<Attribute name="Ciclo" id="AFE965A5-66C2-E9D9-9048-F5CD84B02612">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:51:49 UTC</createdTime>
-<generatorID>47978A54-E4C2-0A39-2B39-C6EBD162610E</generatorID>
+<createdTime>2026-04-21 16:27:35 UTC</createdTime>
+<generatorID>6F84A7DB-AE6E-B5C2-6447-835E7A9A5BDD</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
 <item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
@@ -87,8 +87,8 @@
 <referedAttribute>62AD2787-D531-6FA5-5739-97B6D6B46902</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Zona" id="7810C30D-36B3-34B7-2E17-645F3DBB3671">

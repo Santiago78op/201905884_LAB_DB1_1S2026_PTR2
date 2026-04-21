@@ -26,9 +26,9 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Salon" id="BD7AD0EE-23F8-9053-7F67-AF21DD22A15B">
 <createdBy>72358</createdBy>
@@ -44,7 +44,7 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Capasidad" id="C2F466AC-0FFF-1783-6D69-7840CAF702CB">
+<Attribute name="Capacidad" id="C2F466AC-0FFF-1783-6D69-7840CAF702CB">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:46:30 UTC</createdTime>
 <commentInRDBMS><![CDATA[Capasidad de alumnos del salon]]></commentInRDBMS>

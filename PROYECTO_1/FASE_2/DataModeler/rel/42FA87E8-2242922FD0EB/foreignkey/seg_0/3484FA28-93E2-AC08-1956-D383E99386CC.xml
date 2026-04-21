@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3484FA28-93E2-AC08-1956-D383E99386CC" containerWithKeyObject="C44F17E9-95C9-8EF0-3359-ECA2C2B2F267" localFKIndex="879E1290-7812-9E90-7DBE-E71CF855692E" name="Seccion_Catedratico_FK">
+<createdBy>72358</createdBy>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
+<generatorID>72B02DF2-69A9-4916-23D2-4E87AF6CF2AB</generatorID>
+<ownerDesignName>DataModeler</ownerDesignName>
+<referredTableLongName>Catedratico</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>B20D0988-9F87-2357-D870-7C2FFEBD502F</referredTableID>
+<keyObject>6C5CB647-F896-4D4D-C761-D17C2ED55464</keyObject>
+<referredKeyID>6C5CB647-F896-4D4D-C761-D17C2ED55464</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Catedratico</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

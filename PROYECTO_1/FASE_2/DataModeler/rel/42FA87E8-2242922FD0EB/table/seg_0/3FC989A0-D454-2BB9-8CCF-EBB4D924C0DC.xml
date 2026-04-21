@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D796A10E-DEAE-68B5-81A4-15750F0330C5" name="Pensum">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3FC989A0-D454-2BB9-8CCF-EBB4D924C0DC" name="Pensum">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <comment><![CDATA[Un pensum es el plan de estudios de una carrera universitaria que organiza las materias y cursos que un estudiante debe cursar para completar su formación académica.]]></comment>
 <generatorID>7F5AF09C-10E7-34F3-6BEA-26665E2B5254</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -9,9 +9,9 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Curso_Codigo" id="7F388636-1DF0-36F2-209F-8F813C07F83F">
+<Column name="Curso_CodigoCurso" id="07DB687C-47C8-9B81-C1BE-8A4071391B57">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Codigo del curso referenciado al pensum]]></commentInRDBMS>
 <generatorID>33E1EFB2-4DFF-DEBF-A779-B058706FEA40</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -23,12 +23,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="1C534BE6-1B2B-1FF9-9AFD-A7D86AD4791F" referredColumn="8A9E377F-16D7-E0B5-CF30-3DC71C322DB2"/>
+<colAssociation fkAssociation="BD301B82-7161-2647-E342-1C265DE01F86" referredColumn="D2C6BB9D-6FE8-A7B1-EF50-99A87A61C34A"/>
 </associations>
 </Column>
-<Column name="Plan_Plan" id="9CB62114-E8EA-02B3-2C52-8EB504F69E49">
+<Column name="Plan_Plan" id="DE1908AF-B371-A25E-E8FE-337A4D757E57">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Plan en el que se  incorporo el pensum]]></commentInRDBMS>
 <generatorID>168868A7-8305-3B96-7CD1-34F1477DF896</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -40,12 +40,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="F0A02237-B9D5-D8CB-B232-5BB66EB0B07C" referredColumn="64444FA4-6C04-B2E1-B129-C9A276D052A5"/>
+<colAssociation fkAssociation="043B9310-CD49-FF8A-4EA9-9326F53863E1" referredColumn="6E1AF3B0-EC27-23D8-FACB-3A0E933D7809"/>
 </associations>
 </Column>
-<Column name="Plan_Carrera_Carrera" id="0D1F8CF8-C228-AE81-2838-E9D3B0F7420B">
+<Column name="Plan_Carrera_Carrera" id="C45A49BF-59E4-5961-1449-36453CFFD4B8">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Carrera del plan asignada al pensum]]></commentInRDBMS>
 <generatorID>6B55EF6F-F385-B5B9-8D57-F28AFA72F21D</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -57,12 +57,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="F0A02237-B9D5-D8CB-B232-5BB66EB0B07C" referredColumn="BF91CD9B-7FE8-3C46-61B7-F9CDEB3CC892"/>
+<colAssociation fkAssociation="043B9310-CD49-FF8A-4EA9-9326F53863E1" referredColumn="BA4ECD2C-D5B1-5FEE-A9AF-D2CBB5CFE5A3"/>
 </associations>
 </Column>
-<Column name="Obligatoriedad" id="422C5915-3A5C-F30F-9D45-AA9A42E4F993">
+<Column name="Obligatoriedad" id="92CCBEB1-FD96-40B2-93F4-6C62C9E55A27">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Indica si es un curso obligatorio]]></commentInRDBMS>
 <generatorID>095AC046-D0D6-F66A-7EC1-B8213FBAB0E6</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -73,9 +73,9 @@
 <ownDataTypeParameters>,1,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="NumCreditos" id="BF071254-84F3-ADF0-D688-E122EE95A4A1">
+<Column name="NumCreditos" id="6F93FAAA-0B21-4F59-63DE-A166C90B6E80">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Numero de Creditos por el estudiante]]></commentInRDBMS>
 <generatorID>DAA736E8-AE0A-6749-A8E5-FFE3E995EF24</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -86,9 +86,9 @@
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="NotaAprobacion" id="D91A06F0-526F-D395-6709-3E01A7EA1416">
+<Column name="NotaAprobacion" id="5CF01027-5D07-63D8-FD80-21B3DED9DE0C">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Nota de aprobación para ganar el curso]]></commentInRDBMS>
 <generatorID>922706DA-6570-676B-1060-CEE84CC2DC1A</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -99,9 +99,9 @@
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ZonaMinima" id="3AF6E490-F61E-9D74-FD92-C788C25B716A">
+<Column name="ZonaMinima" id="10FAD95B-AA94-CBC7-02EC-88FE90C5EC25">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Zona minima para poder tomar el examen final y aprobar el curso.]]></commentInRDBMS>
 <generatorID>9C698D44-0AA7-7BCC-C183-2F1414586C81</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -112,9 +112,9 @@
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="CredPrerreq" id="2155422D-8B50-BDB1-ECBA-903038B83A40">
+<Column name="CredPrerrequisitos" id="120BF0BB-6597-487C-A4DA-84F826B6110C">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Numero de creditos necesarios para tomar el curso]]></commentInRDBMS>
 <generatorID>5CA7AD2E-C7C1-9560-A02D-8992AEA3A814</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
@@ -127,41 +127,41 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="30B7D0E7-CDF0-4A15-D952-549CCE0CAF5F" name="Pensum_PK">
+<ind_PK_UK id="B5020A0F-1E9E-B597-1BD8-A5A3CF999D42" name="Pensum_PK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>D262FC91-AA5A-118A-3851-ABF8C0A7043E</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="0D1F8CF8-C228-AE81-2838-E9D3B0F7420B"/>
-<colUsage columnID="9CB62114-E8EA-02B3-2C52-8EB504F69E49"/>
-<colUsage columnID="7F388636-1DF0-36F2-209F-8F813C07F83F"/>
+<colUsage columnID="C45A49BF-59E4-5961-1449-36453CFFD4B8"/>
+<colUsage columnID="DE1908AF-B371-A25E-E8FE-337A4D757E57"/>
+<colUsage columnID="07DB687C-47C8-9B81-C1BE-8A4071391B57"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="8B9AD6DC-1C0B-46DC-090E-9D192563B8A6" name="Pensum_Curso_FK">
+<ind_PK_UK id="B5DF2933-248C-8FF7-0804-A5E5770C62CE" name="Pensum_Curso_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>687C3B8B-8BB0-199A-5A10-272831461344</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="7F388636-1DF0-36F2-209F-8F813C07F83F"/>
+<colUsage columnID="07DB687C-47C8-9B81-C1BE-8A4071391B57"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C5CB4068-E09F-EB01-4B75-1142B27DD702" name="Pensum_Plan_FK">
+<ind_PK_UK id="D5DDFF76-FBC4-ADB2-2C4E-2FC4012BA845" name="Pensum_Plan_FK">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 18:14:15 UTC</createdTime>
+<createdTime>2026-04-21 16:44:35 UTC</createdTime>
 <generatorID>704E248D-EE5D-56F1-7905-D313C959F57C</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="9CB62114-E8EA-02B3-2C52-8EB504F69E49"/>
-<colUsage columnID="0D1F8CF8-C228-AE81-2838-E9D3B0F7420B"/>
+<colUsage columnID="DE1908AF-B371-A25E-E8FE-337A4D757E57"/>
+<colUsage columnID="C45A49BF-59E4-5961-1449-36453CFFD4B8"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

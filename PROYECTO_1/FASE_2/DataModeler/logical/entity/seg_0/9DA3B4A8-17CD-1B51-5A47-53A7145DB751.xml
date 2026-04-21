@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Codigo" id="0B1AF5DC-CE97-E9DF-052B-F0A58B7CF7DB">
+<Attribute name="CodigoCurso" id="0B1AF5DC-CE97-E9DF-052B-F0A58B7CF7DB">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:56:37 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID del Curso Asignado en el Horario]]></commentInRDBMS>
@@ -64,10 +64,9 @@
 <dataTypePrecision>4</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Ciclo" id="8DAC1325-7885-0FEE-0A28-559B4A1FDE47">
+<Attribute name="Ciclo" id="B3A091D9-61D3-70A4-C240-CFF744510DA1">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:56:37 UTC</createdTime>
-<commentInRDBMS><![CDATA[Ciclo en el que se habilito el horario]]></commentInRDBMS>
+<createdTime>2026-04-21 16:27:35 UTC</createdTime>
 <generatorID>4924B7B0-2049-402D-420B-CA0E93996A37</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
@@ -76,8 +75,8 @@
 <referedAttribute>62AD2787-D531-6FA5-5739-97B6D6B46902</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Periodo" id="F93CA129-BB2B-4C6D-0D19-2559F9AA795E">
@@ -112,10 +111,9 @@
 <dataTypePrecision>1</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Edificio" id="4B99D9E0-351B-5990-E7C7-F341325EC1CA">
+<Attribute name="Edificio" id="B8BB95FF-0FAE-4814-45BE-1303DC4304A0">
 <createdBy>72358</createdBy>
-<createdTime>2026-04-20 17:57:49 UTC</createdTime>
-<commentInRDBMS><![CDATA[Edificio para impartir ese horario]]></commentInRDBMS>
+<createdTime>2026-04-21 15:50:46 UTC</createdTime>
 <generatorID>5542E01F-DCFC-F2B1-6F09-EC677F61B172</generatorID>
 <ownerDesignName>DataModeler</ownerDesignName>
 <engineerTo>
@@ -124,8 +122,8 @@
 <referedAttribute>2E360E1B-A1A1-D9F0-DC34-F52E3EB38864</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="Salon" id="6AC1A093-5AB7-4C4E-2EA9-42E1A7515D86">

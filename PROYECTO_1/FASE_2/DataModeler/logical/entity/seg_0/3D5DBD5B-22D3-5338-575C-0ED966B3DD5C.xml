@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Cat" id="8B00AEC9-4AF2-EB60-899A-D34A28F84A4B">
+<Attribute name="Catedratico" id="8B00AEC9-4AF2-EB60-899A-D34A28F84A4B">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:15:14 UTC</createdTime>
 <commentInRDBMS><![CDATA[ID del catedratico]]></commentInRDBMS>

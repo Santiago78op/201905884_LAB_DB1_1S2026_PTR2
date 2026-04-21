@@ -54,11 +54,11 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>2</dataTypePrecision>
-<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Codigo" id="CABD987C-1576-8058-8C68-55A8C985E22D">
+<Attribute name="CodigoCurso" id="CABD987C-1576-8058-8C68-55A8C985E22D">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:36:38 UTC</createdTime>
 <commentInRDBMS><![CDATA[Codigo referenciado a esa seccion]]></commentInRDBMS>
@@ -74,7 +74,7 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cat" id="2BE17FAA-4852-C286-A2F9-F155CB2FD9B4">
+<Attribute name="Catedratico" id="2BE17FAA-4852-C286-A2F9-F155CB2FD9B4">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:37:03 UTC</createdTime>
 <commentInRDBMS><![CDATA[Catedratico asignado a la seccion]]></commentInRDBMS>
@@ -102,9 +102,9 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>CABD987C-1576-8058-8C68-55A8C985E22D</attributeRef>
-<attributeRef>62AD2787-D531-6FA5-5739-97B6D6B46902</attributeRef>
 <attributeRef>07DDA1A1-5645-CB93-C29C-EBC03C202B78</attributeRef>
 <attributeRef>80E590C4-84F0-7B01-C37A-774BC9AE7049</attributeRef>
+<attributeRef>62AD2787-D531-6FA5-5739-97B6D6B46902</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

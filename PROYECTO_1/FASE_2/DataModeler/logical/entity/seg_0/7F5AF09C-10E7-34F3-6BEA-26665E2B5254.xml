@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Codigo" id="33E1EFB2-4DFF-DEBF-A779-B058706FEA40">
+<Attribute name="CodigoCurso" id="33E1EFB2-4DFF-DEBF-A779-B058706FEA40">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 16:45:36 UTC</createdTime>
 <commentInRDBMS><![CDATA[Codigo del curso referenciado al pensum]]></commentInRDBMS>
@@ -120,7 +120,7 @@
 <dataTypePrecision>3</dataTypePrecision>
 <ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="CredPrerreq" id="5CA7AD2E-C7C1-9560-A02D-8992AEA3A814">
+<Attribute name="CredPrerrequisitos" id="5CA7AD2E-C7C1-9560-A02D-8992AEA3A814">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 16:56:35 UTC</createdTime>
 <commentInRDBMS><![CDATA[Numero de creditos necesarios para tomar el curso]]></commentInRDBMS>
@@ -140,8 +140,9 @@
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 17:33:36 UTC</createdTime>
 <ownerDesignName>DataModeler</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="true"/>
+<item key="42FA87E8-CC78-D956-1132-2242922FD0EB" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

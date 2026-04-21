@@ -30,7 +30,7 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="HoraInicio" id="4556EA65-FD21-C140-94E2-1F0EF6384C70">
+<Attribute name="HorarioInicio" id="4556EA65-FD21-C140-94E2-1F0EF6384C70">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:34:52 UTC</createdTime>
 <commentInRDBMS><![CDATA[Hora de Inicio del Periodo de Clases]]></commentInRDBMS>
@@ -40,10 +40,11 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="HoraFin" id="44C89160-5860-5292-E5AA-1BCDA89D6FDC">
+<Attribute name="HorarioFinal" id="44C89160-5860-5292-E5AA-1BCDA89D6FDC">
 <createdBy>72358</createdBy>
 <createdTime>2026-04-20 15:35:52 UTC</createdTime>
 <commentInRDBMS><![CDATA[Hora Fin del periodo de clases]]></commentInRDBMS>
@@ -53,8 +54,9 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
