@@ -1,5 +1,5 @@
 -- Generado por Oracle SQL Developer Data Modeler 24.3.1.351.0831
---   en:        2026-04-20 12:14:22 CST
+--   en:        2026-04-21 10:45:09 CST
 --   sitio:      Oracle Database 21c
 --   tipo:      Oracle Database 21c
 
@@ -11,13 +11,13 @@
 
 CREATE TABLE Asignacion 
     ( 
-     Estudiante_Carnet    NUMBER (10)  NOT NULL , 
-     Seccion_Curso_Codigo NUMBER (10)  NOT NULL , 
-     Seccion_Seccion      VARCHAR2 (2)  NOT NULL , 
-     Seccion_Anio         NUMBER (4)  NOT NULL , 
-     Seccion_Ciclo        NUMBER (2)  NOT NULL , 
-     Zona                 NUMBER (3)  NOT NULL , 
-     Nota                 NUMBER (3)  NOT NULL 
+     Estudiante_Carnet         NUMBER (10)  NOT NULL , 
+     Seccion_Curso_CodigoCurso NUMBER (10)  NOT NULL , 
+     Seccion_Seccion           VARCHAR2 (2)  NOT NULL , 
+     Seccion_Anio              NUMBER (4)  NOT NULL , 
+     Seccion_Ciclo             VARCHAR2 (10)  NOT NULL , 
+     Zona                      NUMBER (3)  NOT NULL , 
+     Nota                      NUMBER (3)  NOT NULL 
     ) 
 ;
 
@@ -45,13 +45,13 @@ ALTER TABLE Carrera
 
 CREATE TABLE Catedratico 
     ( 
-     Cat           NUMBER (10)  NOT NULL , 
+     Catedratico   NUMBER (10)  NOT NULL , 
      Nombre        VARCHAR2 (50)  NOT NULL , 
      SueldoMensual NUMBER (10,2)  NOT NULL 
     ) 
 ;
 
-COMMENT ON COLUMN Catedratico.Cat IS 'ID del catedratico' 
+COMMENT ON COLUMN Catedratico.Catedratico IS 'ID del catedratico' 
 ;
 
 COMMENT ON COLUMN Catedratico.Nombre IS 'Nombre del Catedratico' 
@@ -61,35 +61,35 @@ COMMENT ON COLUMN Catedratico.SueldoMensual IS 'Sueldo mensual del catedratico'
 ;
 
 ALTER TABLE Catedratico 
-    ADD CONSTRAINT Catedratico_PK PRIMARY KEY ( Cat ) ;
+    ADD CONSTRAINT Catedratico_PK PRIMARY KEY ( Catedratico ) ;
 
 CREATE TABLE Curso 
     ( 
-     Codigo NUMBER (10)  NOT NULL , 
-     Nombre VARCHAR2 (50)  NOT NULL 
+     CodigoCurso NUMBER (10)  NOT NULL , 
+     NombreCurso VARCHAR2 (50)  NOT NULL 
     ) 
 ;
 
-COMMENT ON COLUMN Curso.Codigo IS 'ID llave primaria del Curso 3378' 
+COMMENT ON COLUMN Curso.CodigoCurso IS 'ID llave primaria del Curso 3378' 
 ;
 
-COMMENT ON COLUMN Curso.Nombre IS 'Nombre del curso' 
+COMMENT ON COLUMN Curso.NombreCurso IS 'Nombre del curso' 
 ;
 
 ALTER TABLE Curso 
-    ADD CONSTRAINT Curso_PK PRIMARY KEY ( Codigo ) ;
+    ADD CONSTRAINT Curso_PK PRIMARY KEY ( CodigoCurso ) ;
 
 CREATE TABLE Dia 
     ( 
-     Dia    NUMBER (1)  NOT NULL , 
-     Nombre VARCHAR2 (50)  NOT NULL 
+     Dia       NUMBER (1)  NOT NULL , 
+     NombreDia VARCHAR2 (50)  NOT NULL 
     ) 
 ;
 
 COMMENT ON COLUMN Dia.Dia IS 'ID dias de la semana, llave primaria solo 7' 
 ;
 
-COMMENT ON COLUMN Dia.Nombre IS 'Nombre del dia de la semana' 
+COMMENT ON COLUMN Dia.NombreDia IS 'Nombre del dia de la semana' 
 ;
 
 ALTER TABLE Dia 
@@ -121,18 +121,18 @@ ALTER TABLE Estudiante
 
 CREATE TABLE Horario 
     ( 
-     Seccion_Curso_Codigo NUMBER (10)  NOT NULL , 
-     Seccion_Seccion      VARCHAR2 (2)  NOT NULL , 
-     Seccion_Anio         NUMBER (4)  NOT NULL , 
-     Seccion_Ciclo        NUMBER (2)  NOT NULL , 
-     Periodo_Periodo      NUMBER (10)  NOT NULL , 
-     Dia_Dia              NUMBER (1)  NOT NULL , 
-     Salon_Edificio       NUMBER (10)  NOT NULL , 
-     Salon_Salon          NUMBER (10)  NOT NULL 
+     Seccion_Curso_CodigoCurso NUMBER (10)  NOT NULL , 
+     Seccion_Seccion           VARCHAR2 (2)  NOT NULL , 
+     Seccion_Anio              NUMBER (4)  NOT NULL , 
+     Seccion_Ciclo             VARCHAR2 (10)  NOT NULL , 
+     Periodo_Periodo           NUMBER (10)  NOT NULL , 
+     Dia_Dia                   NUMBER (1)  NOT NULL , 
+     Salon_Edificio            VARCHAR2 (10)  NOT NULL , 
+     Salon_Salon               NUMBER (10)  NOT NULL 
     ) 
 ;
 
-COMMENT ON COLUMN Horario.Seccion_Curso_Codigo IS 'ID del Curso Asignado en el Horario' 
+COMMENT ON COLUMN Horario.Seccion_Curso_CodigoCurso IS 'ID del Curso Asignado en el Horario' 
 ;
 
 COMMENT ON COLUMN Horario.Seccion_Seccion IS 'ID del Seccion Asignado en el Horario' 
@@ -141,16 +141,10 @@ COMMENT ON COLUMN Horario.Seccion_Seccion IS 'ID del Seccion Asignado en el Hora
 COMMENT ON COLUMN Horario.Seccion_Anio IS 'Año en el que se habilito ese horario' 
 ;
 
-COMMENT ON COLUMN Horario.Seccion_Ciclo IS 'Ciclo en el que se habilito el horario' 
-;
-
 COMMENT ON COLUMN Horario.Periodo_Periodo IS 'Periodo del horario' 
 ;
 
 COMMENT ON COLUMN Horario.Dia_Dia IS 'Dia del Horario' 
-;
-
-COMMENT ON COLUMN Horario.Salon_Edificio IS 'Edificio para impartir ese horario' 
 ;
 
 COMMENT ON COLUMN Horario.Salon_Salon IS 'Salon para impartir el horario' 
@@ -178,18 +172,18 @@ ALTER TABLE Inscripcion
 
 CREATE TABLE Pensum 
     ( 
-     Curso_Codigo         NUMBER (10)  NOT NULL , 
+     Curso_CodigoCurso    NUMBER (10)  NOT NULL , 
      Plan_Plan            VARCHAR2 (30)  NOT NULL , 
      Plan_Carrera_Carrera NUMBER (10)  NOT NULL , 
      Obligatoriedad       NUMBER (1)  NOT NULL , 
      NumCreditos          NUMBER (3)  NOT NULL , 
      NotaAprobacion       NUMBER (3)  NOT NULL , 
      ZonaMinima           NUMBER (3)  NOT NULL , 
-     CredPrerreq          NUMBER (3)  NOT NULL 
+     CredPrerrequisitos   NUMBER (3)  NOT NULL 
     ) 
 ;
 
-COMMENT ON COLUMN Pensum.Curso_Codigo IS 'Codigo del curso referenciado al pensum' 
+COMMENT ON COLUMN Pensum.Curso_CodigoCurso IS 'Codigo del curso referenciado al pensum' 
 ;
 
 COMMENT ON COLUMN Pensum.Plan_Plan IS 'Plan en el que se  incorporo el pensum' 
@@ -210,27 +204,27 @@ COMMENT ON COLUMN Pensum.NotaAprobacion IS 'Nota de aprobación para ganar el cu
 COMMENT ON COLUMN Pensum.ZonaMinima IS 'Zona minima para poder tomar el examen final y aprobar el curso.' 
 ;
 
-COMMENT ON COLUMN Pensum.CredPrerreq IS 'Numero de creditos necesarios para tomar el curso' 
+COMMENT ON COLUMN Pensum.CredPrerrequisitos IS 'Numero de creditos necesarios para tomar el curso' 
 ;
 
 ALTER TABLE Pensum 
-    ADD CONSTRAINT Pensum_PK PRIMARY KEY ( Plan_Carrera_Carrera, Plan_Plan, Curso_Codigo ) ;
+    ADD CONSTRAINT Pensum_PK PRIMARY KEY ( Plan_Carrera_Carrera, Plan_Plan, Curso_CodigoCurso ) ;
 
 CREATE TABLE Periodo 
     ( 
-     Periodo    NUMBER (10)  NOT NULL , 
-     HoraInicio TIMESTAMP  NOT NULL , 
-     HoraFin    TIMESTAMP  NOT NULL 
+     Periodo       NUMBER (10)  NOT NULL , 
+     HorarioInicio VARCHAR2 (5)  NOT NULL , 
+     HorarioFinal  VARCHAR2 (5)  NOT NULL 
     ) 
 ;
 
 COMMENT ON COLUMN Periodo.Periodo IS 'ID periodo, llave primaria' 
 ;
 
-COMMENT ON COLUMN Periodo.HoraInicio IS 'Hora de Inicio del Periodo de Clases' 
+COMMENT ON COLUMN Periodo.HorarioInicio IS 'Hora de Inicio del Periodo de Clases' 
 ;
 
-COMMENT ON COLUMN Periodo.HoraFin IS 'Hora Fin del periodo de clases' 
+COMMENT ON COLUMN Periodo.HorarioFinal IS 'Hora Fin del periodo de clases' 
 ;
 
 ALTER TABLE Periodo 
@@ -242,9 +236,9 @@ CREATE TABLE Plan
      Carrera_Carrera      NUMBER (10)  NOT NULL , 
      Nombre               VARCHAR2 (50)  NOT NULL , 
      AnioInicial          NUMBER (4)  NOT NULL , 
-     CicloInicial         NUMBER (2)  NOT NULL , 
+     CicloInicial         VARCHAR2 (20)  NOT NULL , 
      AnioFinal            NUMBER (4)  NOT NULL , 
-     CicloFinal           NUMBER (2)  NOT NULL , 
+     CicloFinal           VARCHAR2 (20)  NOT NULL , 
      NumeroCreditosCierre NUMBER (3)  NOT NULL 
     ) 
 ;
@@ -278,10 +272,10 @@ ALTER TABLE Plan
 
 CREATE TABLE Prerreq 
     ( 
-     Pensum_Carrera      NUMBER (10)  NOT NULL , 
-     Pensum_Plan         VARCHAR2 (30)  NOT NULL , 
-     Pensum_Curso_Codigo NUMBER (10)  NOT NULL , 
-     Prerreq             NUMBER (10)  NOT NULL 
+     Pensum_Carrera           NUMBER (10)  NOT NULL , 
+     Pensum_Plan              VARCHAR2 (30)  NOT NULL , 
+     Pensum_Curso_CodigoCurso NUMBER (10)  NOT NULL , 
+     CursoPrerrequisito       NUMBER (10)  NOT NULL 
     ) 
 ;
 
@@ -291,20 +285,20 @@ COMMENT ON COLUMN Prerreq.Pensum_Carrera IS 'Carrera a la que pertenece el prerr
 COMMENT ON COLUMN Prerreq.Pensum_Plan IS 'plan a la que pertenece el prerrequisito' 
 ;
 
-COMMENT ON COLUMN Prerreq.Pensum_Curso_Codigo IS 'Curso  a la que pertenece el prerrequisito' 
+COMMENT ON COLUMN Prerreq.Pensum_Curso_CodigoCurso IS 'Curso  a la que pertenece el prerrequisito' 
 ;
 
-COMMENT ON COLUMN Prerreq.Prerreq IS 'ID del prerrequisto.' 
+COMMENT ON COLUMN Prerreq.CursoPrerrequisito IS 'ID del prerrequisto.' 
 ;
 
 ALTER TABLE Prerreq 
-    ADD CONSTRAINT Prerreq_PK PRIMARY KEY ( Prerreq, Pensum_Curso_Codigo, Pensum_Plan, Pensum_Carrera ) ;
+    ADD CONSTRAINT Prerreq_PK PRIMARY KEY ( CursoPrerrequisito, Pensum_Curso_CodigoCurso, Pensum_Plan, Pensum_Carrera ) ;
 
 CREATE TABLE Salon 
     ( 
-     Edificio  NUMBER (10)  NOT NULL , 
+     Edificio  VARCHAR2 (10)  NOT NULL , 
      Salon     NUMBER (10)  NOT NULL , 
-     Capasidad NUMBER (3)  NOT NULL 
+     Capacidad NUMBER (3)  NOT NULL 
     ) 
 ;
 
@@ -314,7 +308,7 @@ COMMENT ON COLUMN Salon.Edificio IS 'ID del Edificio T13'
 COMMENT ON COLUMN Salon.Salon IS 'ID salon 113' 
 ;
 
-COMMENT ON COLUMN Salon.Capasidad IS 'Capasidad de alumnos del salon' 
+COMMENT ON COLUMN Salon.Capacidad IS 'Capasidad de alumnos del salon' 
 ;
 
 ALTER TABLE Salon 
@@ -322,11 +316,11 @@ ALTER TABLE Salon
 
 CREATE TABLE Seccion 
     ( 
-     Seccion         VARCHAR2 (2)  NOT NULL , 
-     Anio            NUMBER (4)  NOT NULL , 
-     Ciclo           NUMBER (2)  NOT NULL , 
-     Curso_Codigo    NUMBER (10)  NOT NULL , 
-     Catedratico_Cat NUMBER (10)  NOT NULL 
+     Seccion                 VARCHAR2 (2)  NOT NULL , 
+     Anio                    NUMBER (4)  NOT NULL , 
+     Ciclo                   VARCHAR2 (10)  NOT NULL , 
+     Curso_CodigoCurso       NUMBER (10)  NOT NULL , 
+     Catedratico_Catedratico NUMBER (10)  NOT NULL 
     ) 
 ;
 
@@ -339,14 +333,14 @@ COMMENT ON COLUMN Seccion.Anio IS 'Anio en el que estuvo vigente esta seccion'
 COMMENT ON COLUMN Seccion.Ciclo IS 'Ciclo en la carrera que se dio esa seccion' 
 ;
 
-COMMENT ON COLUMN Seccion.Curso_Codigo IS 'Codigo referenciado a esa seccion' 
+COMMENT ON COLUMN Seccion.Curso_CodigoCurso IS 'Codigo referenciado a esa seccion' 
 ;
 
-COMMENT ON COLUMN Seccion.Catedratico_Cat IS 'Catedratico asignado a la seccion' 
+COMMENT ON COLUMN Seccion.Catedratico_Catedratico IS 'Catedratico asignado a la seccion' 
 ;
 
 ALTER TABLE Seccion 
-    ADD CONSTRAINT Seccion_PK PRIMARY KEY ( Curso_Codigo, Ciclo, Anio, Seccion ) ;
+    ADD CONSTRAINT Seccion_PK PRIMARY KEY ( Curso_CodigoCurso, Anio, Seccion, Ciclo ) ;
 
 ALTER TABLE Asignacion 
     ADD CONSTRAINT Asignacion_Estudiante_FK FOREIGN KEY 
@@ -363,17 +357,17 @@ ALTER TABLE Asignacion
 ALTER TABLE Asignacion 
     ADD CONSTRAINT Asignacion_Seccion_FK FOREIGN KEY 
     ( 
-     Seccion_Curso_Codigo,
-     Seccion_Ciclo,
+     Seccion_Curso_CodigoCurso,
      Seccion_Anio,
-     Seccion_Seccion
+     Seccion_Seccion,
+     Seccion_Ciclo
     ) 
     REFERENCES Seccion 
     ( 
-     Curso_Codigo,
-     Ciclo,
+     Curso_CodigoCurso,
      Anio,
-     Seccion
+     Seccion,
+     Ciclo
     ) 
     ON DELETE CASCADE 
 ;
@@ -419,17 +413,17 @@ ALTER TABLE Horario
 ALTER TABLE Horario 
     ADD CONSTRAINT Horario_Seccion_FK FOREIGN KEY 
     ( 
-     Seccion_Curso_Codigo,
-     Seccion_Ciclo,
+     Seccion_Curso_CodigoCurso,
      Seccion_Anio,
-     Seccion_Seccion
+     Seccion_Seccion,
+     Seccion_Ciclo
     ) 
     REFERENCES Seccion 
     ( 
-     Curso_Codigo,
-     Ciclo,
+     Curso_CodigoCurso,
      Anio,
-     Seccion
+     Seccion,
+     Ciclo
     ) 
     ON DELETE CASCADE 
 ;
@@ -461,11 +455,11 @@ ALTER TABLE Inscripcion
 ALTER TABLE Pensum 
     ADD CONSTRAINT Pensum_Curso_FK FOREIGN KEY 
     ( 
-     Curso_Codigo
+     Curso_CodigoCurso
     ) 
     REFERENCES Curso 
     ( 
-     Codigo
+     CodigoCurso
     ) 
     ON DELETE CASCADE 
 ;
@@ -501,13 +495,13 @@ ALTER TABLE Prerreq
     ( 
      Pensum_Carrera,
      Pensum_Plan,
-     Pensum_Curso_Codigo
+     Pensum_Curso_CodigoCurso
     ) 
     REFERENCES Pensum 
     ( 
      Plan_Carrera_Carrera,
      Plan_Plan,
-     Curso_Codigo
+     Curso_CodigoCurso
     ) 
     ON DELETE CASCADE 
 ;
@@ -515,11 +509,11 @@ ALTER TABLE Prerreq
 ALTER TABLE Seccion 
     ADD CONSTRAINT Seccion_Catedratico_FK FOREIGN KEY 
     ( 
-     Catedratico_Cat
+     Catedratico_Catedratico
     ) 
     REFERENCES Catedratico 
     ( 
-     Cat
+     Catedratico
     ) 
     ON DELETE CASCADE 
 ;
@@ -527,11 +521,11 @@ ALTER TABLE Seccion
 ALTER TABLE Seccion 
     ADD CONSTRAINT Seccion_Curso_FK FOREIGN KEY 
     ( 
-     Curso_Codigo
+     Curso_CodigoCurso
     ) 
     REFERENCES Curso 
     ( 
-     Codigo
+     CodigoCurso
     ) 
     ON DELETE CASCADE 
 ;

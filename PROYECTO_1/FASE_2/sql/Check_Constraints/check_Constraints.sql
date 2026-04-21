@@ -52,16 +52,3 @@ BEGIN
     END IF;
 END:
 /
-
-SELECT 
-    e.Nombre,
-    a.Estudiante_Carnet,
-    AVG(a.Nota) AS Promedio_Nota
-FROM Asignacion a
-JOIN Estudiante e ON
-    e.Carnet = a.Estudiante_Carnet
-JOIN Inscripcion i ON
-    i.Estudiante_Carnet = e.Carnet and
-    i.Carrera_Carrera = 9
-WHERE a.Estudiante_Carnet = 201905884
-GROUP BY a.Estudiante_Carnet, e.Nombre;

@@ -1,0 +1,52 @@
+-- ============================================
+-- DROP COMPLETO DEL ESQUEMA
+-- ============================================
+
+-- =========================
+-- 1. TRIGGERS
+-- =========================
+DROP TRIGGER ASIGNACION_VALIDA_PRERREQ_CRED_INS;
+DROP TRIGGER ASIGNACION_VALIDAR_NOTA_ZONA;
+DROP TRIGGER ASIGNACION_ACTUALIZAR_PROMEDIO;
+DROP TRIGGER ASIGNACION_NO_CURSAR_CERRADA;
+DROP TRIGGER INSCRIPCION_LIMIT_ACTIVAS_INS;
+
+-- =========================
+-- 2. FUNCTIONS
+-- =========================
+DROP FUNCTION FN_CUMPLE_PRERREQ_CRED;
+DROP FUNCTION FN_CUMPLE_PRERREQ_CURSO;
+
+-- =========================
+-- 3. PROCEDURES
+-- =========================
+DROP PROCEDURE SP_INSERTAR_ASIGNACION;
+
+-- =========================
+-- 4. TABLAS (HIJAS → PADRES)
+-- =========================
+DROP TABLE Prerreq CASCADE CONSTRAINTS;
+DROP TABLE Asignacion CASCADE CONSTRAINTS;
+DROP TABLE Horario CASCADE CONSTRAINTS;
+DROP TABLE Seccion CASCADE CONSTRAINTS;
+DROP TABLE Pensum CASCADE CONSTRAINTS;
+DROP TABLE Plan CASCADE CONSTRAINTS;
+DROP TABLE Inscripcion CASCADE CONSTRAINTS;
+
+-- =========================
+-- 5. TABLAS BASE
+-- =========================
+DROP TABLE Curso CASCADE CONSTRAINTS;
+DROP TABLE Estudiante CASCADE CONSTRAINTS;
+DROP TABLE Catedratico CASCADE CONSTRAINTS;
+DROP TABLE Carrera CASCADE CONSTRAINTS;
+DROP TABLE Dia CASCADE CONSTRAINTS;
+DROP TABLE Periodo CASCADE CONSTRAINTS;
+DROP TABLE Salon CASCADE CONSTRAINTS;
+DROP TABLE Edificio CASCADE CONSTRAINTS;
+DROP TABLE Jornada CASCADE CONSTRAINTS;
+DROP TABLE Unidad_Academica CASCADE CONSTRAINTS;
+
+-- ============================================
+-- FIN
+-- ============================================
