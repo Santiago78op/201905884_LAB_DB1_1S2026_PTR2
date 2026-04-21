@@ -19,13 +19,13 @@ FROM (
         e.carnet = a.estudiante_carnet
     JOIN inscripcion i ON
         i.estudiante_carnet = e.carnet 
-        and i.carrera_carrera = 9
     JOIN plan p ON
         p.carrera_carrera = i.carrera_carrera
     JOIN pensum pe ON
             pe.plan_plan = p.plan 
         AND pe.plan_carrera_carrera = p.carrera_carrera
         AND pe.curso_codigocurso = a.seccion_curso_codigocurso
+    WHERE i.carrera_carrera = 9
     GROUP BY 
         a.estudiante_carnet, 
         e.nombre, 
