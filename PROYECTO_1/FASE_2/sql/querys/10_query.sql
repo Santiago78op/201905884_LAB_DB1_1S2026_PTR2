@@ -1,8 +1,10 @@
 /*
-*Para un estudiante, dar el código y nombre de los cursos que pueden asignarse el próximo semestre, basado en que ya aprobó los respectivos prerrequisitos.
+* Consulta 10:
+* Para un estudiante (1001), devolver cursos que puede asignarse
+* según prerrequisitos aprobados y evitando cursos ya aprobados.
 */
 
-SELECT
+SELECT DISTINCT
     c.codigocurso,
     c.nombrecurso
 FROM inscripcion i
@@ -37,7 +39,7 @@ AND NOT EXISTS (
 */
 AND NOT EXISTS (
     SELECT 1
-    FROM PRERREQ pr
+    FROM prerreq pr
     WHERE pr.PENSUM_PLAN = pe.plan_plan
     AND pr.PENSUM_CARRERA = pe.plan_carrera_carrera
     AND pr.pensum_curso_codigocurso = pe.curso_codigocurso
@@ -54,4 +56,4 @@ AND NOT EXISTS (
             AND a2.nota >= pe_pre.notaaprobacion
             AND a2.zona >= pe_pre.zonaminima
     )
-  );
+);

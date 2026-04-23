@@ -1,5 +1,7 @@
 /*
-*Dar el nombre de los estudiantes que tienen un promedio superior al promedio de los estudiantes de su carrera y su edad es menor que el promedio de edades de los estudiantes de su carrera.
+* Consulta 6:
+* Estudiantes con promedio de nota mayor al promedio de su carrera
+* y edad menor al promedio de edad de su carrera.
 */
 SELECT 
     t.estudiante,
@@ -9,7 +11,9 @@ SELECT
     t.edad
 FROM (
     /*
-    * Calcula, para cada estudiante en cada carrera, su promedio de notas y su edad.
+    * Para cada estudiante/carrera:
+    * - promedio de nota
+    * - edad en años completos
     */
     SELECT
         e.carnet,
@@ -34,7 +38,7 @@ FROM (
 ) t
 WHERE t.promedio_nota > (
     /*
-    * Calcula el promedio de los promedios de los estudiantes de esa carrera.
+    * Promedio de promedios en la misma carrera.
     */
     SELECT AVG(t2.promedio_nota)
     FROM (
@@ -57,7 +61,7 @@ WHERE t.promedio_nota > (
 )
 AND t.edad < (
     /*
-    * Calcula el promedio de edades de los estudiantes de esa carrera.
+    * Promedio de edades en la misma carrera.
     */
     SELECT AVG(t3.edad)
     FROM (
