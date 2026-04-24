@@ -7,8 +7,20 @@
 /*
 * Se agrega la columna donde se almacenará el sueldo en letras.
 */
-ALTER TABLE CATEDRATICO
-ADD SUELDO_LETRAS VARCHAR2(255);
+DECLARE
+    v_columna_existe NUMBER;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_columna_existe
+    FROM USER_TAB_COLUMNS
+    WHERE TABLE_NAME = 'CATEDRATICO'
+      AND COLUMN_NAME = 'SUELDO_LETRAS';
+
+    IF v_columna_existe = 0 THEN
+        EXECUTE IMMEDIATE 'ALTER TABLE CATEDRATICO ADD SUELDO_LETRAS VARCHAR2(255)';
+    END IF;
+END;
+/
 
 /*
 * Función de conversión de número a letras (rango soportado: 0 a 99,000.00).
@@ -16,14 +28,15 @@ ADD SUELDO_LETRAS VARCHAR2(255);
 CREATE OR REPLACE FUNCTION NUMERO_A_LETRAS(p_numero NUMBER)
 RETURN VARCHAR2
 IS
-    v_entero   NUMBER;
-    v_centavos NUMBER;
-    v_texto    VARCHAR2(300);
+    v_entero          NUMBER;
+    v_centavos        NUMBER;
+    v_texto_entero    VARCHAR2(300);
+    v_texto_centavos  VARCHAR2(20);
 
     FUNCTION unidades(n NUMBER) RETURN VARCHAR2 IS
     BEGIN
         CASE n
-            WHEN 0 THEN RETURN '';
+            WHEN 0 THEN RETURN 'CERO';
             WHEN 1 THEN RETURN 'UNO';
             WHEN 2 THEN RETURN 'DOS';
             WHEN 3 THEN RETURN 'TRES';
@@ -40,10 +53,9 @@ IS
     FUNCTION decenas(n NUMBER) RETURN VARCHAR2 IS
         d NUMBER;
         u NUMBER;
+        v_base VARCHAR2(30);
     BEGIN
-        IF n < 10 THEN
-            RETURN unidades(n);
-        ELSIF n = 10 THEN RETURN 'DIEZ';
+        IF n = 10 THEN RETURN 'DIEZ';
         ELSIF n = 11 THEN RETURN 'ONCE';
         ELSIF n = 12 THEN RETURN 'DOCE';
         ELSIF n = 13 THEN RETURN 'TRECE';
@@ -59,19 +71,19 @@ IS
             u := MOD(n, 10);
 
             CASE d
-                WHEN 3 THEN v_texto := 'TREINTA';
-                WHEN 4 THEN v_texto := 'CUARENTA';
-                WHEN 5 THEN v_texto := 'CINCUENTA';
-                WHEN 6 THEN v_texto := 'SESENTA';
-                WHEN 7 THEN v_texto := 'SETENTA';
-                WHEN 8 THEN v_texto := 'OCHENTA';
-                WHEN 9 THEN v_texto := 'NOVENTA';
+                WHEN 3 THEN v_base := 'TREINTA';
+                WHEN 4 THEN v_base := 'CUARENTA';
+                WHEN 5 THEN v_base := 'CINCUENTA';
+                WHEN 6 THEN v_base := 'SESENTA';
+                WHEN 7 THEN v_base := 'SETENTA';
+                WHEN 8 THEN v_base := 'OCHENTA';
+                WHEN 9 THEN v_base := 'NOVENTA';
             END CASE;
 
             IF u > 0 THEN
-                RETURN v_texto || ' Y ' || unidades(u);
+                RETURN v_base || ' Y ' || unidades(u);
             ELSE
-                RETURN v_texto;
+                RETURN v_base;
             END IF;
         END IF;
     END;
@@ -89,21 +101,21 @@ IS
             r := MOD(n, 100);
 
             CASE c
-                WHEN 1 THEN v_texto := 'CIENTO';
-                WHEN 2 THEN v_texto := 'DOSCIENTOS';
-                WHEN 3 THEN v_texto := 'TRESCIENTOS';
-                WHEN 4 THEN v_texto := 'CUATROCIENTOS';
-                WHEN 5 THEN v_texto := 'QUINIENTOS';
-                WHEN 6 THEN v_texto := 'SEISCIENTOS';
-                WHEN 7 THEN v_texto := 'SETECIENTOS';
-                WHEN 8 THEN v_texto := 'OCHOCIENTOS';
-                WHEN 9 THEN v_texto := 'NOVECIENTOS';
+                WHEN 1 THEN v_texto_entero := 'CIENTO';
+                WHEN 2 THEN v_texto_entero := 'DOSCIENTOS';
+                WHEN 3 THEN v_texto_entero := 'TRESCIENTOS';
+                WHEN 4 THEN v_texto_entero := 'CUATROCIENTOS';
+                WHEN 5 THEN v_texto_entero := 'QUINIENTOS';
+                WHEN 6 THEN v_texto_entero := 'SEISCIENTOS';
+                WHEN 7 THEN v_texto_entero := 'SETECIENTOS';
+                WHEN 8 THEN v_texto_entero := 'OCHOCIENTOS';
+                WHEN 9 THEN v_texto_entero := 'NOVECIENTOS';
             END CASE;
 
             IF r > 0 THEN
-                RETURN v_texto || ' ' || decenas(r);
+                RETURN v_texto_entero || ' ' || decenas(r);
             ELSE
-                RETURN v_texto;
+                RETURN v_texto_entero;
             END IF;
         END IF;
     END;
@@ -112,40 +124,73 @@ IS
         m NUMBER;
         r NUMBER;
     BEGIN
-        IF n < 1000 THEN
+        -- Divido en n en 1000 para obtener la parte de Unidad
+        m := TRUNC(n / 1000);
+
+        r := MOD(n, 1000);
+
+        IF m = 1 THEN
+            v_texto_entero := 'MIL';
+        ELSE
+            v_texto_entero := centenas(m) || ' MIL';
+        END IF;
+
+        IF r > 0 THEN
+            RETURN v_texto_entero || ' ' || centenas(r);
+        ELSE
+            RETURN v_texto_entero;
+        END IF;
+    END;
+
+    FUNCTION convertir(n NUMBER) RETURN VARCHAR2 IS
+    BEGIN
+        IF n = 0 THEN
+            RETURN 'CERO';
+        ELSIF n < 10 THEN
+            RETURN unidades(n);
+        ELSIF n < 100 THEN
+            RETURN decenas(n);
+        ELSIF n < 1000 THEN
             RETURN centenas(n);
         ELSE
-            m := TRUNC(n / 1000);
-            r := MOD(n, 1000);
-
-            IF m = 1 THEN
-                v_texto := 'MIL';
-            ELSE
-                v_texto := centenas(m) || ' MIL';
-            END IF;
-
-            IF r > 0 THEN
-                RETURN v_texto || ' ' || centenas(r);
-            ELSE
-                RETURN v_texto;
-            END IF;
+            RETURN miles(n);
         END IF;
     END;
 
 BEGIN
+
+    -- Si valido que es Null retorno Error
     IF p_numero IS NULL OR p_numero < 0 THEN
         RETURN 'MONTO INVALIDO';
     END IF;
 
+    -- Elimina parte decimal sin redondear
+    -- 123.75 -> 123
     v_entero := TRUNC(p_numero);
+    -- Parte decimal en centavos
+    -- 123.75 - 123 -> 0.75 * 100 -> 75
     v_centavos := ROUND((p_numero - v_entero) * 100);
 
+    -- Si es mayor da conflicto con la instrucción
     IF p_numero > 99000 THEN
         RETURN 'MONTO FUERA DE RANGO';
     END IF;
 
-    RETURN 'QUETZALES ' || miles(v_entero) || 
-           ' CON ' || LPAD(v_centavos, 2, '0') || '/100';
+    -- Ajuste para casos como 10.995 que redondean centavos a 100.
+    IF v_centavos = 100 THEN
+        v_entero := v_entero + 1;
+        v_centavos := 0;
+    END IF;
+
+    v_texto_entero := convertir(v_entero);
+
+    IF v_centavos > 0 THEN
+        -- LPAD para asegurar que siempre tenga 2 dígitos (ej: 5 -> '05')
+        v_texto_centavos := LPAD(v_centavos, 2, '0') || '/100';
+        RETURN v_texto_entero || ' CON ' || v_texto_centavos;
+    END IF;
+
+    RETURN v_texto_entero;
 END;
 /
 

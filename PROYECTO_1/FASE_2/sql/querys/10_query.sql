@@ -15,7 +15,7 @@ JOIN pensum pe ON
     AND pe.plan_carrera_carrera = pl.carrera_carrera
 JOIN curso c ON
     c.codigocurso = pe.curso_codigocurso
-WHERE i.estudiante_carnet = 1001
+WHERE i.estudiante_carnet = 1002
 
 /*
 * El estudiante no debe haber aprobado ya el curso candidato.

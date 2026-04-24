@@ -21,6 +21,9 @@ CREATE TABLE Asignacion
     ) 
 ;
 
+ALTER TABLE Asignacion 
+    ADD CONSTRAINT Asignacion_PK PRIMARY KEY ( Estudiante_Carnet, Seccion_Curso_CodigoCurso, Seccion_Seccion, Seccion_Anio, Seccion_Ciclo ) ;
+
 COMMENT ON COLUMN Asignacion.Zona IS 'Zona del Curso asignado' 
 ;
 

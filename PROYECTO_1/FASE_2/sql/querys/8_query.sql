@@ -3,15 +3,35 @@
 * Estudiantes asignados este semestre sin ningún traslape de horario.
 *
 * Nota:
-* Se utiliza (2010, CICLO1) como "este semestre" según la convención del script.
-*/
+* Utilice (2010, CICLO1).
 
+* Paso 1:
+* Para cada estudiante, validar que tenga asignaciones en el semestre a validar.
+
+* Paso 2:
+* Para cada estudiante con asignaciones en el semestre a validar, validar que no
+* exista ningún par de cursos del mismo estudiante que coincida en día y período
+* (traslape).
+
+* Paso 3:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+ */
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre de los estudiantes 
+* que han sido asignados en el semestre a validar, y que no tienen ningún
+* traslape de horario entre sus cursos asignados en ese semestre.
+*/
 SELECT DISTINCT
     e.nombre AS estudiante
 FROM estudiante e
+/*
+* Exists me permite validar que el estudiante tenga 
+* asignaciones en el semestre a validar.
+*/
 WHERE EXISTS (
     /*
-    * El estudiante debe tener al menos una asignación en el semestre objetivo.
+    * El estudiante debe tener al menos una asignación en el semestre a validar.
     */
     SELECT 1
     FROM asignacion a
@@ -38,6 +58,7 @@ AND NOT EXISTS (
        AND h2.seccion_seccion = a2.seccion_seccion
        AND h2.seccion_anio = a2.seccion_anio
        AND h2.seccion_ciclo = a2.seccion_ciclo
+    -- Valida que las asignaciones sean del mismo estudiante.
     WHERE a1.estudiante_carnet = e.carnet
       AND a1.seccion_anio = 2010
       AND a1.seccion_ciclo = 'CICLO1'
