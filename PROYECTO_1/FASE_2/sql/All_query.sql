@@ -1,0 +1,1145 @@
+/*
+* Consulta 1:
+* Dar el nombre del estudiante, promedio y número de créditos ganados,
+* para quienes han cerrado Ingeniería en Ciencias y Sistemas.
+
+* Paso 1:
+* Como se que un estudiante ha cerrado la carrera?
+* Tengo que sumar los créditos de los cursos que ha aprobado, 
+* y comparar el resultado contra el número de créditos cierre.
+
+* Paso 2:
+* Valido si créditos ganados >= número de créditos de cierre 
+* en la tabla PLAN.
+*/
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre, promedio y 
+* créditos ganados de los estudiantes que han cerrado la 
+* carrera de Ingeniería en Ciencias y Sistemas.
+
+* Pero se hace una subconsulta interna para calcular el promedio y créditos ganados de cada estudiante,
+* y luego se filtra en la consulta externa para mostrar solo aquellos que han cerrado la carrera
+*/
+SELECT
+    t.nombre,
+    t.estudiante_carnet,
+    t.promedio_nota,
+    t.creditos_ganados,
+    t.numerocreditoscierre
+FROM (
+    /*
+    * Se calcula el promedio del estudiante y los créditos acumulados
+    * en la carrera 9, evaluando los campos de Nota/Zona del pensum.
+    */
+    SELECT
+        e.nombre,
+        a.estudiante_carnet,
+        p.numerocreditoscierre,
+        -- Promedio de nota sobre los cursos del estudiante.
+        AVG(a.nota) AS promedio_nota,
+        -- Suma de creditos solo de cursos aprobados por nota y zona minima.
+        SUM(
+            CASE
+                WHEN a.nota >= pe.notaaprobacion
+                 AND a.zona >= pe.zonaminima
+                THEN pe.numcreditos
+                ELSE 0
+            END
+        ) AS creditos_ganados
+    FROM asignacion a
+    JOIN estudiante e
+        ON e.carnet = a.estudiante_carnet
+    JOIN inscripcion i
+        ON i.estudiante_carnet = e.carnet
+    JOIN plan p
+        ON p.carrera_carrera = i.carrera_carrera
+    JOIN pensum pe
+        ON pe.plan_plan = p.plan
+       AND pe.plan_carrera_carrera = p.carrera_carrera
+       AND pe.curso_codigocurso = a.seccion_curso_codigocurso
+    -- Valida que la carrera del estudiante sea Ingeniería en Ciencias y Sistemas.
+    WHERE i.carrera_carrera = 9
+    -- Agrupa por estudiante para calcular el promedio y créditos ganados por cada uno.
+    GROUP BY
+        a.estudiante_carnet,
+        e.nombre,
+        p.numerocreditoscierre
+) t
+-- Filtra solo los estudiantes que ttengan o superen el número de creditos cierre.
+WHERE t.creditos_ganados >= t.numerocreditoscierre;
+
+/*
+* Consulta 2:
+* Dar el nombre del estudiante, nombre de carrera, promedio y número de 
+* créditos ganados, para quienes han cerrado en alguna carrera, estén 
+* inscritos o no actualmente.
+
+* Nota: Tome la tabla inscripción como estudiantes que estan inscritos,
+* con la salvedad de que algunos pueden estarlo pero con la carrera cerrada
+* o detenida, pero eso no los deja como no inscrito, ya que aunque ya no estén
+* en un punto el estudiante fue inscrito.
+
+* Paso 1:
+* Para cada estudiante, se evalúa su promedio y créditos ganados en cada carrera
+* en la que estuvo inscrito, usando el plan/pensum de esa carrera.
+
+* Paso 2:
+* Se valida si créditos ganados >= número de créditos de cierre 
+* en la tabla PLAN para cada carrera, y se muestra el resultado.
+*/
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre, promedio y
+* créditos ganados de los estudiantes que han cerrado alguna carrera, 
+* estén inscritos o no actualmente.
+
+* Pero se hace una subconsulta interna para calcular el promedio y 
+* créditos ganados de cada estudiante en cada carrera, y luego se 
+* filtra en la consulta externa para mostrar solo aquellos que han 
+* cerrado alguna carrera
+
+* Nota: No se muestan otras carreras ya que en la data de asignacion
+* solo estan estudiantes de la carrera 9.
+*/
+SELECT
+    t.estudiante,
+    t.carrera,
+    t.promedio_nota,
+    t.creditos_ganados,
+    t.numerocreditoscierre
+FROM (
+    /*
+    * El cierre se valida por cada carrera en la que el estudiante estuvo inscrito,
+    * usando el pensum/plan de esa carrera.
+    */
+    SELECT
+        e.nombre AS estudiante,
+        c.nombre AS carrera,
+        p.numerocreditoscierre,
+        -- Promedio general de nota de los cursos asociados.
+        AVG(a.nota) AS promedio_nota,
+        -- Suma de creditos solo cuando cumple nota y zona minima.
+        SUM(
+            CASE
+                WHEN a.nota >= pe.notaaprobacion
+                 AND a.zona >= pe.zonaminima
+                THEN pe.numcreditos
+                ELSE 0
+            END
+        ) AS creditos_ganados
+    FROM asignacion a
+    JOIN estudiante e
+        ON e.carnet = a.estudiante_carnet
+    JOIN inscripcion i
+        ON i.estudiante_carnet = e.carnet
+    JOIN carrera c
+        ON c.carrera = i.carrera_carrera
+    JOIN plan p
+        ON p.carrera_carrera = i.carrera_carrera
+    JOIN pensum pe
+        ON pe.curso_codigocurso = a.seccion_curso_codigocurso
+       AND pe.plan_plan = p.plan
+       AND pe.plan_carrera_carrera = p.carrera_carrera
+    -- Agrupa por estudiante, nombre de carrera y créditos de cierre.
+    GROUP BY
+        e.nombre,
+        c.nombre,
+        p.numerocreditoscierre
+) t
+-- Filtro final: solo carreras donde el estudiante ya alcanzo el cierre.
+WHERE t.creditos_ganados >= t.numerocreditoscierre;
+
+/*
+* Consulta 3:
+* Dar el nombre de los estudiantes que han ganado algún curso, con alguno
+* de los catedráticos que han impartido alguno de los cursos de la carrera de
+* sistemas en alguno de los planes que se han impartido en el semestre pasado.
+*
+* Nota:
+* Tomare como semestre pasado el (2010, CICLO1).
+
+* Paso 1:
+* Identificar los catedráticos que impartieron cursos de la carrera de sistemas
+* en el semestre pasado.
+
+* Paso 2:
+* Para cada estudiante, validar si ha ganado algún curso con alguno de esos 
+* catedráticos, usando el criterio de aprobación del pensum de su carrera/plan.
+
+* Paso 3:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+*/
+
+/*
+* Tabla temporal para almacenar los catedráticos que impartieron cursos de 
+* la carrera de sistemas en el semestre pasado.
+
+* Hago una consulta para validar que el estudiante haya ganado algún curso
+* con alguno de esos catedráticos, usando el criterio de aprobación del 
+* pensum de su carrera/plan.  
+*/
+WITH catedraticos_sistemas_semestre_pasado AS (
+    /*
+    * Conjunto de catedráticos que impartieron al menos un curso
+    * perteneciente a la carrera 9 el semestre pasado.
+    */
+    SELECT DISTINCT
+        s.catedratico_catedratico
+    FROM seccion s
+    JOIN plan p
+        ON p.carrera_carrera = 9
+    JOIN pensum pe
+        ON pe.curso_codigocurso = s.curso_codigocurso
+       AND pe.plan_plan = p.plan
+       AND pe.plan_carrera_carrera = p.carrera_carrera
+    -- Filtra por el semestre pasado.
+    WHERE s.anio = 2010
+      AND s.ciclo = 'CICLO1'
+)
+/*
+* Consulta para mostrar el nombre de los estudiantes que han ganado algún curso,
+* con alguno de los catedráticos que han impartido alguno de los cursos 
+* de la carrera de sistemas en alguno de los planes que se han impartido 
+* en el semestre pasado.
+*/
+SELECT DISTINCT
+    e.nombre AS estudiante
+FROM asignacion a
+JOIN estudiante e
+    ON e.carnet = a.estudiante_carnet
+JOIN seccion s_est
+    ON s_est.curso_codigocurso = a.seccion_curso_codigocurso
+   AND s_est.seccion = a.seccion_seccion
+   AND s_est.anio = a.seccion_anio
+   AND s_est.ciclo = a.seccion_ciclo
+/*
+ * Valida que el catedrático de la sección del curso asignado al estudiante
+ * esté en el conjunto de catedráticos que impartieron cursos de sistemas
+ * el semestre pasado en la tabla temporal.
+ */
+WHERE s_est.catedratico_catedratico IN (
+    -- Consilta la tabla temporal.
+    SELECT cs.catedratico_catedratico
+    FROM catedraticos_sistemas_semestre_pasado cs
+)
+/*
+* Exists me permite validar que el estudiante haya ganado algún curso con 
+* alguno de esos catedráticos, usando el criterio de aprobación del 
+* pensum de su carrera/plan.
+
+* EXISTS devuelve TRUE si hay almenos una fila que cumple la condición. 
+*/
+AND EXISTS (
+    /*
+    * Valida que la asignación del estudiante esté ganada,
+    * usando el criterio de aprobación del pensum de su carrera/plan.
+    */
+    SELECT 1
+    FROM inscripcion i
+    JOIN plan p
+        ON p.carrera_carrera = i.carrera_carrera
+    JOIN pensum pe
+        ON pe.curso_codigocurso = a.seccion_curso_codigocurso
+       AND pe.plan_plan = p.plan
+       AND pe.plan_carrera_carrera = p.carrera_carrera
+    -- Valida que tenga ganado el curso.
+    WHERE i.estudiante_carnet = a.estudiante_carnet
+      AND a.nota >= pe.notaaprobacion
+      AND a.zona >= pe.zonaminima
+);
+
+/*
+* Consulta 4:
+* Para un estudiante determinado, que ya cerró alguna carrera, dar el nombre de
+* los estudiantes que llevaon con él todos los cursos.
+
+* Nota: 
+* Para los cursos use el criterio que deben de estar en (misma sección/año/ciclo/curso).
+
+* Paso 1:
+* Identificar un estudiante que haya cerrado alguna carrera.
+
+* Paso 2:
+* Para ese estudiante, identificar los cursos que ha llevado (sección/año/ciclo/curso).
+
+* Paso 3:
+* Validar que otro estudiante haya llevado exactamente los mismos cursos (sección/año/ciclo/curso).
+
+* Paso 4:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+*/
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre de los estudiantes que 
+* han llevado exactamente los mismos cursos (sección/año/ciclo/curso) 
+* que el estudiante base, siempre y cuando este haya cerrado alguna carrera.
+*/
+SELECT
+    et.carnet,
+    et.nombre
+FROM estudiante et
+-- Valida para todos los estudiantes excepto el estudiante base.
+WHERE et.carnet <> 1001
+/*
+* Exists me permite validar que el estudiante base haya cerrado alguna carrera.
+*/
+AND EXISTS (
+    /*
+    * El estudiante base debe haber cerrado al menos una carrera.
+    */
+    SELECT 1
+    FROM (
+        /*
+        * La subconsulta permite calcular los créditos ganados por el estudiante 
+        * base en cada carrera en la que estuvo inscrito, usando el plan/pensum 
+        * de esa carrera.
+        */
+        SELECT
+            e.carnet,
+            p.numerocreditoscierre,
+            SUM(
+                CASE
+                    WHEN a.nota >= pe.notaaprobacion
+                     AND a.zona >= pe.zonaminima
+                    THEN pe.numcreditos
+                    ELSE 0
+                END
+            ) AS creditos_ganados
+        FROM asignacion a
+        JOIN estudiante e
+            ON e.carnet = a.estudiante_carnet
+        JOIN inscripcion i
+            ON i.estudiante_carnet = e.carnet
+        JOIN plan p
+            ON p.carrera_carrera = i.carrera_carrera
+        JOIN pensum pe
+            ON pe.curso_codigocurso = a.seccion_curso_codigocurso
+           AND pe.plan_plan = p.plan
+           AND pe.plan_carrera_carrera = p.carrera_carrera
+        -- Valida que el estudiante sea el estudiante base.
+        WHERE e.carnet = 1001
+        -- Agrupa por estudiante para calcular los créditos ganados por cada carrera.
+        GROUP BY
+            e.carnet,
+            p.numerocreditoscierre
+    ) t
+    -- Filtra por el estudiante base y valida que haya cerrado alguna carrera.
+    WHERE t.carnet = 1001
+      AND t.creditos_ganados >= t.numerocreditoscierre
+)
+/*
+* Not Exists me permite validar que no exista ningún curso (sección/año/ciclo/curso)
+* que el estudiante base haya llevado y el estudiante comparado no lo haya llevado.
+
+* NOT EXISTS devuelve TRUE si no hay ninguna fila que cumple la condición.
+*/
+AND NOT EXISTS (
+    /*
+    * No debe existir ninguna asignación del estudiante base
+    * que el estudiante comparado no haya llevado con él.
+    */
+    SELECT 1
+    FROM asignacion a
+    -- Valida que la asignación sea del estudiante base.
+    WHERE a.estudiante_carnet = 1001
+      /*
+      * Valida que no exista una asignación del estudiante comparado con 
+      * la misma sección/año/ciclo/curso.
+      */
+      AND NOT EXISTS (
+          SELECT 1
+          FROM asignacion a2
+          -- Valida que la asignación sea del estudiante comparado.
+          WHERE a2.estudiante_carnet = et.carnet
+            AND a2.seccion_curso_codigocurso = a.seccion_curso_codigocurso
+            AND a2.seccion_seccion = a.seccion_seccion
+            AND a2.seccion_anio = a.seccion_anio
+            AND a2.seccion_ciclo = a.seccion_ciclo
+      )
+);
+
+/*
+* Consulta 5:
+* Dar el nombre de las parejas de estudiantes que, en todos sus cursos en común,
+* sí fueron compañeros (misma sección, año y ciclo).
+
+* Paso 1:
+* Para cada pareja de estudiantes, identificar los cursos que han llevado en común.
+
+* Paso 2:
+* Validar que para cada curso en común, hayan sido compañeros (misma sección/año/ciclo).
+
+* Paso 3:
+* Mostrar el nombre de las parejas de estudiantes que cumplen la condición.
+*/
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre de las parejas de estudiantes que,
+* en todos sus cursos en común, sí fueron compañeros (misma sección, año y ciclo).
+*/
+SELECT
+    e1.nombre AS estudiante1,
+    e2.nombre AS estudiante2
+FROM estudiante e1
+JOIN estudiante e2
+    /*
+    * Filtra para comparar cada estudiante con los demás estudiantes, 
+    * sin repetir parejas.
+
+    * Por ejemplo, 
+    * Tabla
+    * estudiante
+    * carnet | nombre
+    * 1001   | Juan
+    * 1002   | Maria
+    * 1003   | Pedro
+
+    * Parejas comparadas:
+    * 1001 - 1002
+    * 1001 - 1003
+    * 1002 - 1003
+    */
+    ON e1.carnet < e2.carnet
+
+/*
+* Exists me permite validar que exista al menos un curso en común entre 
+* los estudiantes comparados, y que para cada curso en común hayan 
+* sido compañeros (misma sección/año/ciclo).
+*/
+WHERE EXISTS (
+    /*
+    * Deben tener al menos un curso en común,
+    * de lo contrario no se considera pareja.
+    */
+    SELECT 1
+    FROM asignacion a1
+    JOIN asignacion a2
+        ON a2.estudiante_carnet = e2.carnet
+       AND a2.seccion_curso_codigocurso = a1.seccion_curso_codigocurso
+    -- Valida que la asignación sea del estudiante comparado.
+    WHERE a1.estudiante_carnet = e1.carnet
+)
+/*
+* Not Exists me permite validar que no exista ningún curso en común 
+* donde no hayan sido compañeros (misma sección/año/ciclo).
+*/
+AND NOT EXISTS (
+    /*
+    * No debe existir un curso en común donde no coincidieron
+    * en la misma sección (año/ciclo/sección).
+    */
+    SELECT 1
+    FROM asignacion a1
+    JOIN asignacion a2
+        ON a2.estudiante_carnet = e2.carnet
+       AND a2.seccion_curso_codigocurso = a1.seccion_curso_codigocurso
+    -- Valida que la asignación sea del estudiante comparado.
+    WHERE a1.estudiante_carnet = e1.carnet
+      -- Valida que no hayan sido compañeros en la misma sección/año/ciclo.
+      AND NOT (
+          a1.seccion_seccion = a2.seccion_seccion
+      AND a1.seccion_anio = a2.seccion_anio
+      AND a1.seccion_ciclo = a2.seccion_ciclo
+      )
+);
+
+/*
+* Consulta 6:
+* Estudiantes con promedio de nota mayor al promedio de su carrera
+* y edad menor al promedio de edad de su carrera.
+
+* Paso 1:
+* Para cada estudiante, calcular su promedio de nota y edad.
+
+* Paso 2:
+* Para cada carrera, calcular el promedio de nota y edad de sus estudiantes.
+
+* Paso 3:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+*/
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre, promedio de nota y edad
+* de los estudiantes que tienen un promedio de nota mayor al promedio de su carrera
+* y una edad menor al promedio de edad de su carrera.
+*/
+SELECT 
+    t.estudiante,
+    t.carrera,
+    t.nombre_carrera,
+    t.promedio_nota,
+    t.edad
+FROM (
+    /*
+    * Para cada estudiante/carrera:
+    * - promedio de nota
+    * - edad en años completos
+    */
+    SELECT
+        e.carnet,
+        e.nombre AS estudiante,
+        c.carrera AS carrera,
+        c.nombre AS nombre_carrera,
+        -- Promedio general de nota de los cursos asociados.
+        AVG(a.nota) AS promedio_nota,
+        -- Edad en años completos.
+        /*
+        * TRUNC se usa para elimnar o ajustar fechas a un nivel especifico
+        * MONTHS_BETWEEN devuelve el número de meses entre dos fechas.
+        * Al dividir entre 12, obtenemos la edad en años, y al truncar
+        * obtenemos la edad en años completos.
+        */
+        TRUNC(MONTHS_BETWEEN(SYSDATE, e.fechanacimiento) / 12) AS edad
+    FROM estudiante e
+    JOIN inscripcion i
+        ON i.estudiante_carnet = e.carnet
+    JOIN carrera c
+        ON c.carrera = i.carrera_carrera
+    JOIN asignacion a
+        ON a.estudiante_carnet = e.carnet
+    -- Agrupa para calcular edad y promedio por estudiante/carrera.
+    GROUP BY
+        e.carnet,
+        e.nombre,
+        c.carrera,
+        c.nombre,
+        e.fechanacimiento
+) t
+/*
+* Filtra los estudiantes que tengan un promedio de nota mayor al promedio de 
+* su carrera y una edad menor al promedio de edad de su carrera.
+*/
+WHERE t.promedio_nota > (
+    /*
+    * Promedio de promedios en la misma carrera.
+    */
+    SELECT AVG(t2.promedio_nota)
+    FROM (
+        /*
+        * Para cada estudiante/carrera:
+        * - promedio de nota
+        */
+        SELECT
+            e2.carnet,
+            c2.carrera,
+            AVG(a2.nota) AS promedio_nota
+        FROM estudiante e2
+        JOIN inscripcion i2
+            ON i2.estudiante_carnet = e2.carnet
+        JOIN carrera c2
+            ON c2.carrera = i2.carrera_carrera
+        JOIN asignacion a2
+            ON a2.estudiante_carnet = e2.carnet
+        -- Agrupa para calcular el promedio por estudiante/carrera.
+        GROUP BY
+            e2.carnet,
+            c2.carrera
+    ) t2
+    -- Filtra por la misma carrera.
+    WHERE t2.carrera = t.carrera
+)
+/*
+* Valida que la edad del estudiante sea menor al promedio de edad de su carrera.
+*/
+AND t.edad < (
+    /*
+    * Promedio de edades en la misma carrera.
+    */
+    SELECT AVG(t3.edad)
+    FROM (
+        /*
+        * Para cada estudiante/carrera:
+        * - edad en años completos
+        */
+        SELECT
+            e3.carnet,
+            c3.carrera,
+            TRUNC(MONTHS_BETWEEN(SYSDATE, e3.fechanacimiento) / 12) AS edad
+        FROM estudiante e3
+        JOIN inscripcion i3
+            ON i3.estudiante_carnet = e3.carnet
+        JOIN carrera c3
+            ON c3.carrera = i3.carrera_carrera
+        -- Agrupa para calcular la edad por estudiante/carrera.
+        GROUP BY
+            e3.carnet,
+            c3.carrera,
+            e3.fechanacimiento
+    ) t3
+    -- Filtra por la misma carrera.
+    WHERE t3.carrera = t.carrera
+);
+
+/*
+* Consulta 7:
+* Agregar columna para guardar el sueldo en letras,
+* convertir el monto a texto y mantener el dato sincronizado.
+*/
+
+/*
+* Se agrega la columna donde se almacenará el sueldo en letras.
+*/
+
+/* Paso 1: Agregar columna si no existe 
+* Lo hago con un contador para ver si tiene Datos
+*/
+DECLARE
+    v_columna_existe NUMBER;
+BEGIN
+    SELECT COUNT(*)
+    INTO v_columna_existe
+    FROM USER_TAB_COLUMNS
+    WHERE TABLE_NAME = 'CATEDRATICO'
+      AND COLUMN_NAME = 'SUELDO_LETRAS';
+
+    IF v_columna_existe = 0 THEN
+        EXECUTE IMMEDIATE '
+            ALTER TABLE CATEDRATICO
+            ADD SUELDO_LETRAS VARCHAR2(255)
+        ';
+    END IF;
+END;
+/
+
+/* Paso 2: Función auxiliar paraconvertir de num a letra */
+CREATE OR REPLACE FUNCTION NUMERO_A_LETRAS(p_numero NUMBER)
+RETURN VARCHAR2
+IS
+    v_entero          NUMBER;
+    v_centavos        NUMBER;
+    v_texto_entero    VARCHAR2(300);
+
+    FUNCTION unidades(n NUMBER) RETURN VARCHAR2 IS
+    BEGIN
+        CASE n
+            WHEN 0 THEN RETURN 'CERO';
+            WHEN 1 THEN RETURN 'UNO';
+            WHEN 2 THEN RETURN 'DOS';
+            WHEN 3 THEN RETURN 'TRES';
+            WHEN 4 THEN RETURN 'CUATRO';
+            WHEN 5 THEN RETURN 'CINCO';
+            WHEN 6 THEN RETURN 'SEIS';
+            WHEN 7 THEN RETURN 'SIETE';
+            WHEN 8 THEN RETURN 'OCHO';
+            WHEN 9 THEN RETURN 'NUEVE';
+            ELSE RETURN '';
+        END CASE;
+    END;
+
+    FUNCTION unidades_aux(n NUMBER) RETURN VARCHAR2 IS
+    BEGIN
+        IF n = 1 THEN
+            RETURN 'UN';
+        ELSE
+            RETURN unidades(n);
+        END IF;
+    END;
+
+    FUNCTION decenas(n NUMBER) RETURN VARCHAR2 IS
+        d NUMBER;
+        u NUMBER;
+        v_base VARCHAR2(30);
+    BEGIN
+        IF n < 10 THEN
+            RETURN unidades(n);
+        ELSIF n = 10 THEN RETURN 'DIEZ';
+        ELSIF n = 11 THEN RETURN 'ONCE';
+        ELSIF n = 12 THEN RETURN 'DOCE';
+        ELSIF n = 13 THEN RETURN 'TRECE';
+        ELSIF n = 14 THEN RETURN 'CATORCE';
+        ELSIF n = 15 THEN RETURN 'QUINCE';
+        ELSIF n < 20 THEN
+            RETURN 'DIECI' || unidades(n - 10);
+        ELSIF n = 20 THEN RETURN 'VEINTE';
+        ELSIF n < 30 THEN
+            RETURN 'VEINTI' || unidades(n - 20);
+        ELSE
+            d := TRUNC(n / 10);
+            -- Se aplica MOD para poder extraer la unidad 55 = CINCUENTA Y CINCO
+            u := MOD(n, 10);
+
+            CASE d
+                WHEN 3 THEN v_base := 'TREINTA';
+                WHEN 4 THEN v_base := 'CUARENTA';
+                WHEN 5 THEN v_base := 'CINCUENTA';
+                WHEN 6 THEN v_base := 'SESENTA';
+                WHEN 7 THEN v_base := 'SETENTA';
+                WHEN 8 THEN v_base := 'OCHENTA';
+                WHEN 9 THEN v_base := 'NOVENTA';
+            END CASE;
+
+            IF u > 0 THEN
+                RETURN v_base || ' Y ' || unidades(u);
+            ELSE
+                RETURN v_base;
+            END IF;
+        END IF;
+    END;
+
+    FUNCTION decenas_aux(n NUMBER) RETURN VARCHAR2 IS
+        d NUMBER;
+        u NUMBER;
+        v_base VARCHAR2(30);
+    BEGIN
+        IF n < 10 THEN
+            RETURN unidades_aux(n);
+        ELSIF n = 10 THEN RETURN 'DIEZ';
+        ELSIF n = 11 THEN RETURN 'ONCE';
+        ELSIF n = 12 THEN RETURN 'DOCE';
+        ELSIF n = 13 THEN RETURN 'TRECE';
+        ELSIF n = 14 THEN RETURN 'CATORCE';
+        ELSIF n = 15 THEN RETURN 'QUINCE';
+        ELSIF n < 20 THEN
+            IF n = 16 THEN RETURN 'DIECISEIS';
+            ELSIF n = 17 THEN RETURN 'DIECISIETE';
+            ELSIF n = 18 THEN RETURN 'DIECIOCHO';
+            ELSIF n = 19 THEN RETURN 'DIECINUEVE';
+            END IF;
+        ELSIF n = 20 THEN RETURN 'VEINTE';
+        ELSIF n < 30 THEN
+            IF n = 21 THEN
+                RETURN 'VEINTIUN';
+            ELSE
+                RETURN 'VEINTI' || unidades(n - 20);
+            END IF;
+        ELSE
+            d := TRUNC(n / 10);
+            u := MOD(n, 10);
+
+            CASE d
+                WHEN 3 THEN v_base := 'TREINTA';
+                WHEN 4 THEN v_base := 'CUARENTA';
+                WHEN 5 THEN v_base := 'CINCUENTA';
+                WHEN 6 THEN v_base := 'SESENTA';
+                WHEN 7 THEN v_base := 'SETENTA';
+                WHEN 8 THEN v_base := 'OCHENTA';
+                WHEN 9 THEN v_base := 'NOVENTA';
+            END CASE;
+
+            IF u > 0 THEN
+                RETURN v_base || ' Y ' || unidades_aux(u);
+            ELSE
+                RETURN v_base;
+            END IF;
+        END IF;
+    END;
+
+    FUNCTION centenas(n NUMBER) RETURN VARCHAR2 IS
+        c NUMBER;
+        r NUMBER;
+        v_base VARCHAR2(40);
+    BEGIN
+        IF n < 100 THEN
+            RETURN decenas(n);
+        ELSIF n = 100 THEN
+            RETURN 'CIEN';
+        ELSE
+            c := TRUNC(n / 100);
+            r := MOD(n, 100);
+
+            CASE c
+                WHEN 1 THEN v_base := 'CIENTO';
+                WHEN 2 THEN v_base := 'DOSCIENTOS';
+                WHEN 3 THEN v_base := 'TRESCIENTOS';
+                WHEN 4 THEN v_base := 'CUATROCIENTOS';
+                WHEN 5 THEN v_base := 'QUINIENTOS';
+                WHEN 6 THEN v_base := 'SEISCIENTOS';
+                WHEN 7 THEN v_base := 'SETECIENTOS';
+                WHEN 8 THEN v_base := 'OCHOCIENTOS';
+                WHEN 9 THEN v_base := 'NOVECIENTOS';
+            END CASE;
+
+            IF r > 0 THEN
+                RETURN v_base || ' ' || decenas(r);
+            ELSE
+                RETURN v_base;
+            END IF;
+        END IF;
+    END;
+
+    FUNCTION centenas_aux(n NUMBER) RETURN VARCHAR2 IS
+        c NUMBER;
+        r NUMBER;
+        v_base VARCHAR2(40);
+    BEGIN
+        IF n < 100 THEN
+            RETURN decenas_aux(n);
+        ELSIF n = 100 THEN
+            RETURN 'CIEN';
+        ELSE
+            c := TRUNC(n / 100);
+            r := MOD(n, 100);
+
+            CASE c
+                WHEN 1 THEN v_base := 'CIENTO';
+                WHEN 2 THEN v_base := 'DOSCIENTOS';
+                WHEN 3 THEN v_base := 'TRESCIENTOS';
+                WHEN 4 THEN v_base := 'CUATROCIENTOS';
+                WHEN 5 THEN v_base := 'QUINIENTOS';
+                WHEN 6 THEN v_base := 'SEISCIENTOS';
+                WHEN 7 THEN v_base := 'SETECIENTOS';
+                WHEN 8 THEN v_base := 'OCHOCIENTOS';
+                WHEN 9 THEN v_base := 'NOVECIENTOS';
+            END CASE;
+
+            IF r > 0 THEN
+                RETURN v_base || ' ' || decenas_aux(r);
+            ELSE
+                RETURN v_base;
+            END IF;
+        END IF;
+    END;
+
+    FUNCTION miles(n NUMBER) RETURN VARCHAR2 IS
+        m NUMBER;
+        r NUMBER;
+        v_base VARCHAR2(300);
+    BEGIN
+        IF n < 1000 THEN
+            RETURN centenas(n);
+        END IF;
+
+        m := TRUNC(n / 1000);
+        r := MOD(n, 1000);
+
+        IF m = 1 THEN
+            v_base := 'MIL';
+        ELSE
+            v_base := centenas_aux(m) || ' MIL';
+        END IF;
+
+        IF r > 0 THEN
+            RETURN v_base || ' ' || centenas(r);
+        ELSE
+            RETURN v_base;
+        END IF;
+    END;
+
+BEGIN
+    IF p_numero IS NULL OR p_numero < 0 THEN
+        RETURN 'MONTO INVALIDO';
+    END IF;
+
+    IF p_numero > 99000 THEN
+        RETURN 'MONTO FUERA DE RANGO';
+    END IF;
+
+    v_entero := TRUNC(p_numero);
+    v_centavos := ROUND((p_numero - v_entero) * 100);
+
+    IF v_centavos = 100 THEN
+        v_entero := v_entero + 1;
+        v_centavos := 0;
+    END IF;
+
+    v_texto_entero := miles(v_entero);
+
+    IF v_centavos > 0 THEN
+        RETURN v_texto_entero || ' QUETZALES CON ' ||
+               decenas(v_centavos) || ' CENTAVOS';
+    ELSE
+        RETURN v_texto_entero || ' QUETZALES';
+    END IF;
+END;
+/
+
+/* Paso 3: Actualiza la tabla catedratico en el campo Sueldo_letras */
+UPDATE CATEDRATICO
+SET SUELDO_LETRAS = NUMERO_A_LETRAS(SUELDOMENSUAL);
+
+COMMIT;
+
+/* Paso 4: Disparador que se ejecuta despues del evento actualizar   */
+CREATE OR REPLACE TRIGGER TRG_CATEDRATICO_SUELDO_LETRAS
+BEFORE INSERT OR UPDATE OF SUELDOMENSUAL
+ON CATEDRATICO
+FOR EACH ROW
+BEGIN
+    :NEW.SUELDO_LETRAS := NUMERO_A_LETRAS(:NEW.SUELDOMENSUAL);
+END;
+/
+
+/* Paso 5: Query de Salida data */
+SELECT CATEDRATICO, NOMBRE, SUELDOMENSUAL, SUELDO_LETRAS
+FROM CATEDRATICO;
+
+/*
+* Consulta 8:
+* Estudiantes asignados este semestre sin ningún traslape de horario.
+*
+* Nota:
+* Utilice (2010, CICLO1).
+
+* Paso 1:
+* Para cada estudiante, validar que tenga asignaciones en el semestre a validar.
+
+* Paso 2:
+* Para cada estudiante con asignaciones en el semestre a validar, validar que no
+* exista ningún par de cursos del mismo estudiante que coincida en día y período
+* (traslape).
+
+* Paso 3:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+ */
+
+/*
+* Esta consulta se hace con el fin de mostrar el nombre de los estudiantes 
+* que han sido asignados en el semestre a validar, y que no tienen ningún
+* traslape de horario entre sus cursos asignados en ese semestre.
+*/
+SELECT DISTINCT
+    e.nombre AS estudiante
+FROM estudiante e
+/*
+* Exists me permite validar que el estudiante tenga 
+* asignaciones en el semestre a validar.
+*/
+WHERE EXISTS (
+    /*
+    * El estudiante debe tener al menos una asignación en el semestre a validar.
+    */
+    SELECT 1
+    FROM asignacion a
+    WHERE a.estudiante_carnet = e.carnet
+      AND a.seccion_anio = 2010
+      AND a.seccion_ciclo = 'CICLO1'
+)
+AND NOT EXISTS (
+    /*
+    * No debe existir ningún par de cursos del mismo estudiante
+    * que coincida en día y período (traslape).
+    */
+    SELECT 1
+    FROM asignacion a1
+    JOIN horario h1
+        ON h1.seccion_curso_codigocurso = a1.seccion_curso_codigocurso
+       AND h1.seccion_seccion = a1.seccion_seccion
+       AND h1.seccion_anio = a1.seccion_anio
+       AND h1.seccion_ciclo = a1.seccion_ciclo
+    JOIN asignacion a2
+        ON a2.estudiante_carnet = a1.estudiante_carnet
+    JOIN horario h2
+        ON h2.seccion_curso_codigocurso = a2.seccion_curso_codigocurso
+       AND h2.seccion_seccion = a2.seccion_seccion
+       AND h2.seccion_anio = a2.seccion_anio
+       AND h2.seccion_ciclo = a2.seccion_ciclo
+    -- Valida que las asignaciones sean del mismo estudiante.
+    WHERE a1.estudiante_carnet = e.carnet
+      AND a1.seccion_anio = 2010
+      AND a1.seccion_ciclo = 'CICLO1'
+      AND a2.seccion_anio = 2010
+      AND a2.seccion_ciclo = 'CICLO1'
+      AND (
+          a1.seccion_curso_codigocurso < a2.seccion_curso_codigocurso
+       OR (a1.seccion_curso_codigocurso = a2.seccion_curso_codigocurso AND a1.seccion_seccion < a2.seccion_seccion)
+      )
+      AND h1.dia_dia = h2.dia_dia
+      AND h1.periodo_periodo = h2.periodo_periodo
+);
+
+/*
+* Consulta 9:
+* Dar el nombre de los estudiantes que, en cada dia donde llevan cursos,
+* tienen mas de un curso y no presentan periodos intermedios libres.
+*
+* Nota:
+* Se valida el semestre (2010, CICLO1), igual que en la consulta 8.
+
+* Paso 1:
+* Para cada estudiante, validar que tenga asignaciones en el semestre a validar.
+
+* Paso 2:
+* Para cada estudiante con asignaciones en el semestre a validar, validar que no
+* exista ningún par de cursos del mismo estudiante que coincida en día y período
+* (traslape).
+
+* Paso 3:
+* Mostrar el nombre de los estudiantes que cumplen la condición.
+ */
+
+/*
+* Tabla temporal para almacenar el horario de cada estudiante en el semestre a validar.
+*/
+WITH horario_estudiante AS (
+    /*
+    * Horario base del estudiante en el semestre a validar.
+    * Se usa DISTINCT para evitar duplicados de asignacion.
+    */
+    SELECT DISTINCT
+        a.estudiante_carnet,
+        h.dia_dia,
+        a.seccion_curso_codigocurso,
+        h.periodo_periodo,
+        -- Convierte el horario de inicio y fin a formato de hora para facilitar comparaciones.
+        -- Tuve falla por que los guardo como tipo char y eso me daba error al comparar.
+        TO_DATE(p.horarioinicio, 'HH24:MI') AS hora_inicio,
+        TO_DATE(p.horariofinal, 'HH24:MI') AS hora_fin
+    FROM asignacion a
+    JOIN horario h
+        ON h.seccion_curso_codigocurso = a.seccion_curso_codigocurso
+       AND h.seccion_seccion = a.seccion_seccion
+       AND h.seccion_anio = a.seccion_anio
+       AND h.seccion_ciclo = a.seccion_ciclo
+    JOIN periodo p
+        ON p.periodo = h.periodo_periodo
+    -- Valida que las asignaciones sean del mismo estudiante.
+    WHERE a.seccion_anio = 2010
+      AND a.seccion_ciclo = 'CICLO1'
+),
+/*
+* Tabla temporal para almacenar el resumen por estudiante y dia, 
+* con la cantidad de cursos ese dia.
+*/
+resumen_dia AS (
+    /*
+    * Resumen por estudiante y dia:
+    * - cantidad de cursos distintos ese dia.
+    */
+    SELECT
+        he.estudiante_carnet,
+        he.dia_dia,
+        -- Cuenta la cantidad de cursos distintos ese dia.
+        COUNT(DISTINCT he.seccion_curso_codigocurso) AS cursos_por_dia
+    FROM horario_estudiante he
+    GROUP BY
+        he.estudiante_carnet,
+        he.dia_dia
+),
+/*
+* Tabla temporal para almacenar los bloques ordenados por estudiante y dia,
+* con el inicio del siguiente bloque.
+*/
+bloques_ordenados AS (
+    /*
+    * Para cada estudiante y dia, ordenar bloques y conocer el inicio del siguiente.
+    */
+    SELECT
+        he.estudiante_carnet,
+        he.dia_dia,
+        he.hora_fin,
+        /*
+        * LEAD me permite obtener el valor de la fila siguiente en el orden definido,
+        * lo que me permite comparar el fin del bloque actual con el inicio del siguiente.
+        
+        * Ejemplo 
+        * estudiante_carnet | dia_dia | hora_fin | siguiente_inicio
+        * 1001             | Lunes   | 10:00    | 10:30
+        * 1001             | Lunes   | 12:00    | NULL
+        * 1002             | Martes  | 09:00    | 09:30
+        * 1002             | Martes  | 10:00    | NULL
+        */
+        LEAD(he.hora_inicio) OVER (
+            PARTITION BY he.estudiante_carnet, he.dia_dia
+            ORDER BY he.hora_inicio, he.periodo_periodo
+        ) AS siguiente_inicio
+    FROM horario_estudiante he
+)
+/*
+* Esta consulta se hace con el fin de mostrar el nombre de los estudiantes 
+* que han sido asignados en el semestre a validar, y que no tienen ningún
+* traslape de horario entre sus cursos asignados en ese semestre.
+*/
+SELECT
+    e.nombre AS estudiante
+FROM estudiante e
+WHERE EXISTS (
+    -- Debe tener al menos un dia con cursos en el semestre evaluado.
+    SELECT 1
+    FROM resumen_dia rd
+    WHERE rd.estudiante_carnet = e.carnet
+)
+AND NOT EXISTS (
+    /*
+    * No debe existir ningun dia que incumpla:
+    * - mas de un curso por dia
+        * - sin periodo intermedio libre entre dos bloques consecutivos
+    */
+    SELECT 1
+    FROM resumen_dia rd
+    -- Valida que el estudiante sea el mismo.
+    WHERE rd.estudiante_carnet = e.carnet
+    -- Y que el dia tenga mas de un curso.
+      AND (
+          rd.cursos_por_dia <= 1
+    -- O si tiene mas de un curso, debe validar que no exista un periodo intermedio libre entre bloques consecutivos.
+        OR EXISTS (
+                SELECT 1
+                FROM bloques_ordenados bo
+                WHERE bo.estudiante_carnet = rd.estudiante_carnet
+                    AND bo.dia_dia = rd.dia_dia
+                    AND bo.siguiente_inicio IS NOT NULL
+                    AND EXISTS (
+                            /*
+                            * Si hay un periodo completo entre hora_fin y siguiente_inicio,
+                            * entonces existe un periodo intermedio libre.
+                            */
+                            SELECT 1
+                            FROM periodo pm
+                            WHERE TO_DATE(pm.horarioinicio, 'HH24:MI') >= bo.hora_fin
+                                AND TO_DATE(pm.horariofinal, 'HH24:MI') <= bo.siguiente_inicio
+                    )
+        )
+    )
+)
+ORDER BY e.nombre;
+
+/*
+* Consulta 10:
+* Para un estudiante (1001), devolver cursos que puede asignarse
+* según prerrequisitos aprobados y evitando cursos ya aprobados.
+*/
+
+SELECT DISTINCT
+    c.codigocurso,
+    c.nombrecurso
+FROM inscripcion i
+JOIN plan pl ON
+    pl.carrera_carrera = i.carrera_carrera
+JOIN pensum pe ON
+    pe.plan_plan = pl.plan
+    AND pe.plan_carrera_carrera = pl.carrera_carrera
+JOIN curso c ON
+    c.codigocurso = pe.curso_codigocurso
+WHERE i.estudiante_carnet = 1002
+
+/*
+* El estudiante no debe haber aprobado ya el curso candidato.
+*/
+AND NOT EXISTS (
+    SELECT 1
+    FROM asignacion a
+    JOIN pensum pe_aprobado ON
+        pe_aprobado.curso_codigocurso = a.seccion_curso_codigocurso
+        AND pe_aprobado.plan_plan = pe.plan_plan
+        AND pe_aprobado.plan_carrera_carrera = pe.plan_carrera_carrera
+    WHERE a.estudiante_carnet = i.estudiante_carnet
+    AND a.seccion_curso_codigocurso = pe.curso_codigocurso
+    AND a.nota >= pe_aprobado.notaaprobacion
+    AND a.zona >= pe_aprobado.zonaminima
+)
+
+/*
+* No debe existir ningún prerrequisito del curso candidato
+* que el estudiante no haya aprobado.
+*/
+AND NOT EXISTS (
+    SELECT 1
+    FROM prerreq pr
+    WHERE pr.PENSUM_PLAN = pe.plan_plan
+    AND pr.PENSUM_CARRERA = pe.plan_carrera_carrera
+    AND pr.pensum_curso_codigocurso = pe.curso_codigocurso
+
+    AND NOT EXISTS (
+        SELECT 1
+        FROM asignacion a2
+        JOIN pensum pe_pre ON
+            pe_pre.curso_codigocurso = a2.seccion_curso_codigocurso
+            AND pe_pre.plan_plan = pe.plan_plan
+            AND pe_pre.plan_carrera_carrera = pe.plan_carrera_carrera
+        WHERE a2.estudiante_carnet = i.estudiante_carnet
+            AND a2.seccion_curso_codigocurso = pr.CURSOPRERREQUISITO
+            AND a2.nota >= pe_pre.notaaprobacion
+            AND a2.zona >= pe_pre.zonaminima
+    )
+);
